@@ -54,13 +54,13 @@ export default function Home() {
         </div>
         <div className="hidden md:block w-px h-4 bg-white/10"></div>
         <div className="hidden md:flex gap-5 text-xs font-medium text-gray-400">
-          <a href="#" className="hover:text-white transition-colors">Directory</a>
-          <a href="#" className="hover:text-white transition-colors">Enterprise</a>
-          <a href="#" className="hover:text-white transition-colors">Pricing</a>
+          <a href="https://x.com/intent/tweet?text=Just%20found%20the%20ultimate%20curated%20directory%20for%20B2B%20AI%20tools!%20%F0%9F%9A%80%20Check%20it%20out:&url=https://yourwebsite.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Share on X</a>
+          <a href="mailto:pravda3pobedit@gmail.com?subject=Sponsorship%20Inquiry%20-%20Nexus%20AI" className="hover:text-white transition-colors">Advertise</a>
+          <a href="mailto:pravda3pobedit@gmail.com?subject=Contact%20-%20Nexus%20AI" className="hover:text-white transition-colors">Contact</a>
         </div>
-        <button className="hidden md:flex items-center gap-2 bg-white text-black px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-200 transition-colors">
-          Get Started
-        </button>
+        <a href="https://forms.gle/nLY5faWU2oRZnNMv6" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 bg-white text-black px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-200 transition-colors">
+          Add Your AI
+        </a>
       </motion.nav>
 
       {/* Main Content Area */}
@@ -84,7 +84,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40"
           >
-            The Intelligent OS <br className="hidden md:block" /> for Content Creation.
+            Next-Gen AI Tools for Creators & Enterprises.
           </motion.h1>
 
           <motion.p
@@ -93,7 +93,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-sm text-gray-400 max-w-xl leading-snug font-light"
           >
-            Discover the world's most powerful AI tools. Scale production and cut costs by 90% with our curated premium ecosystem.
+            Stop searching, start scaling. Access a hand-picked directory of advanced AI solutions built to supercharge your productivity.
           </motion.p>
         </div>
 
@@ -176,8 +176,12 @@ export default function Home() {
                         <Icon className="w-4 h-4 text-gray-300 group-hover:text-indigo-400 transition-colors" />
                       </div>
                       <div className="flex flex-col items-end">
-                        <span className="text-base font-medium text-white">{platform.metric}</span>
-                        <span className="text-[9px] uppercase tracking-wider text-gray-500">{platform.metricLabel}</span>
+                        <span className="text-base font-medium text-white">
+                          {isBusiness && 'metricBusiness' in platform ? (platform as any).metricBusiness : platform.metric}
+                        </span>
+                        <span className="text-[9px] uppercase tracking-wider text-gray-500">
+                          {isBusiness && 'metricLabelBusiness' in platform ? (platform as any).metricLabelBusiness : platform.metricLabel}
+                        </span>
                       </div>
                     </div>
 

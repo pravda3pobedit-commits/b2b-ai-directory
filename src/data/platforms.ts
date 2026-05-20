@@ -16,7 +16,7 @@ export const platforms = [
     metric: "10x Faster",
     metricLabel: "Content Output",
     descFreelancer: "Turn long videos into viral shorts in 1 click. Deliver 10x more content to clients without working extra hours.",
-    descBusiness: "Repurpose webinars and podcasts into 30 days of social media content. Cut your video editing agency costs by 90%."
+    descBusiness: "Scale corporate marketing and internal communications. Repurpose long-form webinars and company events into bite-sized social media assets instantly."
   },
   {
     id: "invideo-ai",
@@ -26,6 +26,8 @@ export const platforms = [
     affiliateLink: "",
     metric: "5M+",
     metricLabel: "Active Creators",
+    metricBusiness: "5000+",
+    metricLabelBusiness: "Global Brands",
     descFreelancer: "Generate publish-ready videos from simple text prompts. Scale your content creation services and take on more clients.",
     descBusiness: "Produce high-converting video ads in minutes, not weeks. Eliminate the need for expensive production studios and actors."
   },

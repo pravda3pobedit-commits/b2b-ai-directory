@@ -1,65 +1,207 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { platforms } from "@/data/platforms";
+import { cn } from "@/lib/utils";
+import { ArrowRight, Sparkles, ChevronRight } from "lucide-react";
 
 export default function Home() {
+  const [isBusiness, setIsBusiness] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const carouselItems = [...platforms, ...platforms];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main 
+      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center text-white selection:bg-indigo-500/30 font-sans"
+      style={{
+        backgroundColor: '#0a0a0c',
+        backgroundImage: `
+          radial-gradient(circle at 50% 50%, rgba(40, 40, 45, 0.15) 0%, rgba(10, 10, 12, 0) 70%),
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
+        `,
+        backgroundBlendMode: 'overlay',
+        opacity: 0.98
+      }}
+    >
+
+      {/* Cinematic Ambient Lighting */}
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-center items-center overflow-hidden">
+        <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] rounded-full bg-indigo-900/20 blur-[120px] mix-blend-screen opacity-60"></div>
+        <div className="absolute bottom-[10%] right-[20%] w-[500px] h-[500px] rounded-full bg-blue-900/10 blur-[120px] mix-blend-screen opacity-50"></div>
+      </div>
+
+      {/* Keyframes for the marquee */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+      `}} />
+
+      {/* Floating Sticky Navigation */}
+      <motion.nav
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6 px-5 py-2.5 bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08] rounded-full shadow-2xl shadow-black/50"
+      >
+        <div className="flex items-center gap-2 text-white font-semibold tracking-tight">
+          <Sparkles className="w-4 h-4 text-indigo-400" />
+          <span>Nexus AI</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hidden md:block w-px h-4 bg-white/10"></div>
+        <div className="hidden md:flex gap-5 text-xs font-medium text-gray-400">
+          <a href="#" className="hover:text-white transition-all duration-300 cursor-pointer">Directory</a>
+          <a href="#" className="hover:text-white transition-all duration-300 cursor-pointer">Enterprise</a>
+          <a href="#" className="hover:text-white transition-all duration-300 cursor-pointer">Pricing</a>
         </div>
-      </main>
-    </div>
+        <button className="hidden md:flex items-center gap-2 bg-white text-black px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] active:scale-95 transition-all duration-300 cursor-pointer">
+          Get Started
+        </button>
+      </motion.nav>
+
+      {/* Main Content Area */}
+      <div className="flex flex-col items-center w-full z-10 pt-16 mt-4">
+
+        {/* Hero Section */}
+        <div className="flex flex-col items-center text-center max-w-4xl space-y-4 mb-6 px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[10px] font-medium tracking-wide uppercase"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+            Directory 2.0
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40"
+          >
+            The Intelligent OS <br className="hidden md:block" /> for Content Creation.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-sm text-gray-400 max-w-xl leading-snug font-light"
+          >
+            Discover the world's most powerful AI tools. Scale production and cut costs by 90% with our curated premium ecosystem.
+          </motion.p>
+        </div>
+
+        {/* Premium Audience Segment Toggle */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col items-center mb-4 w-full"
+        >
+          <div className="relative flex p-1.5 bg-slate-950 shadow-[inset_0_2px_6px_rgba(0,0,0,0.8)] border border-slate-800/80 rounded-full">
+            <button
+              onClick={() => setIsBusiness(false)}
+              className={cn(
+                "relative z-10 px-6 py-2 text-xs transition-colors duration-300 font-medium",
+                !isBusiness ? "text-white" : "text-slate-400 hover:text-slate-200 bg-transparent shadow-none border-transparent"
+              )}
+            >
+              For Creators
+              {!isBusiness && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 bg-gradient-to-b from-slate-700 to-slate-800 border-t border-slate-600 border-x-slate-700 border-b-slate-900 rounded-full -z-10 shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+            </button>
+            <button
+              onClick={() => setIsBusiness(true)}
+              className={cn(
+                "relative z-10 px-6 py-2 text-xs transition-colors duration-300 font-medium",
+                isBusiness ? "text-white" : "text-slate-400 hover:text-slate-200 bg-transparent shadow-none border-transparent"
+              )}
+            >
+              For Enterprises
+              {isBusiness && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 bg-gradient-to-b from-slate-700 to-slate-800 border-t border-slate-600 border-x-slate-700 border-b-slate-900 rounded-full -z-10 shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                />
+              )}
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Cinematic Marquee Carousel */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="w-full overflow-hidden flex relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Left and Right fade gradients */}
+          <div className="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
+
+          <div
+            className="flex w-max animate-marquee gap-5 px-4 items-center pb-4"
+            style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+          >
+            {carouselItems.map((platform, index) => {
+              const Icon = platform.icon;
+              return (
+                <div
+                  key={`${platform.id}-${index}`}
+                  className="w-[280px] shrink-0 group relative flex flex-col justify-between p-4 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)] hover:-translate-y-1"
+                >
+                  {/* Subtle internal gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="p-2 bg-white/[0.03] border border-white/[0.08] rounded-xl group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 group-hover:text-indigo-300 transition-all duration-300">
+                        <Icon className="w-4 h-4 text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <span className="text-base font-medium text-white">{platform.metric}</span>
+                        <span className="text-[9px] uppercase tracking-wider text-gray-500">{platform.metricLabel}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg font-semibold tracking-tight text-white mb-1.5">{platform.name}</h3>
+
+                    <p className="text-gray-400 text-xs leading-snug mb-3 min-h-[40px]">
+                      {!isBusiness ? platform.descFreelancer : platform.descBusiness}
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/[0.05]">
+                    <button className="w-full relative overflow-hidden rounded-full bg-slate-800/50 hover:bg-slate-800 px-5 py-2 text-sm text-slate-200 hover:text-white group border border-slate-700 transition-colors flex justify-center items-center gap-2">
+                      <span className="relative z-20">Explore Platform</span>
+                      <span className="relative z-20 group-hover:translate-x-1 transition-transform">→</span>
+                      <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out z-10" />
+                    </button>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </motion.div>
+
+      </div>
+    </main>
   );
 }

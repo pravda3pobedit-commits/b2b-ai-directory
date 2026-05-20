@@ -10,21 +10,8 @@ export default function Home() {
   const [isBusiness, setIsBusiness] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  const carouselItems = [...platforms, ...platforms];
-
   return (
-    <main 
-      className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center text-white selection:bg-indigo-500/30 font-sans"
-      style={{
-        backgroundColor: '#0a0a0c',
-        backgroundImage: `
-          radial-gradient(circle at 50% 50%, rgba(40, 40, 45, 0.15) 0%, rgba(10, 10, 12, 0) 70%),
-          url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
-        `,
-        backgroundBlendMode: 'overlay',
-        opacity: 0.98
-      }}
-    >
+    <div className="h-screen max-h-screen w-full bg-graphite-animated text-white selection:bg-indigo-500/30 overflow-hidden font-sans flex flex-col justify-center items-center relative z-0">
 
       {/* Cinematic Ambient Lighting */}
       <div className="absolute inset-0 z-0 pointer-events-none flex justify-center items-center overflow-hidden">
@@ -37,10 +24,20 @@ export default function Home() {
         __html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(calc(-100% - 1.25rem)); }
         }
         .animate-marquee {
           animation: marquee 40s linear infinite;
+        }
+        @keyframes graphite {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .bg-graphite-animated {
+          background: linear-gradient(-45deg, #050505, #0a0a0f, #1e3a8a, #050505, #111827);
+          background-size: 400% 400%;
+          animation: graphite 15s ease infinite;
         }
       `}} />
 
@@ -57,11 +54,11 @@ export default function Home() {
         </div>
         <div className="hidden md:block w-px h-4 bg-white/10"></div>
         <div className="hidden md:flex gap-5 text-xs font-medium text-gray-400">
-          <a href="#" className="hover:text-white transition-all duration-300 cursor-pointer">Directory</a>
-          <a href="#" className="hover:text-white transition-all duration-300 cursor-pointer">Enterprise</a>
-          <a href="#" className="hover:text-white transition-all duration-300 cursor-pointer">Pricing</a>
+          <a href="#" className="hover:text-white transition-colors">Directory</a>
+          <a href="#" className="hover:text-white transition-colors">Enterprise</a>
+          <a href="#" className="hover:text-white transition-colors">Pricing</a>
         </div>
-        <button className="hidden md:flex items-center gap-2 bg-white text-black px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-200 hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] active:scale-95 transition-all duration-300 cursor-pointer">
+        <button className="hidden md:flex items-center gap-2 bg-white text-black px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-200 transition-colors">
           Get Started
         </button>
       </motion.nav>
@@ -156,15 +153,18 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none"></div>
           <div className="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none"></div>
 
-          <div
-            className="flex w-max animate-marquee gap-5 px-4 items-center pb-4"
-            style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
-          >
-            {carouselItems.map((platform, index) => {
-              const Icon = platform.icon;
-              return (
-                <div
-                  key={`${platform.id}-${index}`}
+          <div className="flex w-max gap-5 px-4 items-center pb-4">
+            {[0, 1].map((wrapperIndex) => (
+              <div 
+                key={wrapperIndex} 
+                className="flex animate-marquee shrink-0 gap-5 items-center"
+                style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+              >
+                {platforms.map((platform, index) => {
+                  const Icon = platform.icon;
+                  return (
+                    <div
+                      key={`${platform.id}-${index}-${wrapperIndex}`}
                   className="w-[280px] shrink-0 group relative flex flex-col justify-between p-4 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)] hover:-translate-y-1"
                 >
                   {/* Subtle internal gradient on hover */}
@@ -183,7 +183,7 @@ export default function Home() {
 
                     <h3 className="text-lg font-semibold tracking-tight text-white mb-1.5">{platform.name}</h3>
 
-                    <p className="text-gray-400 text-xs leading-snug mb-3 min-h-[40px]">
+                    <p className="text-gray-400 group-hover:text-white transition-colors duration-300 text-xs leading-snug mb-3 min-h-[40px]">
                       {!isBusiness ? platform.descFreelancer : platform.descBusiness}
                     </p>
                   </div>
@@ -192,16 +192,18 @@ export default function Home() {
                     <button className="w-full relative overflow-hidden rounded-full bg-slate-800/50 hover:bg-slate-800 px-5 py-2 text-sm text-slate-200 hover:text-white group border border-slate-700 transition-colors flex justify-center items-center gap-2">
                       <span className="relative z-20">Explore Platform</span>
                       <span className="relative z-20 group-hover:translate-x-1 transition-transform">→</span>
-                      <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out z-10" />
+                      <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-[1300ms] delay-1000 ease-in-out z-10" />
                     </button>
                   </div>
                 </div>
               )
             })}
+              </div>
+            ))}
           </div>
         </motion.div>
 
       </div>
-    </main>
+    </div>
   );
 }

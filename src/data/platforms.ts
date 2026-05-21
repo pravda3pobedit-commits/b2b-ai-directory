@@ -8,15 +8,15 @@ import {
 
 export const platforms = [
   {
-    id: "opus-clip",
-    name: "Opus Clip",
+    id: "vidyo-ai",
+    name: "Vidyo.ai",
     category: "Video Repurposing",
     icon: Video,
-    affiliateLink: "https://www.opus.pro",
+    affiliateLink: "https://vidyo.ai",
     metric: "10x Faster",
     metricLabel: "Content Output",
-    descFreelancer: "Turn long videos into viral shorts in 1 click. Deliver 10x more content to clients without working extra hours.",
-    descBusiness: "Scale corporate marketing and internal communications. Repurpose long-form webinars and company events into bite-sized social media assets instantly."
+    descFreelancer: "Repurpose long podcasts and videos into viral short clips for TikTok, Reels, and Shorts instantly using AI. Features a generous Freemium plan to drive conversions.",
+    descBusiness: "Repurpose long podcasts and videos into viral short clips for TikTok, Reels, and Shorts instantly using AI. Features a generous Freemium plan to drive conversions."
   },
   {
     id: "invideo-ai",

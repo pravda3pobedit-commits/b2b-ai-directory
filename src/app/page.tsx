@@ -155,8 +155,8 @@ export default function Home() {
 
           <div className="flex w-max gap-5 px-4 items-center pb-4">
             {[0, 1].map((wrapperIndex) => (
-              <div 
-                key={wrapperIndex} 
+              <div
+                key={wrapperIndex}
                 className="flex animate-marquee shrink-0 gap-5 items-center"
                 style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
               >
@@ -165,43 +165,43 @@ export default function Home() {
                   return (
                     <div
                       key={`${platform.id}-${index}-${wrapperIndex}`}
-                  className="w-[280px] shrink-0 group relative flex flex-col justify-between p-4 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)] hover:-translate-y-1"
-                >
-                  {/* Subtle internal gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                      className="w-[280px] shrink-0 group relative flex flex-col justify-between p-4 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)] hover:-translate-y-1"
+                    >
+                      {/* Subtle internal gradient on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-                  <div className="relative z-10">
-                    <div className="flex justify-between items-start mb-3">
-                      <div className="p-2 bg-white/[0.03] border border-white/[0.08] rounded-xl group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 group-hover:text-indigo-300 transition-all duration-300">
-                        <Icon className="w-4 h-4 text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                      <div className="relative z-10">
+                        <div className="flex justify-between items-start mb-3">
+                          <div className="p-2 bg-white/[0.03] border border-white/[0.08] rounded-xl group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 group-hover:text-indigo-300 transition-all duration-300">
+                            <Icon className="w-4 h-4 text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                          </div>
+                          <div className="flex flex-col items-end">
+                            <span className="text-base font-medium text-white">
+                              {isBusiness && 'metricBusiness' in platform ? (platform as any).metricBusiness : platform.metric}
+                            </span>
+                            <span className="text-[9px] uppercase tracking-wider text-gray-500">
+                              {isBusiness && 'metricLabelBusiness' in platform ? (platform as any).metricLabelBusiness : platform.metricLabel}
+                            </span>
+                          </div>
+                        </div>
+
+                        <h3 className="text-lg font-semibold tracking-tight text-white mb-1.5">{platform.name}</h3>
+
+                        <p className="text-gray-400 group-hover:text-white transition-colors duration-300 text-xs leading-snug mb-3 min-h-[40px]">
+                          {!isBusiness ? platform.descFreelancer : platform.descBusiness}
+                        </p>
                       </div>
-                      <div className="flex flex-col items-end">
-                        <span className="text-base font-medium text-white">
-                          {isBusiness && 'metricBusiness' in platform ? (platform as any).metricBusiness : platform.metric}
-                        </span>
-                        <span className="text-[9px] uppercase tracking-wider text-gray-500">
-                          {isBusiness && 'metricLabelBusiness' in platform ? (platform as any).metricLabelBusiness : platform.metricLabel}
-                        </span>
+
+                      <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/[0.05]">
+                        <a href={platform.affiliateLink} target="_blank" rel="noopener noreferrer" className="w-full relative overflow-hidden rounded-full bg-slate-800/50 hover:bg-slate-800 px-5 py-2 text-sm text-slate-200 hover:text-white group border border-slate-700 transition-colors flex justify-center items-center gap-2">
+                          <span className="relative z-20">Explore Platform</span>
+                          <span className="relative z-20 group-hover:translate-x-1 transition-transform">→</span>
+                          <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-[1300ms] delay-1000 ease-in-out z-10" />
+                        </a>
                       </div>
                     </div>
-
-                    <h3 className="text-lg font-semibold tracking-tight text-white mb-1.5">{platform.name}</h3>
-
-                    <p className="text-gray-400 group-hover:text-white transition-colors duration-300 text-xs leading-snug mb-3 min-h-[40px]">
-                      {!isBusiness ? platform.descFreelancer : platform.descBusiness}
-                    </p>
-                  </div>
-
-                  <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/[0.05]">
-                    <button className="w-full relative overflow-hidden rounded-full bg-slate-800/50 hover:bg-slate-800 px-5 py-2 text-sm text-slate-200 hover:text-white group border border-slate-700 transition-colors flex justify-center items-center gap-2">
-                      <span className="relative z-20">Explore Platform</span>
-                      <span className="relative z-20 group-hover:translate-x-1 transition-transform">→</span>
-                      <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-[1300ms] delay-1000 ease-in-out z-10" />
-                    </button>
-                  </div>
-                </div>
-              )
-            })}
+                  )
+                })}
               </div>
             ))}
           </div>

@@ -16,7 +16,7 @@ export const platforms = [
     metric: "10x Faster",
     metricLabel: "Content Output",
     descFreelancer: "Repurpose long podcasts and videos into viral short clips for TikTok, Reels, and Shorts instantly using AI. Features a generous Freemium plan to drive conversions.",
-    descBusiness: "Repurpose long podcasts and videos into viral short clips for TikTok, Reels, and Shorts instantly using AI. Features a generous Freemium plan to drive conversions."
+    descBusiness: "Scale your agency's content pipeline. Automatically convert webinars, town halls, and long-form corporate videos into branded, social-ready clips in bulk."
   },
   {
     id: "invideo-ai",

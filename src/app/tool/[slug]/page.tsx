@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { platforms } from "@/data/platforms";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, CheckCircle } from "lucide-react";
 import { notFound } from "next/navigation";
 
 export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -16,8 +16,6 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
-  const Icon = tool.icon;
-
   return (
     <div className="min-h-screen w-full bg-[#050505] text-white flex flex-col items-center pt-24 px-6 font-sans">
       <div className="max-w-3xl w-full">
@@ -27,17 +25,32 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           Back to Directory
         </Link>
 
+        {/* Hero Image */}
+        <img 
+          src={tool.imagePath} 
+          alt={tool.name} 
+          className="w-full aspect-video object-cover rounded-3xl border border-white/10 shadow-2xl mb-8" 
+        />
+
         {/* Header Section */}
-        <div className="flex items-start gap-6 mb-8 border-b border-white/10 pb-8">
-          <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex-shrink-0">
-            {Icon && <Icon className="w-12 h-12 text-indigo-400" />}
+        <div className="mb-8 border-b border-white/10 pb-8">
+          <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium mb-3">
+            {tool.category}
           </div>
-          <div>
-            <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium mb-3">
-              {tool.category}
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">{tool.name}</h1>
-            <p className="text-lg text-gray-400 leading-relaxed">{tool.descBusiness || tool.descFreelancer}</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">{tool.name}</h1>
+          <p className="text-lg text-gray-400 leading-relaxed">{tool.longDescription}</p>
+        </div>
+
+        {/* Key Features Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-6">Key Features</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {tool.features?.map((feature, idx) => (
+              <div key={idx} className="flex items-start gap-3 bg-white/5 border border-white/10 p-4 rounded-xl">
+                <CheckCircle className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-300 text-sm leading-snug">{feature}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -53,7 +66,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             rel="noopener noreferrer"
             className="whitespace-nowrap px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-colors flex items-center gap-2"
           >
-            Start Free Trial <ExternalLink className="w-4 h-4" />
+            {tool.ctaText || "Try for Free"} <ExternalLink className="w-4 h-4" />
           </a>
         </div>
       </div>

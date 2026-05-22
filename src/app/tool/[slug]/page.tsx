@@ -3,9 +3,14 @@ import { platforms } from "@/data/platforms";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 
-export default function ToolPage({ params }: { params: { slug: string } }) {
-  // Find the tool by its existing ID (e.g., 'heygen')
-  const tool = platforms.find((p) => p.id?.toString().toLowerCase() === params.slug?.toString().toLowerCase());
+export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
+  // Await params to fix Next.js 15 sync-dynamic-apis error
+  const { slug } = await params;
+
+  // Bulletproof case-insensitive lookup using the existing 'id' field
+  const tool = platforms.find(
+    (p) => p.id?.toString().toLowerCase() === slug?.toString().toLowerCase()
+  );
 
   if (!tool) {
     notFound();

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { platforms } from "@/data/platforms";
 import { cn } from "@/lib/utils";
@@ -49,11 +50,11 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 flex items-center justify-between pt-2 border-t border-white/[0.05] mt-auto">
-          <a href={platform.affiliateLink} target="_blank" rel="noopener noreferrer" className="w-full relative overflow-hidden rounded-full bg-slate-800/50 hover:bg-slate-800 px-4 py-1.5 text-xs font-medium text-slate-200 hover:text-white group border border-slate-700 transition-colors flex justify-center items-center gap-2">
-            <span className="relative z-20">Start Free Trial</span>
+          <Link href={`/tool/${platform.id}`} className="w-full relative overflow-hidden rounded-full bg-slate-800/50 hover:bg-slate-800 px-4 py-1.5 text-xs font-medium text-slate-200 hover:text-white group border border-slate-700 transition-colors flex justify-center items-center gap-2">
+            <span className="relative z-20">View Details</span>
             <span className="relative z-20 group-hover:translate-x-1 transition-transform">→</span>
             <div className="absolute inset-0 -translate-x-[150%] bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-[200%] transition-transform duration-[1300ms] delay-1000 ease-in-out z-10" />
-          </a>
+          </Link>
         </div>
       </div>
     );

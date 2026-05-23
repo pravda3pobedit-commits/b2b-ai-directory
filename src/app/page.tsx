@@ -16,6 +16,10 @@ export default function Home() {
   const filteredPlatforms = platforms.filter(platform => {
     if (activeCategory === "All") return true;
     return platform.category === activeCategory;
+  }).sort((a: any, b: any) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return 0;
   });
 
   const renderCard = (platform: any, index: number, wrapperIndex: string | number) => {
@@ -23,7 +27,7 @@ export default function Home() {
     return (
       <div
         key={`${platform.id}-${index}-${wrapperIndex}`}
-        className="w-[280px] h-[240px] shrink-0 group relative flex flex-col p-4 rounded-3xl bg-white/[0.02] border border-white/[0.05] overflow-hidden backdrop-blur-sm transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)] hover:-translate-y-1"
+        className={`w-[280px] h-[240px] shrink-0 group relative flex flex-col p-4 rounded-3xl overflow-hidden backdrop-blur-sm hover:-translate-y-1 ${platform.featured ? 'bg-white/[0.02] border-2 border-indigo-500/70 shadow-[0_0_30px_-5px_rgba(79,70,229,0.5)] transition-all duration-300 hover:scale-[1.01]' : 'bg-zinc-900/50 border border-white/5 transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)]'}`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
@@ -42,7 +46,14 @@ export default function Home() {
             </div>
           </div>
 
-          <h3 className="text-base font-semibold tracking-tight text-white mb-1">{platform.name}</h3>
+          <div className="flex items-center gap-3 mb-2">
+            <h3 className="text-base font-semibold tracking-tight text-white">{platform.name}</h3>
+            {platform.featured && (
+              <div className="ml-2 px-2 py-[2px] rounded-full bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
+                TOP PICK
+              </div>
+            )}
+          </div>
 
           <p className="text-gray-400 group-hover:text-white transition-colors duration-300 text-[11px] leading-tight mb-2 line-clamp-2">
             {platform.descBusiness || platform.descFreelancer}

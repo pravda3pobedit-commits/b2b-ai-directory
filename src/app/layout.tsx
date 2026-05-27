@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nexus AI | Next-Gen AI Tools Directory",
   description: "Discover a hand-picked directory of advanced, production-grade AI tools built to automate workflows and power B2B enterprise operations.",
+  other: { 'impact-site-verification': 'b96e3adc-b8c2-43b0-8ed1-8c4c844a3c7a' },
 };
 
 export default function RootLayout({

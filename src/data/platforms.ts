@@ -40,24 +40,25 @@ export const platforms = [
     id: "invideo-ai",
     name: "InVideo AI",
     featured: true,
+    categories: ["Marketing", "Sales", "HR"],
     category: "Marketing",
     icon: Wand2,
-    affiliateLink: "https://invideo.io/",
+    affiliateLink: "https://invideo.sjv.io/E0Ja09",
     metric: "5M+",
     metricLabel: "Active Creators",
     metricBusiness: "5000+",
     metricLabelBusiness: "Global Brands",
-    descFreelancer: "Generate publish-ready video assets from simple text prompts. Scale your marketing services and streamline campaign creation.",
-    descBusiness: "Produce high-converting video ads in minutes, not weeks. Eliminate the need for expensive production studios and actors.",
+    descFreelancer: "Turn text prompts into professional, studio-quality videos in minutes.",
+    descBusiness: "Turn text prompts into professional, studio-quality videos in minutes.",
     imagePath: "/invideo.png",
     longDescription: "InVideo AI empowers enterprise marketing teams to produce broadcast-quality video ads in minutes using simple text prompts. It eliminates the need for expensive production studios, enabling rapid iteration of creative assets for global campaigns. With seamless stock media integration and automated voiceovers, scaling video content has never been more efficient.",
     features: [
-      "Text-to-video generation",
-      "Millions of premium stock assets",
-      "Automated scripting and voiceovers",
-      "Team collaboration tools"
+      "AI Twin Technology: Create a photorealistic digital avatar to generate faceless videos without ever stepping in front of a camera.",
+      "UGC Ad Generator (AI Actor): Produce high-converting, user-generated content ads for your products without hiring real actors or renting expensive studios.",
+      "Complete Prompt-to-Video: Instantly generate engaging scripts, human-like voiceovers in 50+ languages, and relevant stock footage from a single simple text prompt."
     ],
-    ctaText: "Try for Free"
+    ctaText: "Try InVideo AI for Free",
+    bestFor: "B2B marketers, HR managers, and Sales teams looking to scale personalized video production while cutting costs."
   },
   {
     id: "elevenlabs",
@@ -81,9 +82,33 @@ export const platforms = [
     ctaText: "Try for Free"
   },
   {
+    id: "make",
+    name: "Make",
+    featured: true,
+    categories: ["Operations", "IT & Dev", "Sales"],
+    category: "Operations",
+    icon: Settings,
+    affiliateLink: "https://www.make.com/en/register?pc=b2baistack",
+    metric: "$9/mo",
+    metricLabel: "Starting Price",
+    metricBusiness: "10x",
+    metricLabelBusiness: "Cost Savings",
+    descFreelancer: "The powerful, visual, and cost-effective alternative to Zapier.",
+    descBusiness: "The powerful, visual, and cost-effective alternative to Zapier.",
+    imagePath: "/make.png",
+    longDescription: "Make (formerly Integromat) is the most powerful visual automation platform for businesses that want enterprise-grade workflow logic without enterprise pricing. Its drag-and-drop scenario builder lets teams design complex, multi-step automations with conditional logic, data transformation, and error handling — all without writing a single line of code. At a fraction of the cost of Zapier, Make is the go-to choice for scaling operations efficiently.",
+    features: [
+      "Visual Workflow Builder: Design complex automations and logic visually with an intuitive drag-and-drop interface, no coding required.",
+      "Unbeatable Pricing: Automate your business processes at a fraction of the cost of legacy tools like Zapier (get thousands of tasks for just $9/month).",
+      "Limitless Integrations: Connect to thousands of apps out-of-the-box or use advanced HTTP/webhook modules to integrate any API on the web."
+    ],
+    ctaText: "Start Automating for Free",
+    bestFor: "B2B founders, operations managers, and developers looking to scale automations while radically cutting software costs."
+  },
+  {
     id: "heygen",
     name: "HeyGen",
-    featured: true,
+    featured: false,
     category: "Sales",
     icon: Users,
     affiliateLink: "https://www.heygen.com/",

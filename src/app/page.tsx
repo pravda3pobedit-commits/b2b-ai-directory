@@ -15,6 +15,9 @@ export default function Home() {
 
   const filteredPlatforms = platforms.filter(platform => {
     if (activeCategory === "All") return true;
+    if (Array.isArray((platform as any).categories)) {
+      return (platform as any).categories.includes(activeCategory);
+    }
     return platform.category === activeCategory;
   }).sort((a: any, b: any) => {
     if (a.featured && !b.featured) return -1;

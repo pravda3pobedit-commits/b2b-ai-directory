@@ -106,6 +106,53 @@ export const platforms = [
     bestFor: "B2B founders, operations managers, and developers looking to scale automations while radically cutting software costs."
   },
   {
+    id: "chatbase",
+    name: "Chatbase",
+    featured: true,
+    category: "Customer Support",
+    icon: MessageSquare,
+    affiliateLink: "https://link.chatbase.co/igor-pinyugin",
+    metric: "80%",
+    metricLabel: "Query Automation",
+    metricBusiness: "2 min",
+    metricLabelBusiness: "Setup Time",
+    descFreelancer: "Build a custom AI chatbot from your data in seconds and slash support costs.",
+    descBusiness: "Build a custom AI chatbot from your data in seconds and slash support costs.",
+    imagePath: "/chatbase.png",
+    longDescription: "Chatbase is the fastest way to deploy a custom AI assistant trained entirely on your own content. Upload a PDF, paste a URL, or drop in plain text — and within minutes you have a fully functional support bot that handles queries 24/7. It automates up to 80% of repetitive customer questions at a fraction of the cost of legacy platforms like Intercom, and deploys on your site with a single line of code.",
+    features: [
+      "Train on Your Data: Simply upload a PDF, add a website link, or paste text to generate a fully functional AI assistant in under 2 minutes.",
+      "The Cost-Effective Intercom Alternative: Automate up to 80% of customer queries 24/7 without the massive price tag of legacy support platforms.",
+      "Seamless Integration: Embed the chat widget on your website with a single line of code, or connect it directly to Slack, Zapier, and WhatsApp."
+    ],
+    ctaText: "Build Your Free AI Bot",
+    bestFor: "B2B SaaS founders, agencies, and customer success teams looking to instantly scale support without expanding headcount."
+  },
+  {
+    id: "fireflies-ai",
+    name: "Fireflies.ai",
+    featured: true,
+    categories: ["Sales", "Operations"],
+    category: "Sales",
+    icon: Mic2,
+    affiliateLink: "https://fireflies.ai/?fpr=ihor69",
+    metric: "100%",
+    metricLabel: "Meetings Captured",
+    metricBusiness: "0 min",
+    metricLabelBusiness: "Manual Notes",
+    descFreelancer: "Automate your meeting notes and boost sales productivity with an AI voice assistant.",
+    descBusiness: "Automate your meeting notes and boost sales productivity with an AI voice assistant.",
+    imagePath: "/fireflies.png",
+    longDescription: "Fireflies.ai is an AI-powered meeting assistant that automatically records, transcribes, and summarizes every conversation across Zoom, Google Meet, and Microsoft Teams. It extracts action items, key decisions, and conversation intelligence instantly after each call — then pushes everything directly into your CRM, Notion, or Slack. Sales teams close more deals and ops teams stay aligned without ever writing a manual note again.",
+    features: [
+      "Automated Note-Taking: Instantly record and transcribe meetings across Zoom, Google Meet, and Teams without lifting a finger.",
+      "AI-Powered Summaries: Get instant action items, conversational intelligence, and key takeaways generated automatically after every call.",
+      "Seamless CRM Integration: Push meeting notes and actionable tasks directly into your CRM (HubSpot, Salesforce), Notion, and Slack."
+    ],
+    ctaText: "Start for Free",
+    bestFor: "Sales teams, operations managers, and B2B founders looking to eliminate manual note-taking and capture every crucial detail."
+  },
+  {
     id: "heygen",
     name: "HeyGen",
     featured: false,
@@ -124,7 +171,8 @@ export const platforms = [
       "Automated personalized video campaigns",
       "Enterprise security and SSO"
     ],
-    ctaText: "Try for Free"
+    ctaText: "Try for Free",
+    expertRecommendation: "HeyGen is the industry leader for AI-generated avatars and personalized talking-head videos. However, if you are looking for a comprehensive AI video editor to create marketing promos, explainer videos, or social content from text using stock footage, our Top Pick [InVideo](https://invideo.sjv.io/E0Ja09) is often a more versatile and cost-effective choice for general B2B video production.\n\nCheck out [InVideo](https://invideo.sjv.io/E0Ja09) if you prioritize high-quality editing and storytelling over avatar-based talking heads."
   },
   {
     id: "creatify-ai",
@@ -375,6 +423,7 @@ export const platforms = [
       "Real-time data syncing",
       "Custom AI behavior training"
     ],
-    ctaText: "Try Central"
+    ctaText: "Try Central",
+    expertRecommendation: "Zapier Central is a powerful automation assistant. However, for B2B teams building complex, visual, and highly scalable workflows, our Top Pick [Make](https://www.make.com/en/register?pc=b2baistack) offers significantly more flexibility and cost-efficiency. It allows for advanced visual logic that handles intricate multi-step processes with ease.\n\nCheck out [Make](https://www.make.com/en/register?pc=b2baistack) if you need a professional-grade automation engine."
   }
 ];

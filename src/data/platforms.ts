@@ -19,7 +19,7 @@ export const platforms = [
     id: "vidyo-ai",
     name: "Quso (ex-Vidyo)",
     featured: true,
-    category: "Marketing",
+    category: "Content Creation",
     icon: Video,
     affiliateLink: "https://vidyo.ai?via=gzs7oi",
     metric: "10x Faster",
@@ -40,8 +40,7 @@ export const platforms = [
     id: "invideo-ai",
     name: "InVideo AI",
     featured: true,
-    categories: ["Marketing", "Sales", "HR"],
-    category: "Marketing",
+    category: "Content Creation",
     icon: Wand2,
     affiliateLink: "https://invideo.sjv.io/E0Ja09",
     metric: "5M+",
@@ -58,13 +57,13 @@ export const platforms = [
       "Complete Prompt-to-Video: Instantly generate engaging scripts, human-like voiceovers in 50+ languages, and relevant stock footage from a single simple text prompt."
     ],
     ctaText: "Try InVideo AI for Free",
-    bestFor: "B2B marketers, HR managers, and Sales teams looking to scale personalized video production while cutting costs."
+    bestFor: "B2B marketers and content teams looking to scale personalized video production while cutting costs."
   },
   {
     id: "elevenlabs",
     name: "ElevenLabs",
     featured: true,
-    category: "Marketing",
+    category: "Content Creation",
     icon: Mic2,
     affiliateLink: "https://try.elevenlabs.io/47hmho07qp70",
     metric: "Ultra-HD",
@@ -85,7 +84,6 @@ export const platforms = [
     id: "make",
     name: "Make",
     featured: true,
-    categories: ["Operations", "IT & Dev", "Sales"],
     category: "Operations",
     icon: Settings,
     affiliateLink: "https://www.make.com/en/register?pc=b2baistack",
@@ -132,7 +130,6 @@ export const platforms = [
     id: "fireflies-ai",
     name: "Fireflies.ai",
     featured: true,
-    categories: ["Sales", "Operations"],
     category: "Sales",
     icon: Mic2,
     affiliateLink: "https://fireflies.ai/?fpr=ihor69",
@@ -177,7 +174,7 @@ export const platforms = [
   {
     id: "creatify-ai",
     name: "Creatify AI",
-    featured: true,
+    featured: false,
     category: "Marketing",
     icon: ShoppingBag,
     affiliateLink: "https://creatify.ai/",
@@ -354,7 +351,8 @@ export const platforms = [
       "Custom AI intent models",
       "Comprehensive sentiment analysis"
     ],
-    ctaText: "See in Action"
+    ctaText: "See in Action",
+    expertRecommendation: "Zendesk is the established enterprise standard for customer support and ticketing. However, it can be expensive and requires significant time to set up and train staff. For B2B teams looking for an immediate, AI-driven solution, our Top Pick [Chatbase](https://www.chatbase.co/?via=igor-pinyugin&dub_id=mVuJAivF7SHhGuKy) is a game-changer. It allows you to build a custom AI chatbot trained on your own website and data in just minutes, handling support queries automatically without the enterprise overhead.\n\nCheck out [Chatbase](https://www.chatbase.co/?via=igor-pinyugin&dub_id=mVuJAivF7SHhGuKy) if you need a cost-effective, zero-code AI support agent today."
   },
   {
     id: "apollo-ai",
@@ -425,5 +423,54 @@ export const platforms = [
     ],
     ctaText: "Try Central",
     expertRecommendation: "Zapier Central is a powerful automation assistant. However, for B2B teams building complex, visual, and highly scalable workflows, our Top Pick [Make](https://www.make.com/en/register?pc=b2baistack) offers significantly more flexibility and cost-efficiency. It allows for advanced visual logic that handles intricate multi-step processes with ease.\n\nCheck out [Make](https://www.make.com/en/register?pc=b2baistack) if you need a professional-grade automation engine."
+  },
+  {
+    id: "zapier",
+    slug: "zapier",
+    name: "Zapier",
+    category: "Operations",
+    icon: Wand2,
+    affiliateLink: "https://zapier.com/",
+    websiteUrl: "https://zapier.com/",
+    metric: "7000+",
+    metricLabel: "App Integrations",
+    shortDescription: "Automate repetitive tasks by connecting your apps with simple, no-code trigger-action workflows.",
+    descFreelancer: "Connect your favourite apps and automate repetitive tasks without writing a single line of code.",
+    descBusiness: "Automate repetitive tasks by connecting your apps with simple, no-code trigger-action workflows. Reduce manual busywork across your entire organization.",
+    imagePath: "https://image.thum.io/get/width/1200/crop/675/https://zapier.com/",
+    longDescription: "Zapier is one of the most widely adopted no-code automation platforms, enabling businesses to connect over 7,000 apps with simple trigger-and-action workflows known as 'Zaps'. Without writing any code, teams can automate repetitive tasks — from syncing CRM data and sending notifications to managing leads and filing reports — across virtually any software stack. It lowers the barrier to automation for non-technical users and helps organizations eliminate manual busywork at scale.",
+    features: [
+      "7,000+ app integrations",
+      "No-code workflow builder",
+      "Multi-step Zap automation",
+      "Conditional logic and filters"
+    ],
+    ctaText: "Try Zapier Free",
+    expertRecommendation: "Zapier is widely known for connecting apps with simple, linear triggers. However, as B2B workflows scale, it often becomes cost-prohibitive and restrictive. For teams building complex, multi-step automated processes, our Top Pick [Make](https://www.make.com/en/register?pc=b2baistack) is a significantly more robust and cost-effective solution. Its visual interface allows you to design, build, and orchestrate advanced enterprise-grade automations without breaking the budget.\n\nCheck out [Make](https://www.make.com/en/register?pc=b2baistack) if you need a professional-grade automation engine."
+  },
+  {
+    id: "zoom",
+    slug: "zoom",
+    name: "Zoom",
+    category: "Sales",
+    icon: Users,
+    affiliateLink: "https://zoom.us/",
+    websiteUrl: "https://zoom.us/",
+    metric: "300M+",
+    metricLabel: "Daily Participants",
+    shortDescription: "Run high-fidelity video meetings, webinars, and collaborative sessions at enterprise scale with the world's leading video conferencing platform.",
+    descFreelancer: "Host professional client meetings and webinars with studio-quality HD video and one-click screen sharing.",
+    descBusiness: "Run high-fidelity video meetings, webinars, and collaborative sessions at enterprise scale. Trusted by over 300 million daily participants worldwide.",
+    imagePath: "/zoom.png",
+    longDescription: "Zoom is the undisputed global standard for enterprise video conferencing, enabling organizations of all sizes to host high-definition meetings, large-scale webinars, and real-time collaborative sessions from any device, anywhere in the world. Its platform delivers exceptional audio-visual quality with minimal latency, supporting everything from one-on-one sales calls to all-hands broadcasts with thousands of attendees. For B2B teams, Zoom eliminates geographic barriers and keeps distributed workforces fully aligned and productive.\n\nBeyond core video meetings, Zoom's enterprise suite includes Zoom Webinars for marketing events and product launches, Zoom Phone for cloud telephony, and Zoom Rooms for in-office meeting hardware. Deep integrations with Salesforce, HubSpot, Slack, Google Workspace, and Microsoft 365 make it a natural hub within any modern B2B tech stack. IT administrators benefit from granular security controls, SSO, and SOC 2 Type II compliance, making enterprise-wide rollout straightforward and auditable.\n\nZoom's reliability and universal adoption mean that prospects, clients, and partners are almost always already familiar with the platform — removing friction from every external meeting and demo.",
+    features: [
+      "HD video meetings with up to 1,000 participants",
+      "Screen sharing, whiteboards, and breakout rooms",
+      "Zoom Webinars for large-scale marketing and product events",
+      "Enterprise integrations: Salesforce, HubSpot, Slack, Google Workspace",
+      "End-to-end encryption and SOC 2 Type II compliance"
+    ],
+    ctaText: "Get Started Free",
+    expertRecommendation: "Zoom is the universal standard for video conferencing. However, simply recording calls is only half the battle. For B2B sales and operations teams who need to turn meetings into actionable data, our Top Pick [Fireflies.ai](https://fireflies.ai/?fpr=ihor69) is an essential upgrade. It automatically transcribes, summarizes, and extracts action items from your Zoom calls, routing the intelligence directly into your CRM.\n\nCheck out [Fireflies.ai](https://fireflies.ai/?fpr=ihor69) to automate your meeting notes and boost sales productivity."
   }
 ];

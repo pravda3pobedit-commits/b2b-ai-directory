@@ -19,6 +19,7 @@ export const platforms = [
     id: "vidyo-ai",
     name: "Quso (ex-Vidyo)",
     featured: true,
+    badgeText: "Best for Repurposing",
     category: "Content Creation",
     icon: Video,
     affiliateLink: "https://vidyo.ai?via=gzs7oi",
@@ -40,6 +41,7 @@ export const platforms = [
     id: "invideo-ai",
     name: "InVideo AI",
     featured: true,
+    badgeText: "Best for Generation",
     category: "Content Creation",
     icon: Wand2,
     affiliateLink: "https://invideo.sjv.io/E0Ja09",
@@ -63,6 +65,7 @@ export const platforms = [
     id: "elevenlabs",
     name: "ElevenLabs",
     featured: true,
+    badgeText: "Best for Voiceovers",
     category: "Content Creation",
     icon: Mic2,
     affiliateLink: "https://try.elevenlabs.io/47hmho07qp70",
@@ -175,9 +178,10 @@ export const platforms = [
     id: "creatify-ai",
     name: "Creatify AI",
     featured: false,
-    category: "Marketing",
+    category: "AI Ads",
+    categories: ["Marketing", "AI Ads"],
     icon: ShoppingBag,
-    affiliateLink: "https://creatify.ai/",
+    affiliateLink: "https://creatify.ai/?via=b2baistack",
     metric: "ROI",
     metricLabel: "Optimized Ads",
     descFreelancer: "Generate unlimited high-performing ads from product links. Provide highly profitable ad creatives to B2B clients faster.",
@@ -190,7 +194,7 @@ export const platforms = [
       "Automated A/B testing variations",
       "E-commerce platform integrations"
     ],
-    ctaText: "Create 1st Ad Free"
+    ctaText: "Visit Creatify (-15%)"
   },
   {
     id: "intercom-fin",

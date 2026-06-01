@@ -86,12 +86,17 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <div>
             <h2 className="text-2xl font-semibold mb-2">Ready to automate?</h2>
             <p className="text-sm text-gray-400">Start using {tool.name} today and scale your operations.</p>
+            {tool.id === 'creatify-ai' && (
+              <div className="mt-4 px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs text-emerald-300 font-medium inline-block">
+                🎁 Use promo code <strong className="text-emerald-100 font-bold text-sm">TEAM15</strong> at checkout for 15% off!
+              </div>
+            )}
           </div>
           <a
             href={tool.affiliateLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-colors flex items-center gap-2"
+            className="whitespace-nowrap px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-colors flex items-center gap-2 h-fit"
           >
             {tool.ctaText || "Try for Free"} <ExternalLink className="w-4 h-4" />
           </a>

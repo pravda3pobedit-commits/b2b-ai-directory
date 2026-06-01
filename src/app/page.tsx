@@ -30,13 +30,13 @@ export default function Home() {
     return (
       <div
         key={`${platform.id}-${index}-${wrapperIndex}`}
-        className={`w-[280px] h-[240px] shrink-0 group relative flex flex-col p-4 rounded-3xl overflow-hidden backdrop-blur-sm hover:-translate-y-1 ${platform.featured ? 'bg-white/[0.02] border-2 border-indigo-500/70 shadow-[0_0_30px_-5px_rgba(79,70,229,0.5)] transition-all duration-300 hover:scale-[1.01]' : 'bg-zinc-900/50 border border-white/5 transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)]'}`}
+        className={`w-[280px] min-h-[240px] h-auto shrink-0 group relative flex flex-col p-4 rounded-3xl overflow-hidden backdrop-blur-sm hover:-translate-y-1 ${platform.id === 'creatify-ai' || platform.featured ? 'bg-white/[0.02] border-2 border-indigo-500/70 shadow-[0_0_30px_-5px_rgba(79,70,229,0.5)] transition-all duration-300 hover:scale-[1.01]' : 'bg-zinc-900/50 border border-white/5 transition-all duration-500 hover:bg-white/[0.04] hover:border-white/[0.1] hover:shadow-[0_0_40px_rgba(99,102,241,0.05)]'}`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
         <div className="relative z-10">
           <div className="flex justify-between items-start mb-2">
-            <div className="p-2 bg-white/[0.03] border border-white/[0.08] rounded-xl group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 group-hover:text-indigo-300 transition-all duration-300">
+            <div className="p-2 bg-white/[0.03] border border-white/[0.08] rounded-xl transition-all duration-300 group-hover:bg-indigo-500/10 group-hover:border-indigo-500/20 group-hover:text-indigo-300">
               <Icon className="w-4 h-4 text-gray-300 group-hover:text-indigo-400 transition-colors" />
             </div>
             <div className="flex flex-col items-end">
@@ -52,11 +52,23 @@ export default function Home() {
           <div className="flex items-center gap-3 mb-2">
             <h3 className="text-base font-semibold tracking-tight text-white">{platform.name}</h3>
             {platform.featured && (
-              <div className="ml-2 px-2 py-[2px] rounded-full bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
-                TOP PICK
-              </div>
+              (platform as any).badgeText ? (
+                <div className="ml-2 px-2 py-[2px] rounded-full bg-cyan-900/30 border border-cyan-500/40 text-[9px] font-bold tracking-widest uppercase text-cyan-400 whitespace-nowrap">
+                  {(platform as any).badgeText}
+                </div>
+              ) : (
+                <div className="ml-2 px-2 py-[2px] rounded-full bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
+                  TOP PICK
+                </div>
+              )
             )}
           </div>
+
+          {platform.id === 'creatify-ai' && (
+            <div className="mb-2 px-2 py-1.5 bg-indigo-500/10 border border-indigo-500/30 rounded-md text-[10px] text-emerald-300 font-medium leading-snug">
+              🎁 Use promo code <strong className="text-emerald-100 font-bold">TEAM15</strong> at checkout for 15% off!
+            </div>
+          )}
 
           <p className="text-gray-400 group-hover:text-white transition-colors duration-300 text-[11px] leading-tight mb-2 line-clamp-2">
             {platform.descBusiness || platform.descFreelancer}
@@ -126,15 +138,15 @@ export default function Home() {
       </motion.nav>
 
       {/* Main Content Area */}
-      <div className="flex flex-col items-center w-full z-10 pt-20 mt-0">
+      <div className="flex flex-col items-center w-full z-10 pt-14 mt-0">
 
         {/* Hero Section */}
-        <div className="flex flex-col items-center text-center max-w-4xl space-y-2 mb-2 px-6">
+        <div className="flex flex-col items-center text-center max-w-4xl space-y-1 mb-1 px-6">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[10px] font-medium tracking-wide uppercase mb-1"
+            className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[10px] font-medium tracking-wide uppercase mb-0"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
             Directory 2.0
@@ -153,7 +165,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-            className="text-xs md:text-sm text-gray-400 max-w-2xl mt-3 mb-2"
+            className="text-xs md:text-sm text-gray-400 max-w-2xl mt-1.5 mb-0"
           >
             Discover and compare enterprise-grade AI tools to automate workflows, reduce costs, and scale your operations.
           </motion.p>
@@ -162,7 +174,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-2 mt-2"
+            className="flex flex-wrap justify-center gap-2 mt-1"
           >
             {categories.map((cat) => (
               <button
@@ -186,7 +198,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="w-full overflow-hidden flex relative mt-6 mb-4 py-2"
+          className="w-full overflow-hidden flex relative mt-3 mb-2 py-2"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >

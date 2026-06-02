@@ -11,7 +11,7 @@ export default function Home() {
   const [isPaused, setIsPaused] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["Content Creation", "Marketing", "Sales", "Customer Support", "Operations", "HR", "IT & Dev", "All"];
+  const categories = ["Content Creation", "Marketing", "Sales", "AI Meetings & Intelligence", "Customer Support", "Operations", "HR", "IT & Dev", "All"];
 
   const filteredPlatforms = platforms.filter(platform => {
     if (activeCategory === "All") return true;

@@ -133,9 +133,11 @@ export const platforms = [
     id: "fireflies-ai",
     name: "Fireflies.ai",
     featured: true,
-    category: "Sales",
+    badgeText: "Best AI Notetaker",
+    category: "AI Meetings & Intelligence",
+    categories: ["AI Meetings & Intelligence", "Sales"],
     icon: Mic2,
-    affiliateLink: "https://fireflies.ai/?fpr=ihor69",
+    affiliateLink: "https://fireflies.ai/?fpr=b2baistack",
     metric: "100%",
     metricLabel: "Meetings Captured",
     metricBusiness: "0 min",
@@ -224,6 +226,7 @@ export const platforms = [
     slug: "gong",
     name: "Gong",
     category: "Sales",
+    categories: ["Sales", "AI Meetings & Intelligence"],
     icon: TrendingUp,
     affiliateLink: "https://www.gong.io/",
     websiteUrl: "https://www.gong.io/",
@@ -457,6 +460,7 @@ export const platforms = [
     slug: "zoom",
     name: "Zoom",
     category: "Sales",
+    categories: ["Sales", "AI Meetings & Intelligence"],
     icon: Users,
     affiliateLink: "https://zoom.us/",
     websiteUrl: "https://zoom.us/",
@@ -475,6 +479,31 @@ export const platforms = [
       "End-to-end encryption and SOC 2 Type II compliance"
     ],
     ctaText: "Get Started Free",
-    expertRecommendation: "Zoom is the universal standard for video conferencing. However, simply recording calls is only half the battle. For B2B sales and operations teams who need to turn meetings into actionable data, our Top Pick [Fireflies.ai](https://fireflies.ai/?fpr=ihor69) is an essential upgrade. It automatically transcribes, summarizes, and extracts action items from your Zoom calls, routing the intelligence directly into your CRM.\n\nCheck out [Fireflies.ai](https://fireflies.ai/?fpr=ihor69) to automate your meeting notes and boost sales productivity."
+    expertRecommendation: "Zoom is the universal standard for video conferencing. However, simply recording calls is only half the battle. For B2B sales and operations teams who need to turn meetings into actionable data, our Top Pick [Fireflies.ai](https://fireflies.ai/?fpr=b2baistack) is an essential upgrade. It automatically transcribes, summarizes, and extracts action items from your Zoom calls, routing the intelligence directly into your CRM.\n\nCheck out [Fireflies.ai](https://fireflies.ai/?fpr=b2baistack) to automate your meeting notes and boost sales productivity."
+  },
+  {
+    id: "otter-ai",
+    slug: "otter-ai",
+    name: "Otter.ai",
+    category: "AI Meetings & Intelligence",
+    categories: ["AI Meetings & Intelligence"],
+    icon: Mic2,
+    affiliateLink: "https://otter.ai/",
+    websiteUrl: "https://otter.ai/",
+    metric: "Real-Time",
+    metricLabel: "Transcription",
+    shortDescription: "Get real-time AI transcription, automated meeting summaries, and instant action items synced to your team.",
+    descFreelancer: "Capture every word from client meetings with live transcription and instant shareable summaries.",
+    descBusiness: "Empower your entire team with real-time meeting transcription, automated summaries, and action items that sync instantly into your workspace.",
+    imagePath: "https://image.thum.io/get/width/1200/crop/675/https://otter.ai/",
+    longDescription: "Otter.ai delivers real-time AI transcription and meeting intelligence that transforms how B2B teams capture and act on information from every conversation. It automatically joins your Zoom, Google Meet, and Teams calls to produce live, searchable transcripts, generate concise summaries, and highlight action items within seconds of a meeting ending. For sales teams, ops leads, and managers, Otter.ai eliminates the administrative burden of note-taking and ensures nothing falls through the cracks — from client discovery calls to internal stand-ups.",
+    features: [
+      "Live real-time transcription across Zoom, Meet, and Teams",
+      "Automated meeting summaries and action item extraction",
+      "Collaborative notes with highlights and comments",
+      "Instant sharing and searchable meeting archive"
+    ],
+    ctaText: "Try Otter Free",
+    expertRecommendation: "Otter.ai excels at real-time transcription and team collaboration around meeting notes. For teams that also need deep CRM integration and full conversation intelligence (call scoring, deal risk analysis, pipeline updates), our Top Pick [Fireflies.ai](https://fireflies.ai/?fpr=b2baistack) provides a more complete end-to-end solution that pushes data directly into HubSpot and Salesforce automatically.\n\nCheck out [Fireflies.ai](https://fireflies.ai/?fpr=b2baistack) if you need automated CRM sync and sales intelligence on top of transcription."
   }
 ];

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getPostBySlug, getPublishedArticles, type NotionPost } from "@/lib/notion";
+import { getPostBySlug, getPublishedArticles, type NotionPost } from "../../../lib/notion";
 
 // ---------------------------------------------------------------------------
 // Static params (optional but recommended for SSG)
@@ -10,8 +10,8 @@ import { getPostBySlug, getPublishedArticles, type NotionPost } from "@/lib/noti
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = await getPublishedArticles();
   return posts
-    .filter((p) => Boolean(p.slug))
-    .map((p) => ({ slug: p.slug }));
+    .filter((p: any) => p && p.slug)
+    .map((p: any) => ({ slug: String(p.slug) }));
 }
 
 // ---------------------------------------------------------------------------
@@ -128,7 +128,7 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Tags */}
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
-            {post.tags.map((tag) => (
+            {post.tags.map((tag: any) => (
               <span
                 key={tag}
                 className="px-2.5 py-0.5 text-xs rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20"

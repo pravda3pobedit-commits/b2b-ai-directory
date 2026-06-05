@@ -49,3 +49,4 @@ export async function getPostBySlug(slug: string) {
   const data = await response.json();
   return data.results.length > 0 ? data.results[0] : null;
 }
+export type NotionPost = any;

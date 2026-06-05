@@ -5,7 +5,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { platforms } from "@/data/platforms";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Sparkles, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [isPaused, setIsPaused] = useState(false);
@@ -116,26 +117,7 @@ export default function Home() {
       `}} />
 
       {/* Floating Sticky Navigation */}
-      <motion.nav
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="absolute top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-6 px-5 py-2 bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08] rounded-full shadow-2xl shadow-black/50"
-      >
-        <div className="flex items-center gap-2 text-white font-semibold tracking-tight text-sm">
-          <Sparkles className="w-4 h-4 text-indigo-400" />
-          <span>B2B AI Stack</span>
-        </div>
-        <div className="hidden md:block w-px h-4 bg-white/10"></div>
-        <div className="hidden md:flex gap-5 text-xs font-medium text-gray-400">
-          <a href="https://x.com/intent/tweet?text=Just%20found%20the%20ultimate%20curated%20directory%20for%20B2B%20AI%20tools!%20%F0%9F%9A%80%20Check%20it%20out:&url=https://yourwebsite.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Share on X</a>
-          <a href="mailto:pravda3pobedit@gmail.com?subject=Sponsorship%20Inquiry%20-%20B2B%20AI%20Stack" className="hover:text-white transition-colors">Advertise</a>
-          <a href="mailto:pravda3pobedit@gmail.com?subject=Contact%20-%20B2B%20AI%20Stack" className="hover:text-white transition-colors">Contact</a>
-        </div>
-        <a href="https://forms.gle/nLY5faWU2oRZnNMv6" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 bg-white text-black px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-gray-200 transition-colors">
-          Add Your AI
-        </a>
-      </motion.nav>
+      <Navbar />
 
       {/* Main Content Area */}
       <div className="flex flex-col items-center w-full z-10 pt-14 mt-0">

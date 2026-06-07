@@ -144,3 +144,58 @@ export async function getPostBySlug(slug: string): Promise<NotionPost | null> {
   const page = data.results?.[0];
   return page ? mapRawPage(page) : null;
 }
+
+// ---------------------------------------------------------------------------
+// Block types
+// ---------------------------------------------------------------------------
+
+export interface RichTextItem {
+  plain_text: string;
+  annotations: {
+    bold: boolean;
+    italic: boolean;
+    strikethrough: boolean;
+    underline: boolean;
+    code: boolean;
+    color: string;
+  };
+  href: string | null;
+}
+
+export interface NotionBlock {
+  id: string;
+  type: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
+
+/**
+ * Fetch all top-level block children for a given Notion page/block ID.
+ * Handles pagination automatically (up to 250 blocks per request).
+ */
+export async function getPageBlocks(pageId: string): Promise<NotionBlock[]> {
+  const blocks: NotionBlock[] = [];
+  let cursor: string | undefined = undefined;
+
+  do {
+    const url = new URL(`https://api.notion.com/v1/blocks/${pageId}/children`);
+    url.searchParams.set("page_size", "100");
+    if (cursor) url.searchParams.set("start_cursor", cursor);
+
+    const response = await fetch(url.toString(), {
+      headers: HEADERS,
+      next: { revalidate: 60 },
+    });
+
+    if (!response.ok) {
+      console.error("[notion] getPageBlocks failed:", await response.text());
+      break;
+    }
+
+    const data = await response.json();
+    blocks.push(...(data.results ?? []));
+    cursor = data.has_more ? data.next_cursor : undefined;
+  } while (cursor);
+
+  return blocks;
+}

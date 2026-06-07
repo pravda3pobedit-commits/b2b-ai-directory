@@ -86,7 +86,7 @@ function mapRawPage(page: any): NotionPost {
 // ---------------------------------------------------------------------------
 
 /**
- * Fetch all articles whose Status = "Ready to Publish".
+ * Fetch all articles whose Status = "Done".
  * Returns mapped NotionPost[] — safe to call from Server Components and
  * Server Actions only (NOTION_TOKEN never sent to the browser).
  */
@@ -99,7 +99,7 @@ export async function getPublishedArticles(): Promise<NotionPost[]> {
       body: JSON.stringify({
         filter: {
           property: "Status",
-          status: { equals: "Ready to Publish" },
+          status: { equals: "Done" },
         },
         sorts: [{ property: "Published Date", direction: "descending" }],
       }),

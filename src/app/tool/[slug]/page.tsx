@@ -42,7 +42,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         <img 
           src={tool.imagePath} 
           alt={tool.name} 
-          className="w-full aspect-video object-contain bg-zinc-900 rounded-3xl border border-white/10 shadow-2xl mb-8" 
+          className="w-full aspect-video object-cover bg-zinc-900 rounded-2xl border border-white/10 shadow-2xl mb-8" 
         />
 
         {/* Header Section */}
@@ -101,6 +101,35 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             {tool.ctaText || "Try for Free"} <ExternalLink className="w-4 h-4" />
           </a>
         </div>
+
+        {/* Frequently Asked Questions */}
+        {(tool as any).faq && (tool as any).faq.length > 0 && (
+          <div className="mt-12 mb-12 flex flex-col gap-4">
+            <h2 className="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            {(tool as any).faq.map((item: { question: string; answer: string }, idx: number) => (
+              <details
+                key={idx}
+                className="bg-[#0f111a] border border-gray-800 rounded-xl overflow-hidden cursor-pointer group"
+              >
+                <summary className="p-5 text-lg font-semibold text-gray-100 outline-none list-none hover:bg-gray-800/50 transition-colors flex items-center justify-between [&::-webkit-details-marker]:hidden">
+                  <span>{item.question}</span>
+                  <svg
+                    className="w-5 h-5 text-gray-500 flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-45"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                  </svg>
+                </summary>
+                <div className="p-5 pt-0 text-gray-400 text-sm leading-relaxed border-t border-gray-800">
+                  {item.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

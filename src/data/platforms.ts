@@ -12,6 +12,7 @@ import {
   Cpu,
   HeadphonesIcon,
   LineChart,
+  PenTool,
 } from "lucide-react";
 
 export const platforms = [
@@ -295,6 +296,52 @@ export const platforms = [
         answer: "Absolutely. While the AI does the heavy lifting, you have full creative control to rewrite the script, swap out the avatar, change the voice, or upload your own B-roll footage before exporting the final video."
       }
     ]
+  },
+  {
+    id: "copy-ai",
+    slug: "copy-ai",
+    name: "Copy.ai",
+    category: "Marketing",
+    icon: PenTool,
+    affiliateLink: "https://www.copy.ai/",
+    websiteUrl: "https://www.copy.ai/",
+    metric: "15M+",
+    metricLabel: "Users",
+    shortDescription: "Generate high-converting marketing copy, blog posts, and sales emails in seconds with an enterprise AI writing platform.",
+    descFreelancer: "Produce polished marketing copy and client deliverables in seconds. Scale your freelance writing output effortlessly.",
+    descBusiness: "Generate high-converting marketing copy, blog posts, and sales emails in seconds. Automate your entire content workflow with enterprise-grade AI.",
+    imagePath: "https://image.thum.io/get/width/1200/crop/675/https://www.copy.ai/",
+    longDescription: "Copy.ai is an enterprise AI content platform that automates the entire go-to-market copy workflow. From blog posts and ad headlines to sales outreach sequences and product descriptions, it generates polished, on-brand content in seconds. Teams use Copy.ai to eliminate writer's block, maintain a consistent brand voice across channels, and dramatically accelerate content production without expanding headcount.",
+    features: [
+      "AI-powered blog and article generation",
+      "Sales email and outreach automation",
+      "Brand voice customization",
+      "Workflow automation for GTM teams"
+    ],
+    ctaText: "Try Copy.ai Free"
+  },
+  {
+    id: "jasper",
+    slug: "jasper",
+    name: "Jasper",
+    category: "Marketing",
+    icon: PenTool,
+    affiliateLink: "https://www.jasper.ai/",
+    websiteUrl: "https://www.jasper.ai/",
+    metric: "100K+",
+    metricLabel: "Teams",
+    shortDescription: "Create on-brand marketing content at scale with an AI copilot built for enterprise marketing teams.",
+    descFreelancer: "Produce high-quality marketing content faster. Generate ads, blogs, and social posts that match any brand voice.",
+    descBusiness: "Create on-brand marketing content at scale with an AI copilot built for enterprise marketing teams. Maintain brand consistency across every channel.",
+    imagePath: "https://image.thum.io/get/width/1200/crop/675/https://www.jasper.ai/",
+    longDescription: "Jasper is the AI copilot built specifically for enterprise marketing teams. It goes beyond generic text generation by deeply learning your brand's voice, style guide, and product knowledge to produce content that is always on-brand. From ad campaigns and landing pages to long-form blog content and social media posts, Jasper accelerates content creation across every channel while maintaining the consistency and quality that enterprise brands demand.",
+    features: [
+      "Brand voice and style guide training",
+      "Campaign-level content generation",
+      "AI-powered image creation",
+      "Enterprise security and team collaboration"
+    ],
+    ctaText: "Try Jasper Free"
   },
   {
     id: "intercom-fin",

@@ -222,7 +222,21 @@ export const platforms = [
       "Seamless CRM Integration: Push meeting notes and actionable tasks directly into your CRM (HubSpot, Salesforce), Notion, and Slack."
     ],
     ctaText: "Start for Free",
-    bestFor: "Sales teams, operations managers, and B2B founders looking to eliminate manual note-taking and capture every crucial detail."
+    bestFor: "Sales teams, operations managers, and B2B founders looking to eliminate manual note-taking and capture every crucial detail.",
+    faq: [
+      {
+        question: "How does Fireflies.ai join my meetings?",
+        answer: "Fireflies integrates directly with your Google or Outlook calendar. It automatically joins your scheduled Zoom, Google Meet, or Microsoft Teams calls as a silent participant to record and transcribe the conversation in real-time."
+      },
+      {
+        question: "Can Fireflies automatically generate meeting summaries?",
+        answer: "Yes. Immediately after the meeting, the AI analyzes the transcript and generates a comprehensive summary. This includes bullet points of key takeaways, decisions made, and specific action items assigned to team members."
+      },
+      {
+        question: "Does Fireflies.ai support transcription in languages other than English?",
+        answer: "Absolutely. Fireflies supports highly accurate transcription in over 60 languages. It's an ideal solution for global teams, ensuring that multi-lingual conversations are captured and documented perfectly."
+      }
+    ]
   },
   {
     id: "heygen",

@@ -13,6 +13,7 @@ import {
   HeadphonesIcon,
   LineChart,
   PenTool,
+  Mail,
 } from "lucide-react";
 
 export const platforms = [
@@ -240,10 +241,46 @@ export const platforms = [
     ]
   },
   {
+    id: "hunter-io",
+    name: "Hunter.io",
+    featured: true,
+    badgeText: "Email Intel Leader",
+    category: "Sales",
+    icon: Mail,
+    affiliateLink: "https://hunter.io/?via=b2baistack",
+    metric: "100M+",
+    metricLabel: "Verified Emails",
+    descFreelancer: "Find & verify any B2B email in seconds — 3M+ sales teams trust Hunter for outreach.",
+    descBusiness: "Find & verify any B2B email in seconds — 3M+ sales teams trust Hunter for outreach.",
+    imagePath: "/hunter.png",
+    longDescription: "Hunter.io is the leading B2B email intelligence platform trusted by over 3 million sales professionals worldwide. It crawls 30 million web pages daily to maintain a database of 100M+ verified professional email addresses across 76 million indexed websites. Sales teams use Hunter to instantly find the right contact at any company, verify deliverability before hitting send, and launch targeted cold email campaigns — all from a single platform. By eliminating manual prospecting and reducing bounce rates, Hunter dramatically accelerates pipeline generation and outbound ROI.",
+    features: [
+      "Domain Search: Instantly find all verified email addresses associated with any company domain.",
+      "Email Verification: Validate deliverability in real-time to protect your sender reputation and reduce bounces.",
+      "Cold Email Campaigns: Send personalized outreach sequences directly from Hunter with built-in scheduling and tracking."
+    ],
+    ctaText: "Try Hunter.io Free",
+    bestFor: "B2B sales teams, SDRs, and growth marketers looking to find verified emails and launch outbound campaigns faster.",
+    faq: [
+      {
+        question: "How does Hunter.io find email addresses?",
+        answer: "Hunter crawls over 30 million public web pages every day and cross-references data from 650 million public sources to index professional email addresses. When you search for a domain, it returns all verified contacts associated with that company."
+      },
+      {
+        question: "How accurate is Hunter's email verification?",
+        answer: "Hunter's verification engine checks deliverability in real-time against multiple signals — including MX records, SMTP responses, and catch-all detection. This ensures extremely high accuracy and keeps your bounce rate low, protecting your sender reputation."
+      },
+      {
+        question: "Can I send cold emails directly from Hunter?",
+        answer: "Yes. Hunter includes a built-in cold email tool that lets you create personalized outreach campaigns, schedule follow-ups, and track opens and clicks — all without needing a separate email automation platform."
+      }
+    ]
+  },
+  {
     id: "heygen",
     name: "HeyGen",
     featured: false,
-    category: "Sales",
+    category: "Content Creation",
     icon: Users,
     affiliateLink: "https://www.heygen.com/",
     metric: "120+",
@@ -642,8 +679,8 @@ export const platforms = [
     id: "zoom",
     slug: "zoom",
     name: "Zoom",
-    category: "Sales",
-    categories: ["Sales", "AI Meetings & Intelligence"],
+    category: "AI Meetings & Intelligence",
+    categories: ["AI Meetings & Intelligence"],
     icon: Users,
     affiliateLink: "https://zoom.us/",
     websiteUrl: "https://zoom.us/",

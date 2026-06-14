@@ -1,7 +1,7 @@
 "use client";
 
 import { sendGAEvent } from "@next/third-parties/google";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 
 interface TrackedAffiliateLinkProps {
   href: string;
@@ -9,6 +9,7 @@ interface TrackedAffiliateLinkProps {
   toolName: string;
   ctaText?: string;
   className?: string;
+  icon?: "external" | "arrow";
 }
 
 export default function TrackedAffiliateLink({
@@ -17,6 +18,7 @@ export default function TrackedAffiliateLink({
   toolName,
   ctaText,
   className,
+  icon,
 }: TrackedAffiliateLinkProps) {
   const label = ctaText || "Try for Free";
 
@@ -38,7 +40,12 @@ export default function TrackedAffiliateLink({
       className={className}
       onClick={handleClick}
     >
-      {label} <ExternalLink className="w-4 h-4" />
+      {label}{" "}
+      {icon === "arrow" ? (
+        <ArrowRight className="w-3 h-3" />
+      ) : (
+        <ExternalLink className="w-4 h-4" />
+      )}
     </a>
   );
 }

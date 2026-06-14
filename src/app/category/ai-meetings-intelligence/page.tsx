@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { platforms } from "@/data/platforms";
-import { Mic2, ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { Mic2, Sparkles, CheckCircle2 } from "lucide-react";
+import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 
 export const metadata: Metadata = {
   title: "Top AI Meeting Assistants & Intelligence Tools | b2baistack.com",
@@ -131,9 +132,12 @@ export default function AIMeetingsIntelligencePage() {
           <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
             Top AI Meeting Tools
           </h2>
-          <p className="text-sm text-gray-500 mb-8">
+          <p className="text-sm text-gray-500 mb-2">
             Hand-picked tools used by B2B professionals, sales teams, and
             operations leads to capture and act on every conversation.
+          </p>
+          <p className="text-xs text-gray-600 mb-8">
+            Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -200,15 +204,14 @@ export default function AIMeetingsIntelligencePage() {
                     >
                       View Details
                     </Link>
-                    <a
+                    <TrackedAffiliateLink
                       href={platform.affiliateLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      toolId={platform.id}
+                      toolName={platform.name}
+                      ctaText={platform.ctaText ?? "Get Started"}
+                      icon="arrow"
                       className="flex items-center gap-1 px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition-colors"
-                    >
-                      {platform.ctaText ?? "Get Started"}
-                      <ArrowRight className="w-3 h-3" />
-                    </a>
+                    />
                   </div>
                 </div>
               );

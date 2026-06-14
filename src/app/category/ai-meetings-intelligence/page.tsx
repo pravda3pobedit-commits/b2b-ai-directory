@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Discover the best AI notetakers and meeting intelligence software to automate transcriptions, generate summaries, and sync data directly to your CRM.",
   alternates: {
-    canonical: "https://b2baistack.com/category/ai-meetings-intelligence",
+    canonical: "https://www.b2baistack.com/category/ai-meetings-intelligence",
   },
   openGraph: {
     title: "Top AI Meeting Assistants & Intelligence Tools | b2baistack.com",
     description:
       "Discover the best AI notetakers and meeting intelligence software to automate transcriptions, generate summaries, and sync data directly to your CRM.",
-    url: "https://b2baistack.com/category/ai-meetings-intelligence",
+    url: "https://www.b2baistack.com/category/ai-meetings-intelligence",
     type: "website",
   },
 };

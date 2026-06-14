@@ -173,6 +173,15 @@ export default function Home() {
               </button>
             ))}
           </motion.div>
+
+          <div className="flex justify-center mt-2">
+            <Link
+              href="/category/ai-meetings-intelligence"
+              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Explore AI meeting assistants →
+            </Link>
+          </div>
         </div>
 
         {/* Cinematic Marquee Carousel */}

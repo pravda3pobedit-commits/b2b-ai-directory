@@ -102,8 +102,57 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
+  const toolUrl = `${BASE_URL}/tool/${tool.id}`;
+  const image = resolveImage(tool.imagePath);
+  const faqItems: { question: string; answer: string }[] =
+    "faq" in tool && Array.isArray(tool.faq) ? tool.faq : [];
+
+  const softwareAppLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    description: getDescription(tool),
+    applicationCategory: tool.category,
+    operatingSystem: "Web",
+    url: toolUrl,
+    ...(image ? { image } : {}),
+    offers: {
+      "@type": "Offer",
+      url: tool.affiliateLink,
+      category: "Free Trial",
+    },
+  };
+
+  const faqLd =
+    faqItems.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqItems.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <div className="min-h-screen w-full bg-[#050505] text-white flex flex-col items-center pt-24 px-6 font-sans">
+      {/* Structured Data – JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppLd) }}
+      />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
+
       <div className="max-w-3xl w-full">
         {/* Back Button */}
         <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-8">

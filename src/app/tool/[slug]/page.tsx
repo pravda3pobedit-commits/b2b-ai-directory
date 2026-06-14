@@ -214,14 +214,20 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
               </div>
             )}
           </div>
-          <a
-            href={tool.affiliateLink}
-            target="_blank"
-            rel="sponsored nofollow noopener noreferrer"
-            className="whitespace-nowrap px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-colors flex items-center gap-2 h-fit"
-          >
-            {tool.ctaText || "Try for Free"} <ExternalLink className="w-4 h-4" />
-          </a>
+          <div className="flex flex-col items-center sm:items-end gap-3">
+            <a
+              href={tool.affiliateLink}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
+              className="whitespace-nowrap px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-colors flex items-center gap-2 h-fit"
+            >
+              {tool.ctaText || "Try for Free"} <ExternalLink className="w-4 h-4" />
+            </a>
+
+            <p className="max-w-xs text-center sm:text-right text-xs leading-relaxed text-gray-500">
+              Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
+            </p>
+          </div>
         </div>
 
         {/* Frequently Asked Questions */}

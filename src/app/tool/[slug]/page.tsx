@@ -86,7 +86,7 @@ function parseRecommendation(text: string): string {
     .map((para) =>
       `<p>${para.replace(
         /\[([^\]]+)\]\(([^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium transition-colors">$1</a>'
+        '<a href="$2" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium transition-colors">$1</a>'
       )}</p>`
     )
     .join("");
@@ -168,7 +168,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <a
             href={tool.affiliateLink}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="sponsored nofollow noopener noreferrer"
             className="whitespace-nowrap px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-colors flex items-center gap-2 h-fit"
           >
             {tool.ctaText || "Try for Free"} <ExternalLink className="w-4 h-4" />

@@ -174,12 +174,19 @@ export default function Home() {
             ))}
           </motion.div>
 
-          <div className="flex justify-center mt-2">
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 mt-2">
             <Link
               href="/category/ai-meetings-intelligence"
               className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
             >
               Explore AI meeting assistants →
+            </Link>
+            <span className="text-gray-700 text-xs hidden sm:inline">·</span>
+            <Link
+              href="/category/ai-video-ad-generators"
+              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Explore AI video generators →
             </Link>
           </div>
         </div>

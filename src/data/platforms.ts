@@ -66,13 +66,17 @@ export const platforms = [
     metricBusiness: "5000+",
     metricLabelBusiness: "Global Brands",
     descFreelancer: "Turn text prompts into professional, studio-quality videos in minutes.",
-    descBusiness: "Turn text prompts into professional, studio-quality videos in minutes.",
+    descBusiness: "Create campaign-ready video ads, product promos, and social clips from prompts, product links, AI actors, and voiceovers.",
+    shortDescription: "Create AI video ads, product promos, UGC-style creatives, and social videos from prompts for B2B marketing teams.",
     imagePath: "/invideo.png",
-    longDescription: "InVideo AI empowers enterprise marketing teams to produce broadcast-quality video ads in minutes using simple text prompts. It eliminates the need for expensive production studios, enabling rapid iteration of creative assets for global campaigns. With seamless stock media integration and automated voiceovers, scaling video content has never been more efficient.",
+    longDescription: "InVideo AI helps B2B marketing teams turn prompts, product ideas, and campaign briefs into polished video assets without a full production crew. It can generate scripts, scenes, voiceovers, music, subtitles, product demos, UGC-style ads, and social videos from a single workflow, making it useful for teams that need to test more creative angles quickly. For growth teams and agencies, the biggest advantage is speed: you can move from idea to first draft fast, then refine the video for paid ads, product launches, social campaigns, explainers, or client pitches.",
     features: [
-      "AI Twin Technology: Create a photorealistic digital avatar to generate faceless videos without ever stepping in front of a camera.",
-      "UGC Ad Generator (AI Actor): Produce high-converting, user-generated content ads for your products without hiring real actors or renting expensive studios.",
-      "Complete Prompt-to-Video: Instantly generate engaging scripts, human-like voiceovers in 50+ languages, and relevant stock footage from a single simple text prompt."
+      "Prompt-to-video generation: Turn campaign briefs, product ideas, and marketing angles into ready-to-edit video drafts.",
+      "AI ad and UGC workflows: Create product ads, testimonial-style videos, demos, and social creatives with AI actors or avatars.",
+      "Product link to video: Generate product-focused videos from URLs or product details for ecommerce, SaaS, and B2B offers.",
+      "Voiceovers, music, and subtitles: Add narrated scripts, background music, captions, and multilingual assets inside the same workflow.",
+      "Fast creative testing: Produce multiple video variations for paid ads, landing pages, social posts, and client campaigns.",
+      "Editable outputs: Refine generated videos with text instructions or manual edits instead of rebuilding from scratch."
     ],
     ctaText: "Try InVideo AI for Free",
     bestFor: "B2B marketers and content teams looking to scale personalized video production while cutting costs.",

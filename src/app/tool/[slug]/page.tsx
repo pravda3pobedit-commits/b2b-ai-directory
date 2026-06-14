@@ -1,7 +1,83 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { platforms } from "@/data/platforms";
 import { ArrowLeft, ExternalLink, CheckCircle, Lightbulb } from "lucide-react";
 import { notFound } from "next/navigation";
+
+const BASE_URL = "https://www.b2baistack.com";
+
+function findTool(slug: string) {
+  return platforms.find(
+    (p) => p.id?.toString().toLowerCase() === slug?.toString().toLowerCase()
+  );
+}
+
+/** Pick the best available description, truncated to ~160 chars. */
+function getDescription(tool: NonNullable<ReturnType<typeof findTool>>): string {
+  const raw =
+    ("shortDescription" in tool && typeof tool.shortDescription === "string"
+      ? tool.shortDescription
+      : undefined) ??
+    tool.descBusiness ??
+    tool.descFreelancer ??
+    tool.longDescription ??
+    `Explore ${tool.name} on B2B AI Stack — features, use cases, and expert insights.`;
+
+  // Trim to ~160 chars at a word boundary
+  if (raw.length <= 160) return raw;
+  return `${raw.slice(0, 157).replace(/\s+\S*$/, "")}…`;
+}
+
+/** Resolve imagePath to an absolute URL suitable for OG/Twitter images. */
+function resolveImage(imagePath: string | undefined): string | undefined {
+  if (!imagePath) return undefined;
+  if (imagePath.startsWith("http")) return imagePath;
+  // Local path like "/invideo.png" → absolute URL
+  return `${BASE_URL}${imagePath.startsWith("/") ? "" : "/"}${imagePath}`;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const tool = findTool(slug);
+
+  if (!tool) {
+    return {
+      title: "Tool Not Found | B2B AI Stack",
+      description: "The requested tool could not be found in the B2B AI Stack directory.",
+    };
+  }
+
+  const title = `${tool.name} Review, Features & Use Cases | B2B AI Stack`;
+  const description = getDescription(tool);
+  const canonicalUrl = `${BASE_URL}/tool/${tool.id}`;
+  const image = resolveImage(tool.imagePath);
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "B2B AI Stack",
+      type: "website",
+      ...(image ? { images: [{ url: image }] } : {}),
+    },
+    twitter: {
+      card: image ? "summary_large_image" : "summary",
+      title,
+      description,
+      ...(image ? { images: [image] } : {}),
+    },
+  };
+}
 
 // Converts markdown-style [text](url) links and \n\n paragraph breaks to HTML
 function parseRecommendation(text: string): string {
@@ -20,10 +96,7 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
   // Await params to fix Next.js 15 sync-dynamic-apis error
   const { slug } = await params;
 
-  // Bulletproof case-insensitive lookup using the existing 'id' field
-  const tool = platforms.find(
-    (p) => p.id?.toString().toLowerCase() === slug?.toString().toLowerCase()
-  );
+  const tool = findTool(slug);
 
   if (!tool) {
     notFound();

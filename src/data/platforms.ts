@@ -275,33 +275,46 @@ export const platforms = [
     categories: ["AI Meetings & Intelligence", "Sales"],
     icon: Mic2,
     affiliateLink: "https://fireflies.ai/?fpr=b2baistack",
-    metric: "100%",
-    metricLabel: "Meetings Captured",
-    metricBusiness: "0 min",
-    metricLabelBusiness: "Manual Notes",
-    descFreelancer: "Automate your meeting notes and boost sales productivity with an AI voice assistant.",
-    descBusiness: "Automate your meeting notes and boost sales productivity with an AI voice assistant.",
+    metric: "AI",
+    metricLabel: "Notetaker",
+    metricBusiness: "CRM",
+    metricLabelBusiness: "Sync",
+    shortDescription: "Record, transcribe, summarize, search, and sync meeting notes across sales, support, recruiting, and internal team workflows.",
+    descFreelancer: "Create searchable meeting notes, summaries, action items, and follow-ups from client calls without manually writing every recap.",
+    descBusiness: "Capture meeting transcripts, summaries, action items, and CRM-ready notes across calls, email, chat, and team workflows.",
     imagePath: "/fireflies.png",
-    longDescription: "Fireflies.ai is an AI-powered meeting assistant that automatically records, transcribes, and summarizes every conversation across Zoom, Google Meet, and Microsoft Teams. It extracts action items, key decisions, and conversation intelligence instantly after each call — then pushes everything directly into your CRM, Notion, or Slack. Sales teams close more deals and ops teams stay aligned without ever writing a manual note again.",
+    longDescription: "Fireflies.ai helps B2B teams capture and organize the knowledge created in meetings. It can record and transcribe calls, generate summaries and action items, make conversations searchable, and sync notes or tasks into tools such as CRMs, collaboration apps, and workflow systems. For sales, customer success, recruiting, operations, and leadership teams, the strongest use case is turning calls into a searchable meeting knowledge base while keeping humans responsible for reviewing key decisions, follow-ups, and customer-facing details.",
     features: [
-      "Automated Note-Taking: Instantly record and transcribe meetings across Zoom, Google Meet, and Teams without lifting a finger.",
-      "AI-Powered Summaries: Get instant action items, conversational intelligence, and key takeaways generated automatically after every call.",
-      "Seamless CRM Integration: Push meeting notes and actionable tasks directly into your CRM (HubSpot, Salesforce), Notion, and Slack."
+      "Meeting recording and transcription: Capture conversations across platforms such as Zoom, Google Meet, Microsoft Teams, and Webex.",
+      "AI summaries and action items: Turn meeting transcripts into recaps, next steps, decisions, and follow-up notes for teams.",
+      "Searchable conversation knowledge: Search past calls, revisit customer feedback, and find important moments without replaying every meeting.",
+      "CRM and app integrations: Sync meeting notes, tasks, and conversation updates into sales, support, recruiting, and collaboration workflows.",
+      "Conversation intelligence: Review topics, questions, objections, and patterns across meetings to improve team handoffs and follow-up quality.",
+      "Team workflow support: Useful for sales calls, customer success reviews, recruiting interviews, internal meetings, and project updates."
     ],
     ctaText: "Start for Free",
-    bestFor: "Sales teams, operations managers, and B2B founders looking to eliminate manual note-taking and capture every crucial detail.",
+    bestFor: "Sales teams, customer success teams, recruiters, agencies, founders, and operations leaders that need meeting transcription, summaries, action items, CRM sync, and searchable conversation history.",
+    expertRecommendation: "Use Fireflies.ai when your main problem is losing information after meetings. It is strongest for recording calls, generating summaries, extracting action items, searching past conversations, and syncing meeting notes into CRM or team workflows.\n\nIf you need broader meeting category coverage, compare Fireflies with Otter and Zoom AI. If you need backend automation after the meeting, Make is the better tool to connect actions across apps. In this cluster, Fireflies should be positioned as the meeting memory and conversation intelligence layer.",
     faq: [
       {
-        question: "How does Fireflies.ai join my meetings?",
-        answer: "Fireflies integrates directly with your Google or Outlook calendar. It automatically joins your scheduled Zoom, Google Meet, or Microsoft Teams calls as a silent participant to record and transcribe the conversation in real-time."
+        question: "What is Fireflies.ai best for?",
+        answer: "Fireflies.ai is best for recording, transcribing, summarizing, and searching meetings. It is useful for B2B teams that want meeting notes, action items, customer context, and CRM-ready follow-ups without relying only on manual note-taking."
       },
       {
-        question: "Can Fireflies automatically generate meeting summaries?",
-        answer: "Yes. Immediately after the meeting, the AI analyzes the transcript and generates a comprehensive summary. This includes bullet points of key takeaways, decisions made, and specific action items assigned to team members."
+        question: "Which meeting platforms does Fireflies.ai work with?",
+        answer: "Fireflies is commonly used with platforms such as Zoom, Google Meet, Microsoft Teams, and Webex. Teams should confirm current platform support and permissions in their Fireflies account before rolling it out broadly."
       },
       {
-        question: "Does Fireflies.ai support transcription in languages other than English?",
-        answer: "Absolutely. Fireflies supports highly accurate transcription in over 60 languages. It's an ideal solution for global teams, ensuring that multi-lingual conversations are captured and documented perfectly."
+        question: "Can Fireflies.ai sync notes into a CRM?",
+        answer: "Yes. Fireflies supports integrations that can help sync meeting notes, tasks, and conversation updates into CRM and collaboration workflows. Teams should still review important fields and customer-facing follow-ups before relying on automation."
+      },
+      {
+        question: "Is Fireflies.ai useful for sales and customer success teams?",
+        answer: "Yes. Sales and customer success teams can use Fireflies to preserve call context, capture next steps, search previous conversations, and keep better records of customer discussions."
+      },
+      {
+        question: "How is Fireflies.ai different from Make and Chatbase?",
+        answer: "Fireflies focuses on meetings and conversation intelligence. Make is better for backend workflow automation across apps, and Chatbase is focused on customer-facing website AI agents trained on business content."
       }
     ]
   },
@@ -313,31 +326,46 @@ export const platforms = [
     category: "Sales",
     icon: Mail,
     affiliateLink: "https://hunter.io/?via=b2baistack",
-    metric: "100M+",
-    metricLabel: "Verified Emails",
-    descFreelancer: "Find & verify any B2B email in seconds — 3M+ sales teams trust Hunter for outreach.",
-    descBusiness: "Find & verify any B2B email in seconds — 3M+ sales teams trust Hunter for outreach.",
+    metric: "Email",
+    metricLabel: "Finder",
+    metricBusiness: "Email",
+    metricLabelBusiness: "Verifier",
+    shortDescription: "Find, verify, and manage professional B2B email outreach with domain search, email finder, verification, and campaigns.",
+    descFreelancer: "Find professional email addresses, verify contacts, and prepare outreach lists for clients, partnerships, recruiting, and sales research without relying on guesswork.",
+    descBusiness: "Build B2B prospect lists, find professional email addresses, verify deliverability, and run lightweight outbound campaigns from one prospecting workflow.",
     imagePath: "/hunter.png",
-    longDescription: "Hunter.io is the leading B2B email intelligence platform trusted by over 3 million sales professionals worldwide. It crawls 30 million web pages daily to maintain a database of 100M+ verified professional email addresses across 76 million indexed websites. Sales teams use Hunter to instantly find the right contact at any company, verify deliverability before hitting send, and launch targeted cold email campaigns — all from a single platform. By eliminating manual prospecting and reducing bounce rates, Hunter dramatically accelerates pipeline generation and outbound ROI.",
+    longDescription: "Hunter.io helps B2B teams find and verify professional email addresses for prospecting, recruiting, partnerships, and outbound sales. Teams can search by company domain, find emails from a person and company, verify addresses before outreach, organize leads, and run email campaigns. It is most useful as a practical email discovery and validation layer for sales and growth teams that need cleaner contact data before starting outreach. Teams should still follow consent, deliverability, privacy, and anti-spam rules for every market they contact.",
     features: [
-      "Domain Search: Instantly find all verified email addresses associated with any company domain.",
-      "Email Verification: Validate deliverability in real-time to protect your sender reputation and reduce bounces.",
-      "Cold Email Campaigns: Send personalized outreach sequences directly from Hunter with built-in scheduling and tracking."
+      "Domain search: Find publicly available professional email patterns and addresses connected to a company or domain.",
+      "Email finder: Search for a professional email address using a person's name and company or domain.",
+      "Email verifier: Check email addresses before outreach to reduce invalid contacts and protect sender reputation.",
+      "Lead list workflow: Save prospects, organize contact research, and prepare cleaner lists for sales, recruiting, partnerships, or agency work.",
+      "Campaigns and sequences: Run lightweight cold email campaigns and follow-ups from the same prospecting workflow.",
+      "API and integrations: Connect Hunter data with CRM, enrichment, spreadsheet, and automation workflows where appropriate."
     ],
     ctaText: "Try Hunter.io Free",
-    bestFor: "B2B sales teams, SDRs, and growth marketers looking to find verified emails and launch outbound campaigns faster.",
+    bestFor: "B2B sales teams, SDRs, founders, recruiters, partnership teams, and agencies that need to find, verify, and organize professional email addresses for responsible outbound workflows.",
+    expertRecommendation: "Use Hunter.io when your main job is finding and verifying professional email addresses before outreach. It is strongest for domain search, email finder workflows, email verification, prospect lists, and lightweight cold email campaigns. If you need broader sales intelligence, buying signals, or large database workflows, compare Hunter with Apollo or Juicebox. If you need backend automation across apps and APIs, Make is the better fit. In this cluster, Hunter should be positioned as the email discovery and verification layer for responsible B2B outbound.",
     faq: [
       {
+        question: "What is Hunter.io best for?",
+        answer: "Hunter.io is best for finding and verifying professional email addresses for B2B prospecting, recruiting, partnerships, and outbound sales. It helps teams search by company domain, find emails for specific people, verify addresses, and organize leads before outreach."
+      },
+      {
         question: "How does Hunter.io find email addresses?",
-        answer: "Hunter crawls over 30 million public web pages every day and cross-references data from 650 million public sources to index professional email addresses. When you search for a domain, it returns all verified contacts associated with that company."
+        answer: "Hunter can search for professional email addresses connected to a company domain and can also help find an address from a person's name and company or domain. Teams should still review the source context and use the data responsibly."
       },
       {
-        question: "How accurate is Hunter's email verification?",
-        answer: "Hunter's verification engine checks deliverability in real-time against multiple signals — including MX records, SMTP responses, and catch-all detection. This ensures extremely high accuracy and keeps your bounce rate low, protecting your sender reputation."
+        question: "Does Hunter.io verify email addresses?",
+        answer: "Yes. Hunter includes email verification so teams can check addresses before outreach. Verification can help reduce invalid contacts, but it does not guarantee deliverability, replies, or campaign performance."
       },
       {
-        question: "Can I send cold emails directly from Hunter?",
-        answer: "Yes. Hunter includes a built-in cold email tool that lets you create personalized outreach campaigns, schedule follow-ups, and track opens and clicks — all without needing a separate email automation platform."
+        question: "Can Hunter.io run cold email campaigns?",
+        answer: "Yes. Hunter includes campaign features for sending outreach sequences and follow-ups. Teams should still follow consent, unsubscribe, privacy, and anti-spam requirements in every market they contact."
+      },
+      {
+        question: "How is Hunter.io different from Apollo, Juicebox, and Make?",
+        answer: "Hunter is focused on email discovery, email verification, and lightweight outreach. Apollo is broader for sales intelligence and engagement workflows, Juicebox is stronger for AI-assisted people and talent search, and Make is for automating workflows across apps and APIs."
       }
     ]
   },
@@ -679,29 +707,44 @@ export const platforms = [
     websiteUrl: "https://juicebox.ai/?via=742235",
     metric: "800M+",
     metricLabel: "Profiles",
-    shortDescription: "Find, filter, and outreach to top-tier candidates in seconds using AI natural language search.",
-    descFreelancer: "Find, filter, and outreach to top-tier candidates in seconds using AI natural language search.",
-    descBusiness: "Find, filter, and outreach to top-tier candidates in seconds using AI natural language search.",
+    metricBusiness: "AI",
+    metricLabelBusiness: "Search",
+    shortDescription: "Use AI people search to find candidates and prospects with natural-language sourcing, profile enrichment, and outreach workflows.",
+    descFreelancer: "Find candidates, prospects, or expert profiles with natural-language AI search, profile signals, enrichment, and outreach support.",
+    descBusiness: "Source candidates and build talent pipelines with AI people search, profile data, shortlists, outreach drafts, and recruiting workflow support.",
     imagePath: "https://image.thum.io/get/width/1200/crop/675/https://juicebox.ai/",
-    longDescription: "Traditional recruiting tools require complex search strings and hours of manual filtering. Juicebox completely redefines the sourcing process by allowing you to search for talent the same way you talk to a human researcher. Whether you need a \"Senior Python Developer\" or a \"Growth Marketer,\" the AI understands the context instantly. It crawls through deep professional data across multiple platforms, builds a highly accurate shortlist, and handles automated, personalized email outreach to candidates.",
+    longDescription: "Juicebox helps recruiting and sourcing teams search for people using natural language instead of relying only on complex Boolean queries. Teams can describe the candidate profile they need, explore matching professional profiles, refine searches, build shortlists, enrich profiles, and support outreach workflows. It is most useful for recruiters, founders, agencies, and talent teams that need a faster way to research candidates and build sourcing pipelines while still applying human review, judgment, and compliance checks before outreach.",
     features: [
-      "Instant Sourcing: Turn days of manual searching into a 60-second AI task.",
-      "Cross-Platform Intelligence: Aggregates public data from 30+ verified sources to find hidden talent.",
-      "Automated Outreach: Drafts highly personalized emails and syncs replies directly with your CRM/ATS."
+      "Natural-language people search: Describe the candidate, talent profile, or professional audience you need instead of building every query manually.",
+      "Large professional profile index: Search across a broad profile dataset to discover candidates, prospects, experts, and niche professional audiences.",
+      "Candidate and prospect filters: Refine searches by role, company, skills, location, experience, and other professional signals.",
+      "Shortlists and profile review: Compare potential matches, organize profiles, and review fit before outreach or handoff.",
+      "Outreach workflow support: Draft or prepare outreach context based on the role, candidate profile, or sourcing campaign.",
+      "Recruiting and GTM workflows: Use Juicebox for talent sourcing, agency recruiting, founder hiring, market mapping, and people research."
     ],
     ctaText: "Try Juicebox Free",
+    bestFor: "Recruiters, sourcing teams, hiring managers, founders, agencies, and GTM teams that need AI-assisted people search for candidates, experts, prospects, or niche professional audiences.",
+    expertRecommendation: "Use Juicebox when your main workflow is AI-assisted people search: finding candidates, experts, prospects, or professional audiences from a natural-language brief. It is strongest for sourcing research, shortlist building, profile review, and recruiting workflows where human judgment still matters. If your main need is finding and verifying professional email addresses, Hunter.io is the better fit. If you need a broader sales engagement platform, compare Apollo. In this cluster, Juicebox should be positioned as the AI people search and sourcing tool, not as a guaranteed hiring or outreach performance engine.",
     faq: [
       {
-        question: "Does Juicebox replace a human recruiter?",
-        answer: "No, it replaces the manual \"sourcing\" phase. Juicebox handles 90% of the tedious work, allowing you to focus entirely on interviewing and closing warm candidates."
+        question: "What is Juicebox best for?",
+        answer: "Juicebox is best for AI-assisted people search, candidate sourcing, talent research, shortlist building, and professional profile discovery. It is useful when teams need to find candidates, experts, prospects, or niche professional audiences from a natural-language brief."
       },
       {
-        question: "Where does Juicebox get its candidate data?",
-        answer: "It aggregates public data from over 30 different sources, not just LinkedIn, uncovering passive candidates."
+        question: "How does Juicebox search for candidates?",
+        answer: "Juicebox lets teams describe the type of person they are looking for and then refine results using professional signals such as role, skills, company, location, and experience. Recruiters should still review fit manually before outreach."
       },
       {
-        question: "Can I integrate Juicebox with my existing ATS?",
-        answer: "Yes. Juicebox syncs seamlessly with all major ATS and CRM platforms."
+        question: "Does Juicebox replace recruiters?",
+        answer: "No. Juicebox is better understood as a sourcing and people research layer. It can help discover and organize potential candidates, but recruiters still need to evaluate fit, personalize outreach, manage interviews, and handle hiring decisions."
+      },
+      {
+        question: "Can Juicebox help with outreach?",
+        answer: "Juicebox can support outreach workflows by helping teams prepare context and drafts around a candidate or sourcing campaign. Teams should still personalize messages and follow consent, privacy, and platform rules."
+      },
+      {
+        question: "How is Juicebox different from Hunter.io, Apollo, and LinkedIn Recruiter?",
+        answer: "Juicebox focuses on AI-assisted people search and sourcing from natural-language briefs. Hunter.io is better for finding and verifying professional email addresses, Apollo is broader for sales intelligence and engagement, and LinkedIn Recruiter is a dedicated recruiting platform inside the LinkedIn ecosystem."
       }
     ]
   },

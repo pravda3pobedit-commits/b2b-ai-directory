@@ -25,31 +25,44 @@ export const platforms = [
     category: "Content Creation",
     icon: Video,
     affiliateLink: "https://vidyo.ai?via=gzs7oi",
-    metric: "10x Faster",
-    metricLabel: "Content Output",
+    metric: "4M+",
+    metricLabel: "Users",
+    shortDescription: "Repurpose webinars, podcasts, demos, and long-form videos into social-ready clips, captions, and posts with Quso (ex-Vidyo).",
     descFreelancer: "Scale your content marketing pipeline. Automatically repurpose long-form videos into high-converting short assets.",
-    descBusiness: "Scale your agency's content pipeline. Automatically convert webinars, town halls, and long-form corporate videos into branded, social-ready clips in bulk.",
+    descBusiness: "Turn webinars, podcasts, product demos, and recorded sessions into short clips, captions, social posts, and scheduled content with Quso's AI repurposing workflow.",
     imagePath: "/quso.png",
-    longDescription: "Quso (ex-Vidyo) revolutionizes the way marketing teams repurpose long-form video content. By leveraging advanced AI, it automatically identifies engaging moments in webinars and town halls, instantly converting them into high-converting, branded short clips for social media. This drastically cuts down video editing times and ensures a consistent flow of enterprise content.",
+    longDescription: "Quso (ex-Vidyo) helps B2B teams repurpose long-form video into short-form content for LinkedIn, YouTube Shorts, TikTok, Instagram Reels, and other social channels. It can identify clip-worthy moments, resize videos for different formats, add captions, apply reusable brand templates, and support publishing workflows from the same dashboard. For content teams, agencies, coaches, and founders, the strongest use case is turning webinars, podcasts, demos, interviews, and recorded sessions into a steady pipeline of on-brand social assets without manually cutting every clip from scratch.",
     features: [
-      "Automated clip generation",
-      "Brand kit customization",
-      "AI virality scoring",
-      "Multi-platform aspect ratios"
+      "AI long-to-short clipping: Turn webinars, podcasts, demos, interviews, and recordings into short clips for social channels.",
+      "Clip selection and scene analysis: Use AI to surface clip-worthy moments instead of scrubbing through full recordings manually.",
+      "Captions and subtitle styling: Add readable captions, teaser text, and subtitle styles for social viewing.",
+      "Brand kits and reusable templates: Apply logos, colors, fonts, and layouts so clips stay consistent across campaigns and clients.",
+      "Multi-platform resizing and exports: Prepare vertical, square, and channel-ready formats for TikTok, Instagram Reels, YouTube Shorts, LinkedIn, and other channels.",
+      "Publishing workflow: Create clips, captions, show notes, blog drafts, and scheduled posts from one repurposing dashboard."
     ],
     ctaText: "Try for Free",
+    bestFor: "B2B content teams, agencies, founders, coaches, podcasters, and social media managers who already have long-form video and need to turn it into short clips, captions, show notes, blog drafts, and scheduled social posts.",
+    expertRecommendation: "Use Quso (ex-Vidyo) when the source material already exists: webinars, podcasts, interviews, product demos, workshops, screen recordings, or live sessions. It is strongest for repurposing long-form video into short social assets with captions, brand templates, resizing, and scheduling support.\n\nIf you need to generate a brand-new video ad from a prompt or campaign brief, InVideo AI is usually the better first choice. If the workflow is URL-to-UGC ad variation for paid acquisition, compare Quso with Creatify AI. In this video/ad cluster, Quso should be positioned as the repurposing tool, not the primary prompt-to-video generator.",
     faq: [
       {
-        question: "What exactly does Quso (ex-Vidyo) do?",
-        answer: "Quso uses AI to automatically repurpose long-form videos (like podcasts, webinars, or streams) into short, highly engaging clips optimized for TikTok, YouTube Shorts, and Instagram Reels. It handles scene selection, auto-framing, and generates dynamic subtitles."
+        question: "What is Quso (ex-Vidyo) best for?",
+        answer: "Quso is best for repurposing existing long-form videos into short social clips, captions, show notes, blog drafts, and scheduled posts. It is a strong fit for teams that already record webinars, podcasts, interviews, demos, workshops, or live sessions and want more usable content from each recording."
       },
       {
-        question: "Can I customize the look of the subtitles?",
-        answer: "Yes. You have full control over the visual style. You can customize fonts, colors, and layout, or use pre-built templates to ensure your short videos perfectly match your brand identity."
+        question: "Is Vidyo.ai now Quso?",
+        answer: "Yes. Quso's own site says Vidyo.ai is now part of Quso.ai. The product has expanded from AI video clipping and editing into a broader Social Media AI suite for content creation, scheduling, analytics, and video editing."
       },
       {
-        question: "Does Quso support languages other than English?",
-        answer: "Absolutely. The AI accurately transcribes and generates captions in multiple languages, making it incredibly easy to localize your content and reach a global audience without manual translation."
+        question: "Can Quso turn long videos into short clips?",
+        answer: "Yes. Quso can help turn long videos into short clips by identifying clip-worthy moments, resizing videos for social formats, adding captions, and letting teams review, edit, export, or schedule the resulting clips."
+      },
+      {
+        question: "Does Quso support captions and brand templates?",
+        answer: "Yes. Quso supports AI captions, subtitle styling, brand kits, reusable templates, logos, colors, fonts, and other brand assets so repurposed clips can stay visually consistent across channels and clients."
+      },
+      {
+        question: "Should I choose Quso, InVideo AI, or Creatify AI?",
+        answer: "Choose Quso when you already have long-form video and want to repurpose it into clips and social posts. Choose InVideo AI when you want to create a new video from a prompt, product idea, or campaign brief. Compare Creatify AI when your main goal is product URL-to-UGC ad variations for paid campaigns."
       }
     ]
   },

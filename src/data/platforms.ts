@@ -125,31 +125,44 @@ export const platforms = [
     category: "Content Creation",
     icon: Mic2,
     affiliateLink: "https://try.elevenlabs.io/47hmho07qp70",
-    metric: "Ultra-HD",
-    metricLabel: "Voice Quality",
-    descFreelancer: "Add premium, ultra-realistic voiceovers to your corporate projects instantly. Produce high-quality audio without hiring voice actors.",
-    descBusiness: "Automate voiceovers for marketing campaigns, tutorials, and ads. Drastically reduce audio production costs and turnaround times.",
+    metric: "70+",
+    metricLabel: "Languages",
+    shortDescription: "Generate realistic AI voiceovers, dubbing, voice clones, and audio API workflows for B2B videos, ads, training, and products.",
+    descFreelancer: "Create realistic voiceovers, narration, podcast audio, and localized content for client projects without recording every line manually.",
+    descBusiness: "Generate AI voiceovers, dubbing, cloned voices, and audio API workflows for marketing videos, product demos, training, support, and localization.",
     imagePath: "/elevenlabs.png",
-    longDescription: "ElevenLabs is the industry leader in ultra-realistic AI voice synthesis, providing businesses with studio-quality audio instantly. It allows enterprises to clone voices, generate highly emotive voiceovers for marketing campaigns, and localize content across dozens of languages without hiring voice actors. This significantly reduces audio production costs and turnaround times.",
+    longDescription: "ElevenLabs helps B2B teams create realistic AI audio for videos, ads, product demos, training, podcasts, audiobooks, support content, and software products. Teams can turn scripts into natural-sounding speech, choose from large voice libraries, create approved custom voices, localize content with dubbing workflows, and use APIs or SDKs to add speech generation to internal tools and customer-facing products. For marketing and content teams, the strongest use case is producing consistent voiceovers and localized audio faster while still reviewing every output for brand fit, accuracy, usage rights, and voice permissions.",
     features: [
-      "Ultra-realistic voice synthesis",
-      "Voice cloning in 29 languages",
-      "Emotion and pacing control",
-      "Enterprise-grade API access"
+      "AI text-to-speech: Turn scripts, product copy, training material, and narration into realistic spoken audio.",
+      "Video and ad voiceovers: Create voice tracks for product demos, explainers, social videos, ads, tutorials, and presentations.",
+      "Voice cloning and custom voices: Create approved brand, creator, or narrator voices with proper consent and usage controls.",
+      "Dubbing and localization: Adapt existing audio or video content for multilingual audiences and regional campaigns.",
+      "Voice library and voice design: Choose from large voice libraries or design voices for different tones, roles, and content styles.",
+      "API and product workflows: Use ElevenLabs APIs and SDKs for speech generation, transcription, voice agents, and custom audio products."
     ],
     ctaText: "Try for Free",
+    bestFor: "B2B marketers, video teams, educators, podcasters, agencies, product teams, and developers that need realistic AI voiceovers, localization, voice cloning, or audio APIs.",
+    expertRecommendation: "Use ElevenLabs when audio quality, voice consistency, localization, or API access matters more than full video generation. It is strongest for voiceovers, narration, dubbing, voice cloning with permission, podcast-style audio, training content, and product audio workflows.\n\nIf you need to generate a full video from a prompt, InVideo AI is usually the better fit. If you already have long-form video and want to cut it into short clips, use Quso. If your priority is URL-to-UGC video ad variation, compare Creatify AI. In this cluster, ElevenLabs should be positioned as the audio and voice layer for video, ads, training, and product experiences.",
     faq: [
       {
-        question: "What makes ElevenLabs different from other AI voice generators?",
-        answer: "ElevenLabs offers hyper-realistic, emotionally expressive text-to-speech. It understands context, allowing the AI to adjust intonation, pacing, and emotion naturally, making it sound entirely human rather than robotic."
+        question: "What is ElevenLabs best for?",
+        answer: "ElevenLabs is best for realistic AI voiceovers, text-to-speech, dubbing, voice cloning, narration, podcasts, training audio, and API-based audio workflows. It is especially useful when teams need consistent voice quality across videos, ads, product demos, learning content, or localized campaigns."
       },
       {
-        question: "Can I clone my own voice using ElevenLabs?",
-        answer: "Yes, the platform features a powerful Professional Voice Cloning tool. You only need to upload a clean audio sample of your voice, and the AI will create a highly accurate digital replica that you can use for any text-to-speech generation."
+        question: "Can ElevenLabs create voiceovers for B2B videos and ads?",
+        answer: "Yes. ElevenLabs can turn scripts into AI-generated voiceovers for product demos, explainers, social videos, ads, tutorials, webinars, and presentations. Teams should still review the script, tone, pronunciation, licensing, and campaign context before publishing."
       },
       {
-        question: "Does ElevenLabs support multiple languages?",
-        answer: "Absolutely. The platform supports dozens of languages with native accents. It even offers an AI dubbing feature that can translate and dub your existing audio or video files into another language while perfectly preserving the original speaker's unique voice characteristics."
+        question: "Can I clone a voice with ElevenLabs?",
+        answer: "Yes. ElevenLabs supports voice cloning and custom voices, but teams should only clone voices they own or have explicit permission to use. For commercial work, review the platform terms, consent requirements, and internal brand or legal policies before using a cloned voice."
+      },
+      {
+        question: "Does ElevenLabs support dubbing and localization?",
+        answer: "Yes. ElevenLabs supports multilingual speech and dubbing workflows that can help teams adapt videos, training content, product explainers, and marketing assets for different markets. Quality review is still important for translation accuracy, pronunciation, and brand tone."
+      },
+      {
+        question: "How is ElevenLabs different from InVideo AI, Quso, and Creatify AI?",
+        answer: "ElevenLabs focuses on the audio layer: voiceovers, dubbing, voice cloning, and speech APIs. InVideo AI is broader for prompt-to-video generation, Quso is better for repurposing existing long-form video into clips, and Creatify AI focuses on product URL-to-UGC ad variations."
       }
     ]
   },

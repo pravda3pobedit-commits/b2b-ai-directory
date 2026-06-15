@@ -119,8 +119,12 @@ export default function Home() {
       {/* Floating Sticky Navigation */}
       <Navbar />
 
+      <div className="relative z-20 mt-20 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-emerald-200">
+        OpenClaw preview test - homepage branch marker
+      </div>
+
       {/* Main Content Area */}
-      <div className="flex flex-col items-center w-full z-10 pt-14 mt-0">
+      <div className="flex flex-col items-center w-full z-10 pt-6 mt-0">
 
         {/* Hero Section */}
         <div className="flex flex-col items-center text-center max-w-4xl space-y-1 mb-1 px-6">

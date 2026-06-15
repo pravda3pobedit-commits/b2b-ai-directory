@@ -188,6 +188,13 @@ export default function Home() {
             >
               Explore AI video generators →
             </Link>
+            <span className="text-gray-700 text-xs hidden sm:inline">·</span>
+            <Link
+              href="/category/ai-sales-prospecting-tools"
+              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Explore AI sales prospecting tools →
+            </Link>
           </div>
         </div>
 

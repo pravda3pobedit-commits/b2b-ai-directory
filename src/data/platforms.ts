@@ -173,33 +173,46 @@ export const platforms = [
     category: "Operations",
     icon: Settings,
     affiliateLink: "https://www.make.com/en/register?pc=b2baistack",
-    metric: "$9/mo",
-    metricLabel: "Starting Price",
-    metricBusiness: "10x",
-    metricLabelBusiness: "Cost Savings",
-    descFreelancer: "The powerful, visual, and cost-effective alternative to Zapier.",
-    descBusiness: "The powerful, visual, and cost-effective alternative to Zapier.",
+    metric: "3,000+",
+    metricLabel: "Apps",
+    metricBusiness: "400+",
+    metricLabelBusiness: "AI Apps",
+    shortDescription: "Build visual AI automations, app integrations, webhooks, and multi-step workflows across your B2B operations stack.",
+    descFreelancer: "Build client automations with visual workflows, app integrations, webhooks, HTTP modules, routers, filters, and AI steps.",
+    descBusiness: "Connect apps, AI tools, CRMs, spreadsheets, webhooks, and internal processes in visual workflows that automate B2B operations.",
     imagePath: "/make.png",
-    longDescription: "Make (formerly Integromat) is the most powerful visual automation platform for businesses that want enterprise-grade workflow logic without enterprise pricing. Its drag-and-drop scenario builder lets teams design complex, multi-step automations with conditional logic, data transformation, and error handling — all without writing a single line of code. At a fraction of the cost of Zapier, Make is the go-to choice for scaling operations efficiently.",
+    longDescription: "Make is a visual automation platform for building workflows across apps, data, APIs, and AI tools. B2B teams can use Make to connect CRMs, spreadsheets, forms, support tools, marketing platforms, finance systems, and AI apps into multi-step scenarios with triggers, actions, routers, filters, webhooks, HTTP modules, and error handling. It is especially useful for operations, marketing, sales, customer support, finance, and technical teams that need more control than simple one-step automations while still working in a no-code visual builder.",
     features: [
-      "Visual Workflow Builder: Design complex automations and logic visually with an intuitive drag-and-drop interface, no coding required.",
-      "Unbeatable Pricing: Automate your business processes at a fraction of the cost of legacy tools like Zapier (get thousands of tasks for just $9/month).",
-      "Limitless Integrations: Connect to thousands of apps out-of-the-box or use advanced HTTP/webhook modules to integrate any API on the web."
+      "Visual scenario builder: Design multi-step automations with triggers, actions, routers, filters, and branching logic.",
+      "3,000+ app integrations: Connect CRMs, spreadsheets, messaging tools, databases, marketing apps, support tools, and AI products.",
+      "AI workflow automation: Add LLMs, AI agents, content generation, classification, summarization, and enrichment steps into business workflows.",
+      "Webhooks and HTTP modules: Receive events, send data, and connect custom APIs or internal systems beyond pre-built app modules.",
+      "Data transformation and routing: Map fields, transform payloads, route records, handle errors, and keep systems synchronized.",
+      "Team operations workflows: Automate lead routing, CRM updates, reporting, content operations, support handoffs, finance tasks, and internal approvals."
     ],
     ctaText: "Start Automating for Free",
-    bestFor: "B2B founders, operations managers, and developers looking to scale automations while radically cutting software costs.",
+    bestFor: "B2B operations teams, marketers, sales ops, agencies, founders, and technical operators that need visual workflow automation across apps, APIs, AI tools, and internal processes.",
+    expertRecommendation: "Use Make when you need visual control over multi-step workflows, branching logic, webhooks, API calls, and AI automation across many business systems. It is strongest for operations automation, AI workflow orchestration, lead routing, CRM updates, reporting, support handoffs, content workflows, and custom integrations that go beyond a simple one-app-to-one-app trigger.\n\nIf your main need is a simple automation with minimal setup, Zapier may be easier for some teams. If you need deeper visual logic, webhooks, HTTP modules, routers, and more customizable workflow structure, Make is usually the better page to optimize.",
     faq: [
       {
-        question: "Is Make.com better than Zapier?",
-        answer: "Many advanced users prefer Make because of its highly visual, drag-and-drop interface that allows for unlimited branching, complex routing, and multi-step automations. Plus, it generally offers a much more cost-effective pricing structure compared to Zapier."
+        question: "What is Make best for?",
+        answer: "Make is best for building visual automations across apps, APIs, webhooks, and AI tools. It is a strong fit for B2B teams that need multi-step workflows, branching logic, data routing, CRM updates, reporting, support handoffs, and internal operations automations."
       },
       {
-        question: "Do I need to know how to code to use Make?",
-        answer: "No, Make is a powerful no-code platform. You build workflows by visually connecting app modules. However, if you are a developer, you can still use advanced features like JSON parsing, custom API calls, and webhooks."
+        question: "Can Make automate AI workflows?",
+        answer: "Yes. Make can connect AI apps and LLM tools into visual workflows for tasks such as content generation, classification, summarization, enrichment, routing, and agentic automation. Teams should still review AI outputs before using them in customer-facing or high-stakes workflows."
       },
       {
-        question: "What kind of apps can I automate with Make?",
-        answer: "Make integrates seamlessly with thousands of popular applications, including CRMs, social media platforms, Google Workspace, Slack, and AI tools like OpenAI. If an app has an API, you can likely connect it using Make's HTTP module."
+        question: "Does Make support webhooks and custom APIs?",
+        answer: "Yes. Make supports webhooks and HTTP modules, which makes it useful for connecting tools that are not covered by a standard integration. Teams can receive events, send requests, transform payloads, and move data between custom systems."
+      },
+      {
+        question: "Do I need to code to use Make?",
+        answer: "No. Make is designed around a visual no-code scenario builder. Technical users can still use advanced features such as webhooks, HTTP requests, JSON mapping, filters, routers, and error handling for more complex workflows."
+      },
+      {
+        question: "How is Make different from Zapier?",
+        answer: "Make is often chosen when teams want more visual control over workflow logic, branching, data mapping, webhooks, and custom API steps. Zapier can be simpler for straightforward automations, while Make is stronger for teams that want to design and inspect more complex scenarios visually."
       }
     ]
   },
@@ -210,33 +223,46 @@ export const platforms = [
     category: "Customer Support",
     icon: MessageSquare,
     affiliateLink: "https://link.chatbase.co/igor-pinyugin",
-    metric: "80%",
-    metricLabel: "Query Automation",
-    metricBusiness: "2 min",
-    metricLabelBusiness: "Setup Time",
-    descFreelancer: "Build a custom AI chatbot from your data in seconds and slash support costs.",
-    descBusiness: "Build a custom AI chatbot from your data in seconds and slash support costs.",
+    metric: "No-code",
+    metricLabel: "AI Agent",
+    metricBusiness: "Real-time",
+    metricLabelBusiness: "Data Sync",
+    shortDescription: "Build a customer-facing AI support agent trained on your website, docs, FAQs, and business data for B2B support and lead capture.",
+    descFreelancer: "Create AI support agents and website chatbots for client sites using website content, docs, FAQs, data sources, and integrations.",
+    descBusiness: "Deploy a customer-facing AI agent trained on your business content, connected to support workflows, and embedded on your website.",
     imagePath: "/chatbase.png",
-    longDescription: "Chatbase is the fastest way to deploy a custom AI assistant trained entirely on your own content. Upload a PDF, paste a URL, or drop in plain text — and within minutes you have a fully functional support bot that handles queries 24/7. It automates up to 80% of repetitive customer questions at a fraction of the cost of legacy platforms like Intercom, and deploys on your site with a single line of code.",
+    longDescription: "Chatbase helps B2B teams build customer-facing AI agents that answer questions using company-approved content and connected business data. Teams can train an agent from website pages, help docs, FAQs, files, and other knowledge sources, then embed it on a website or connect it into support, sales, and customer engagement workflows. For SaaS companies, agencies, ecommerce teams, and support teams, the strongest use case is giving visitors and customers a guided AI support experience while keeping human review, escalation paths, source quality, and data permissions under control.",
     features: [
-      "Train on Your Data: Simply upload a PDF, add a website link, or paste text to generate a fully functional AI assistant in under 2 minutes.",
-      "The Cost-Effective Intercom Alternative: Automate up to 80% of customer queries 24/7 without the massive price tag of legacy support platforms.",
-      "Seamless Integration: Embed the chat widget on your website with a single line of code, or connect it directly to Slack, Zapier, and WhatsApp."
+      "Train on business content: Build an AI agent from website pages, help docs, FAQs, files, product content, and approved knowledge sources.",
+      "Website chatbot deployment: Embed a customer-facing chat widget or agent experience on landing pages, help centers, product sites, and client websites.",
+      "Real-time data and system connections: Connect agents to CRMs, order systems, helpdesk tools, and other business systems where appropriate.",
+      "Support and lead workflows: Use the agent to answer common questions, collect contact details, qualify interest, and route conversations to the right team.",
+      "No-code setup with advanced controls: Configure behavior, knowledge sources, prompts, handoff rules, branding, and conversation flows without rebuilding a custom chatbot from scratch.",
+      "Analytics and improvement loop: Review conversations, identify missing knowledge, improve answers, and refine the customer experience over time."
     ],
     ctaText: "Build Your Free AI Bot",
-    bestFor: "B2B SaaS founders, agencies, and customer success teams looking to instantly scale support without expanding headcount.",
+    bestFor: "B2B SaaS teams, agencies, ecommerce brands, support teams, founders, and customer success teams that need a customer-facing AI support agent trained on their own content and workflows.",
+    expertRecommendation: "Use Chatbase when your main goal is to add a customer-facing AI agent to a website, help center, product page, or support workflow. It is strongest when the agent needs to answer from your own docs, FAQs, website content, product information, and connected business systems rather than from a generic model alone.\n\nIf you need an established enterprise helpdesk with ticketing, agent seats, and broad support operations, compare Chatbase with Zendesk or Intercom. If you mainly need backend automation between apps, Make is the better fit. In this cluster, Chatbase should be positioned as the practical AI support agent and website chatbot page.",
     faq: [
       {
-        question: "How do I train Chatbase on my own data?",
-        answer: "Training is incredibly simple. You can upload files (PDF, DOCX, TXT), paste raw text, or just provide a link to your website. Chatbase will automatically crawl and ingest your content to build a custom AI chatbot that knows your business inside and out."
+        question: "What is Chatbase best for?",
+        answer: "Chatbase is best for building customer-facing AI agents and website chatbots trained on company content. It is a strong fit for B2B SaaS teams, agencies, ecommerce brands, and support teams that want an AI support layer on top of websites, docs, FAQs, and customer workflows."
       },
       {
-        question: "How do I add the Chatbase widget to my website?",
-        answer: "Once your chatbot is trained, Chatbase provides a simple embed code (iframe or script tag). You can easily paste this into any website builder, including Webflow, WordPress, Shopify, or Wix, to display a live chat bubble for your visitors."
+        question: "How does Chatbase train an AI agent?",
+        answer: "Chatbase can use approved knowledge sources such as website pages, help documentation, FAQs, files, and other business content. Teams should review what data is included, keep sources current, and test answers before using the agent with customers."
       },
       {
-        question: "Can the chatbot capture leads?",
-        answer: "Yes. You can configure Chatbase to ask visitors for their name, email, or phone number before or during the conversation. This turns your AI support bot into an automated 24/7 lead generation machine."
+        question: "Can Chatbase be embedded on a website?",
+        answer: "Yes. Chatbase is designed for customer-facing website deployment, including chat widgets or agent experiences on landing pages, help centers, product sites, and client websites."
+      },
+      {
+        question: "Can Chatbase connect to business systems?",
+        answer: "Yes. Chatbase positions its agents around connected business data and workflows, including systems such as CRMs, order management tools, and helpdesk platforms. Teams should configure permissions carefully and avoid exposing sensitive data unintentionally."
+      },
+      {
+        question: "How is Chatbase different from Zendesk, Intercom, and Make?",
+        answer: "Chatbase is focused on building AI support agents and website chatbots trained on your content. Zendesk and Intercom are broader customer support platforms with ticketing and helpdesk workflows. Make is better for backend automation across apps, APIs, and internal processes."
       }
     ]
   },

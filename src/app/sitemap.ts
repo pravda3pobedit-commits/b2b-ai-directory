@@ -29,7 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Category pages that exist under src/app/category/*
-  const categorySlugs = ["ai-meetings-intelligence", "ai-video-ad-generators", "ai-sales-prospecting-tools"];
+  const categorySlugs = [
+    "ai-meetings-intelligence",
+    "ai-video-ad-generators",
+    "ai-sales-prospecting-tools",
+    "ai-workflow-automation-tools",
+  ];
 
   const categoryPages: MetadataRoute.Sitemap = categorySlugs.map((slug) => ({
     url: `${BASE_URL}/category/${slug}`,

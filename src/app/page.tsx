@@ -8,11 +8,27 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
+const filterCategories = [
+  "Content Creation",
+  "Marketing",
+  "Sales",
+  "AI Meetings & Intelligence",
+  "Customer Support",
+  "Operations",
+  "HR",
+  "IT & Dev",
+];
+
+const categoryLinks = [
+  { label: "AI meetings", href: "/category/ai-meetings-intelligence" },
+  { label: "Video ads", href: "/category/ai-video-ad-generators" },
+  { label: "Sales prospecting", href: "/category/ai-sales-prospecting-tools" },
+  { label: "Workflow automation", href: "/category/ai-workflow-automation-tools" },
+];
+
 export default function Home() {
   const [isPaused, setIsPaused] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
-
-  const categories = ["Content Creation", "Marketing", "Sales", "AI Meetings & Intelligence", "Customer Support", "Operations", "HR", "IT & Dev", "All"];
 
   const filteredPlatforms = platforms.filter(platform => {
     if (activeCategory === "All") return true;
@@ -158,7 +174,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-2 mt-1"
           >
-            {categories.map((cat) => (
+            {filterCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
@@ -172,37 +188,27 @@ export default function Home() {
                 {cat}
               </button>
             ))}
+            {categoryLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-400/50 hover:text-indigo-200 transition-colors duration-300 whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <button
+              onClick={() => setActiveCategory("All")}
+              className={cn(
+                "text-xs px-3 py-1 rounded-full border transition-colors duration-300",
+                activeCategory === "All"
+                  ? "bg-slate-700 text-white border-slate-600 font-medium"
+                  : "border-slate-800/80 text-slate-400 hover:bg-slate-800/50 hover:border-slate-700 hover:text-slate-300"
+              )}
+            >
+              All
+            </button>
           </motion.div>
-
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 mt-2">
-            <Link
-              href="/category/ai-meetings-intelligence"
-              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
-            >
-              Explore AI meeting assistants →
-            </Link>
-            <span className="text-gray-700 text-xs hidden sm:inline">·</span>
-            <Link
-              href="/category/ai-video-ad-generators"
-              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
-            >
-              Explore AI video generators →
-            </Link>
-            <span className="text-gray-700 text-xs hidden sm:inline">·</span>
-            <Link
-              href="/category/ai-sales-prospecting-tools"
-              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
-            >
-              Explore AI sales prospecting tools →
-            </Link>
-            <span className="text-gray-700 text-xs hidden sm:inline">·</span>
-            <Link
-              href="/category/ai-workflow-automation-tools"
-              className="inline-flex items-center gap-1 text-xs text-indigo-300 hover:text-indigo-200 transition-colors"
-            >
-              Explore AI workflow automation tools →
-            </Link>
-          </div>
         </div>
 
         {/* Cinematic Marquee Carousel */}

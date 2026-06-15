@@ -332,31 +332,44 @@ export const platforms = [
     categories: ["Marketing", "AI Ads"],
     icon: ShoppingBag,
     affiliateLink: "https://creatify.ai/?via=b2baistack",
-    metric: "ROI",
-    metricLabel: "Optimized Ads",
-    descFreelancer: "Generate unlimited high-performing ads from product links. Provide highly profitable ad creatives to B2B clients faster.",
-    descBusiness: "Generate converting video ads directly from your product URLs. Replace costly UGC agencies with an automated AI pipeline.",
+    metric: "URL-to-Ad",
+    metricLabel: "Workflow",
+    shortDescription: "Create UGC-style video ads from product URLs, scripts, AI avatars, and creative variations for paid social testing.",
+    descFreelancer: "Create product video ads and UGC-style creatives from URLs, scripts, AI avatars, and voiceovers without filming every asset from scratch.",
+    descBusiness: "Turn product pages, landing pages, and campaign ideas into AI-generated video ad variations for paid social, ecommerce, SaaS, and agency creative testing.",
     imagePath: "/creatify.png",
-    longDescription: "Creatify AI streamlines the creation of high-performing video ads by generating unlimited variations directly from product URLs. It allows performance marketing teams to rapidly test ad creatives, replacing costly UGC agencies with an automated, AI-driven pipeline. Maximize ROI and dramatically increase your creative testing velocity.",
+    longDescription: "Creatify AI helps marketing teams turn product URLs, landing pages, scripts, and campaign ideas into UGC-style video ad drafts. It is especially useful for performance marketers, ecommerce teams, SaaS founders, and agencies that need to test more product hooks, spokesperson styles, voiceovers, and short-form ad angles without booking a new creator or production team for every variation. Instead of starting with a blank timeline, teams can use Creatify to generate first-draft ad concepts, review the script and avatar, adjust the creative direction, and prepare social-ready assets for platforms such as TikTok, Instagram, YouTube, Facebook, and other paid media channels.",
     features: [
-      "URL-to-video ad generation",
-      "AI-driven script writing",
-      "Automated A/B testing variations",
-      "E-commerce platform integrations"
+      "URL-to-video ad generation: Turn product pages, landing pages, or product links into first-draft video ad creatives.",
+      "UGC-style AI avatars: Use AI presenters and spokesperson-style videos for product demos, testimonials, explainers, and paid social concepts.",
+      "AI scripts and voiceovers: Generate ad scripts, hooks, narration, and voiceover options for different creative angles.",
+      "Creative variation workflow: Produce multiple ad drafts so teams can compare hooks, avatars, scripts, and formats before launch.",
+      "Social ad formats: Prepare short-form video assets for channels such as TikTok, Instagram, YouTube, Facebook, and other paid media placements.",
+      "Product and campaign workflows: Useful for ecommerce products, SaaS offers, app campaigns, agency clients, and landing-page-driven promotions."
     ],
     ctaText: "Visit Creatify (-15%)",
+    bestFor: "Performance marketers, ecommerce brands, SaaS founders, growth teams, and agencies that need URL-to-video ad generation, UGC-style creative drafts, AI avatars, and more ad variations for paid social testing.",
+    expertRecommendation: "Use Creatify AI when your main workflow starts with a product URL, landing page, ecommerce listing, app page, or campaign offer and the goal is to produce UGC-style video ad drafts quickly. It is strongest for paid social creative testing, product demos, AI spokesperson videos, short-form ad concepts, and agency workflows where teams need multiple variations around the same offer.\n\nIf you need to generate broader video assets from a prompt or campaign brief, InVideo AI is usually the stronger first choice. If you already have long-form webinars, podcasts, interviews, or demos and want to repurpose them into short clips, Quso is the better fit. In this video/ad cluster, Creatify should be positioned as the URL-to-UGC ad variation tool.",
     faq: [
       {
-        question: "How does Creatify AI generate video ads?",
-        answer: "You simply paste a product URL (like an Amazon or Shopify link). The AI automatically extracts the product details, writes an engaging script, and generates a high-quality, UGC-style video ad using highly realistic AI avatars and voiceovers."
+        question: "What is Creatify AI best for?",
+        answer: "Creatify AI is best for creating UGC-style video ad drafts from product URLs, landing pages, scripts, and campaign ideas. It is a strong fit for paid social teams, ecommerce brands, SaaS founders, and agencies that need more ad concepts and creative variations without filming every asset manually."
       },
       {
-        question: "Are the AI avatars suitable for User-Generated Content (UGC) ads?",
-        answer: "Yes, the avatars are specifically designed to look and sound like real content creators. This native, authentic feel is perfect for TikTok, Instagram Reels, and Meta Ads, significantly lowering your Cost Per Acquisition (CPA)."
+        question: "How does Creatify AI turn a URL into a video ad?",
+        answer: "Creatify can use a product page or landing page as the starting point for a video ad. The workflow can help extract product context, generate a script, pair the concept with an AI avatar or voiceover, and produce a short-form ad draft that teams can review and edit before using in campaigns."
       },
       {
-        question: "Can I edit the video script or change the AI voice?",
-        answer: "Absolutely. While the AI does the heavy lifting, you have full creative control to rewrite the script, swap out the avatar, change the voice, or upload your own B-roll footage before exporting the final video."
+        question: "Is Creatify AI useful for UGC-style ads?",
+        answer: "Yes. Creatify is especially relevant for UGC-style ad concepts because it combines AI avatars, scripts, voiceovers, and product-focused messaging. Teams should still review each creative for brand fit, accuracy, compliance, and platform ad policies before launching it."
+      },
+      {
+        question: "How is Creatify AI different from InVideo AI and Quso?",
+        answer: "Creatify is most focused on product URL-to-video and UGC-style ad variations. InVideo AI is broader for creating new videos from prompts, product ideas, and campaign briefs. Quso is better when you already have long-form videos and want to repurpose them into short social clips."
+      },
+      {
+        question: "Is there a Creatify AI promo code?",
+        answer: "This page currently highlights promo code TEAM15 for 15% off at checkout. Discount availability and terms can change, so users should confirm the final price, discount, and plan details inside Creatify before subscribing."
       }
     ]
   },

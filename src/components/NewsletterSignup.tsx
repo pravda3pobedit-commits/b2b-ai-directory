@@ -1,10 +1,27 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Mail, ShieldCheck } from "lucide-react";
-import { type FormEvent, useId, useState } from "react";
+import { CheckCircle2, Mail, ShieldCheck } from "lucide-react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const FORM_ACTION = process.env.NEXT_PUBLIC_NEWSLETTER_FORM_ACTION;
+const BEEHIIV_FORM_ID = "10790bdf-f1b8-4bf3-a7bb-8da33b013eea";
+const BEEHIIV_ORIGIN = "https://subscribe-forms.beehiiv.com";
+const BEEHIIV_FORM_URL = `${BEEHIIV_ORIGIN}/v3/forms/${BEEHIIV_FORM_ID}`;
+
+function buildBeehiivUrl(source: string, referrer?: string) {
+  const url = new URL(BEEHIIV_FORM_URL);
+
+  url.searchParams.set("layout", "slim");
+  url.searchParams.set("utm_source", "b2baistack");
+  url.searchParams.set("utm_medium", "website");
+  url.searchParams.set("utm_campaign", source);
+
+  if (referrer) {
+    url.searchParams.set("referrer", encodeURIComponent(referrer));
+  }
+
+  return url.toString();
+}
 
 type NewsletterSignupProps = {
   className?: string;
@@ -17,27 +34,79 @@ export default function NewsletterSignup({
   compact = false,
   source = "site",
 }: NewsletterSignupProps) {
-  const emailId = useId();
   const headingId = useId();
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const fallbackUrl = useMemo(() => buildBeehiivUrl(source), [source]);
+  const [beehiivUrl, setBeehiivUrl] = useState(fallbackUrl);
+  const [iframeHeight, setIframeHeight] = useState(88);
+  const [status, setStatus] = useState<"loading" | "ready" | "success">(
+    "loading",
+  );
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    if (FORM_ACTION) return;
+  useEffect(() => {
+    setBeehiivUrl(buildBeehiivUrl(source, window.location.href));
+    setIframeHeight(88);
+    setStatus("loading");
+  }, [source]);
 
-    event.preventDefault();
+  useEffect(() => {
+    function handleBeehiivMessage(event: MessageEvent) {
+      if (event.origin !== BEEHIIV_ORIGIN) return;
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      if (!event.data || typeof event.data !== "object") return;
 
-    if (!email.includes("@") || !email.includes(".")) {
-      setStatus("error");
-      return;
+      const message = event.data as {
+        type?: string;
+        payload?: { height?: string | number };
+        url?: string;
+      };
+
+      if (message.type === "beehiiv:child-loaded") {
+        iframeRef.current?.contentWindow?.postMessage(
+          { type: "beehiiv:parent-loaded" },
+          BEEHIIV_ORIGIN,
+        );
+        return;
+      }
+
+      if (
+        message.type === "beehiiv:styles" ||
+        message.type === "beehiiv:challenge"
+      ) {
+        const nextHeight = Number.parseInt(
+          String(message.payload?.height ?? ""),
+          10,
+        );
+
+        if (Number.isFinite(nextHeight) && nextHeight > 0) {
+          setIframeHeight(Math.min(Math.max(nextHeight, 68), 520));
+        }
+
+        setStatus("ready");
+        return;
+      }
+
+      if (
+        message.type === "beehiiv:submitted" ||
+        message.type === "beehiiv:success-toast"
+      ) {
+        setStatus("success");
+        return;
+      }
+
+      if (message.type === "beehiiv:redirect" && message.url) {
+        window.location.href = message.url;
+      }
     }
 
-    setStatus("success");
-  }
+    window.addEventListener("message", handleBeehiivMessage);
+    return () => window.removeEventListener("message", handleBeehiivMessage);
+  }, []);
 
   return (
     <section
       aria-labelledby={headingId}
+      data-newsletter-source={source}
       className={cn(
         "relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5 md:p-6",
         "shadow-[0_20px_80px_-60px_rgba(99,102,241,0.8)]",
@@ -81,51 +150,46 @@ export default function NewsletterSignup({
         </div>
 
         <div>
-          <form
-            action={FORM_ACTION || undefined}
-            method="post"
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-3 sm:flex-row lg:flex-col"
-          >
-            <input type="hidden" name="source" value={source} />
-            <label htmlFor={emailId} className="sr-only">
-              Email address
-            </label>
-            <input
-              id={emailId}
-              name="email"
-              type="email"
-              required
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-                if (status !== "idle") setStatus("idle");
+          <input type="hidden" name="source" value={source} readOnly />
+
+          <div className="overflow-hidden rounded-xl border border-white/10 bg-white shadow-[0_18px_50px_-32px_rgba(0,0,0,0.85)]">
+            <iframe
+              ref={iframeRef}
+              src={beehiivUrl}
+              title="Subscribe to B2B AI Stack Notes"
+              loading="eager"
+              scrolling="no"
+              onLoad={() => {
+                setStatus((currentStatus) =>
+                  currentStatus === "loading" ? "ready" : currentStatus,
+                );
               }}
-              placeholder="you@company.com"
-              className="min-h-11 flex-1 rounded-full border border-white/10 bg-black/30 px-4 text-sm text-white outline-none transition-colors placeholder:text-slate-600 focus:border-indigo-400/60 focus:bg-black/40"
+              className="block w-full border-0 bg-white"
+              style={{ height: iframeHeight }}
             />
-            <button
-              type="submit"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-slate-200"
+          </div>
+
+          <noscript>
+            <a
+              href={fallbackUrl}
+              className="mt-3 inline-flex rounded-full bg-white px-5 py-2 text-sm font-semibold text-black"
             >
               Subscribe
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </form>
+            </a>
+          </noscript>
 
           <p
             className={cn(
               "mt-3 flex items-start gap-2 text-xs leading-relaxed",
-              status === "error" ? "text-amber-300" : "text-slate-500",
-              status === "success" ? "text-emerald-300" : "",
+              status === "success" ? "text-emerald-300" : "text-slate-500",
             )}
           >
             <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0" />
             {status === "success"
-              ? "Signup UI is ready. Connect a newsletter provider before collecting subscribers."
-              : status === "error"
-                ? "Enter a valid work email to preview the signup state."
-                : "Provider connection comes next; this preview does not store emails yet."}
+              ? "You’re subscribed. Check your inbox to confirm."
+              : status === "loading"
+                ? "Loading the secure beehiiv signup form."
+                : "Secure beehiiv signup. Use a work email; confirmation may be required."}
           </p>
         </div>
       </div>

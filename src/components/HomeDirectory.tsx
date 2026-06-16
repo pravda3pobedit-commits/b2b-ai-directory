@@ -23,6 +23,7 @@ const categoryLinks = [
   { label: "AI meetings", href: "/category/ai-meetings-intelligence" },
   { label: "Video ads", href: "/category/ai-video-ad-generators" },
   { label: "Sales prospecting", href: "/category/ai-sales-prospecting-tools" },
+  { label: "Customer support", href: "/category/ai-customer-support-tools" },
   {
     label: "Workflow automation",
     href: "/category/ai-workflow-automation-tools",

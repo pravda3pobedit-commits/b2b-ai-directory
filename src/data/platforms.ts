@@ -494,20 +494,44 @@ export const platforms = [
     icon: MessageSquare,
     affiliateLink: "https://www.intercom.com/",
     websiteUrl: "https://www.intercom.com/",
-    metric: "50%+",
-    metricLabel: "Resolution Rate",
-    shortDescription: "Deploy a breakthrough AI bot that resolves complex customer issues instantly using your support content.",
-    descFreelancer: "Automate client support with an AI agent. Reduce ticket volume and provide instant answers 24/7.",
-    descBusiness: "Deploy a breakthrough AI bot that resolves complex customer issues instantly using your support content. Drastically reduce human intervention.",
+    metric: "AI",
+    metricLabel: "Support Agent",
+    metricBusiness: "Inbox",
+    metricLabelBusiness: "Support Ops",
+    shortDescription: "Add Intercom's Fin AI agent to customer messaging, support inbox, help center, and handoff workflows.",
+    descFreelancer: "Use Fin when client support needs an AI answering layer inside Intercom's customer messaging and inbox workflows.",
+    descBusiness: "Add Fin to Intercom customer messaging so AI answers, support inboxes, help content, and human handoffs work in one support platform.",
     imagePath: "https://image.thum.io/get/width/1200/crop/675/https://www.intercom.com/",
-    longDescription: "Intercom Fin is an enterprise-grade AI support bot designed to resolve customer inquiries instantly. By ingesting your existing knowledge base and past tickets, Fin provides highly accurate, conversational answers that drastically reduce human agent workload. It guarantees a faster time-to-resolution, improving overall CSAT scores and scaling your support operations effortlessly.",
+    longDescription: "Intercom Fin is the AI support agent inside Intercom's broader customer messaging platform. It is built for teams that want AI answers connected to help content, support inboxes, conversation history, and human handoff workflows. For B2B SaaS, customer success, and support teams, the strongest use case is not just adding a chatbot to a website, but managing AI support inside an existing customer conversation system with team ownership, escalation rules, and operational review.",
     features: [
-      "Zero-setup AI training",
-      "Human handoff capabilities",
-      "Multilingual support",
-      "Deep Zendesk and Salesforce integration"
+      "AI answers from support content: Use help center articles, docs, and approved knowledge sources to answer customer questions.",
+      "Customer messaging workflow: Keep AI answers connected to Intercom conversations, inboxes, and customer context.",
+      "Human handoff controls: Route conversations to support teammates when the question needs judgment, account review, or escalation.",
+      "Support operations fit: Useful when AI support needs to live inside a broader messaging, onboarding, and customer engagement platform.",
+      "Conversation review: Monitor answer quality, unresolved questions, and opportunities to improve support content.",
+      "Team governance: Configure ownership, permissions, and rollout rules before exposing AI broadly to customers."
     ],
-    ctaText: "Get Started"
+    ctaText: "Explore Intercom",
+    bestFor: "B2B SaaS, customer success, and support teams that already use Intercom or want AI support inside a broader customer messaging and inbox platform.",
+    expertRecommendation: "Use Intercom Fin when support is already organized around customer conversations, inboxes, help content, and handoffs. It is strongest when the AI layer needs to sit inside a complete support and messaging platform rather than live as a standalone website chatbot.\n\nIf you only need a focused AI agent trained on your website, docs, FAQs, and selected content, Chatbase may be simpler to evaluate first. If your team is built around ticketing and larger service operations, compare Intercom with Zendesk AI. In this cluster, Intercom should be positioned as the AI support layer for customer messaging workflows.",
+    faq: [
+      {
+        question: "What is Intercom Fin best for?",
+        answer: "Intercom Fin is best for teams that want an AI support agent inside Intercom's customer messaging platform. It is useful when AI answers need to connect with help content, inboxes, customer conversations, and human handoff workflows."
+      },
+      {
+        question: "Is Intercom Fin a standalone chatbot?",
+        answer: "Fin can answer customer questions with AI, but it is best understood as part of the broader Intercom support and customer messaging platform. If you only need a standalone website AI agent, compare it with Chatbase."
+      },
+      {
+        question: "Can Intercom Fin hand conversations to humans?",
+        answer: "Yes. Intercom is designed around customer conversations and support workflows, so teams can define when AI answers should escalate to human teammates or support queues."
+      },
+      {
+        question: "How is Intercom Fin different from Chatbase and Zendesk AI?",
+        answer: "Chatbase is more focused on building a customer-facing AI agent trained on your content. Intercom Fin sits inside a customer messaging platform. Zendesk AI is usually evaluated by teams that are already centered on ticketing, helpdesk workflows, and larger service operations."
+      }
+    ]
   },
   {
     id: "gong",
@@ -633,21 +657,44 @@ export const platforms = [
     icon: HeadphonesIcon,
     affiliateLink: "https://www.zendesk.com/ai/",
     websiteUrl: "https://www.zendesk.com/ai/",
-    metric: "30%",
-    metricLabel: "Ticket Deflection",
-    shortDescription: "Scale your customer service operations instantly with built-in AI agents and insights.",
-    descFreelancer: "Manage client queries efficiently with AI categorizations and auto-responses.",
-    descBusiness: "Scale your customer service operations instantly with built-in AI agents and insights. Deliver exceptional enterprise support at scale.",
+    metric: "AI",
+    metricLabel: "Service Suite",
+    metricBusiness: "Tickets",
+    metricLabelBusiness: "Support Ops",
+    shortDescription: "Use Zendesk AI for ticket triage, agent assist, AI agents, knowledge workflows, and customer service operations.",
+    descFreelancer: "Use Zendesk AI when client support needs ticketing, triage, agent assist, and service workflows beyond a simple chatbot.",
+    descBusiness: "Add AI to Zendesk support operations for ticket routing, agent assistance, self-service answers, and customer service workflow review.",
     imagePath: "https://image.thum.io/get/width/1200/crop/675/https://www.zendesk.com/ai/",
-    longDescription: "Zendesk AI empowers enterprise support teams by integrating intelligent automation directly into the service workflow. It instantly categorizes incoming tickets, suggests macro responses to agents, and deploys advanced bots to deflect common inquiries. This holistic AI approach reduces resolution times, lowers support costs, and guarantees a seamless, highly personalized customer experience.",
+    longDescription: "Zendesk AI brings AI features into Zendesk's customer service platform, including ticket triage, agent assistance, self-service answers, and support workflow insights. It is most useful for teams that already run support through Zendesk or need a structured helpdesk environment with queues, roles, reporting, and customer service operations. For B2B teams, the key question is whether the AI layer should support a full ticketing operation or whether a lighter website agent is enough.",
     features: [
-      "Intelligent ticket routing",
-      "Agent assist macros",
-      "Custom AI intent models",
-      "Comprehensive sentiment analysis"
+      "Ticket triage and routing: Help classify incoming requests and move them toward the right queue or support workflow.",
+      "Agent assistance: Suggest replies, macros, context, or next steps for support teammates to review.",
+      "AI agents and self-service: Support common questions from approved knowledge content and help center material.",
+      "Support workflow insights: Review recurring topics, customer intent, sentiment signals, and gaps in support content.",
+      "Helpdesk governance: Use roles, permissions, reporting, and escalation paths for larger customer service teams.",
+      "Zendesk ecosystem fit: Useful when ticketing, help center, chat, and service operations are already centered on Zendesk."
     ],
-    ctaText: "See in Action",
-    expertRecommendation: "Zendesk is the established enterprise standard for customer support and ticketing. However, it can be expensive and requires significant time to set up and train staff. For B2B teams looking for an immediate, AI-driven solution, our Top Pick [Chatbase](https://www.chatbase.co/?via=igor-pinyugin&dub_id=mVuJAivF7SHhGuKy) is a game-changer. It allows you to build a custom AI chatbot trained on your own website and data in just minutes, handling support queries automatically without the enterprise overhead.\n\nCheck out [Chatbase](https://www.chatbase.co/?via=igor-pinyugin&dub_id=mVuJAivF7SHhGuKy) if you need a cost-effective, zero-code AI support agent today."
+    ctaText: "Explore Zendesk AI",
+    bestFor: "Support leaders, customer service teams, and B2B companies that need AI inside a structured helpdesk and ticketing environment.",
+    expertRecommendation: "Use Zendesk AI when support already depends on ticket queues, help centers, reporting, roles, and service operations. It is strongest for teams that need AI to assist a larger helpdesk process rather than simply answer website questions.\n\nIf the main need is a focused customer-facing AI agent trained on website content and docs, start by comparing Zendesk with Chatbase. If customer messaging and live conversations matter more than ticketing, compare Zendesk with Intercom. In this cluster, Zendesk should be positioned as the service operations and helpdesk option.",
+    faq: [
+      {
+        question: "What is Zendesk AI best for?",
+        answer: "Zendesk AI is best for adding AI to a structured customer service operation. It is useful for ticket triage, agent assistance, self-service answers, support insights, and teams already using Zendesk as their helpdesk."
+      },
+      {
+        question: "Is Zendesk AI better than a standalone AI chatbot?",
+        answer: "Zendesk AI is usually a better fit when the support workflow depends on tickets, queues, roles, reporting, and helpdesk governance. A standalone AI chatbot may be simpler when the main goal is answering website questions from docs and FAQs."
+      },
+      {
+        question: "Can Zendesk AI help human support agents?",
+        answer: "Yes. Zendesk AI can support agent workflows with classification, suggested replies, macro assistance, and customer context. Teams should still review customer-facing answers and escalation rules."
+      },
+      {
+        question: "How is Zendesk AI different from Chatbase and Intercom Fin?",
+        answer: "Zendesk AI is oriented around helpdesk and customer service operations. Chatbase is more focused on standalone AI website agents trained on business content. Intercom Fin sits inside Intercom's customer messaging and inbox workflows."
+      }
+    ]
   },
   {
     id: "apollo-ai",

@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "ai-meetings-intelligence",
     "ai-video-ad-generators",
     "ai-sales-prospecting-tools",
+    "ai-customer-support-tools",
     "ai-workflow-automation-tools",
   ];
 

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -11,10 +11,10 @@ export default function Navbar() {
   const navLinks = [
     {
       label: "Share on X",
-      href: "https://x.com/intent/tweet?text=Just%20found%20the%20ultimate%20curated%20directory%20for%20B2B%20AI%20tools!%20%F0%9F%9A%80%20Check%20it%20out:&url=https://b2baistack.com",
+      href: "https://x.com/intent/tweet?text=Found%20a%20practical%20directory%20of%20AI%20tools%20for%20B2B%20teams:&url=https://b2baistack.com",
       external: true,
     },
-    { label: "Blog", href: "/blog", external: false },
+    { label: "Comparisons", href: "/comparisons", external: false },
     {
       label: "Advertise",
       href: "mailto:pravda3pobedit@gmail.com?subject=Sponsorship%20Inquiry%20-%20B2B%20AI%20Stack",

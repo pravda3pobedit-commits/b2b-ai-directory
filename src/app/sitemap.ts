@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { comparisons } from "@/data/comparisons";
 import { platforms } from "@/data/platforms";
 
 const BASE_URL = "https://www.b2baistack.com";
@@ -13,12 +14,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${BASE_URL}/blog`,
+      url: `${BASE_URL}/comparisons`,
       lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.6,
+      changeFrequency: "weekly",
+      priority: 0.75,
     },
   ];
+
+  const comparisonPages: MetadataRoute.Sitemap = comparisons.map(
+    (comparison) => ({
+      url: `${BASE_URL}/comparisons/${comparison.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.72,
+    }),
+  );
 
   // Tool pages — use slug if present, otherwise id
   const toolPages: MetadataRoute.Sitemap = platforms.map((platform) => ({
@@ -43,9 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // TODO: Include individual /blog/[slug] URLs once Notion posts can be
-  // fetched at build time without NOTION_TOKEN / NOTION_DATABASE_ID.
-  // For now, /blog index is included above.
-
-  return [...staticPages, ...toolPages, ...categoryPages];
+  return [...staticPages, ...comparisonPages, ...toolPages, ...categoryPages];
 }

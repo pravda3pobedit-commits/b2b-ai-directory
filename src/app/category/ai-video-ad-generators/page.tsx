@@ -20,11 +20,17 @@ export const metadata: Metadata = {
   },
 };
 
-const TOOL_IDS = ["invideo-ai", "vidyo-ai", "creatify-ai", "heygen", "elevenlabs"];
+const TOOL_IDS = [
+  "invideo-ai",
+  "vidyo-ai",
+  "creatify-ai",
+  "heygen",
+  "elevenlabs",
+];
 
-const categoryTools = TOOL_IDS
-  .map((id) => platforms.find((p) => p.id === id))
-  .filter(Boolean) as typeof platforms;
+const categoryTools = TOOL_IDS.map((id) =>
+  platforms.find((p) => p.id === id),
+).filter(Boolean) as typeof platforms;
 
 const benefits = [
   "Turn text prompts into campaign-ready videos",
@@ -79,9 +85,9 @@ export default function AIVideoAdGeneratorsPage() {
 
         {/* Category Description */}
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-4">
-          Create high-converting video ads, avatar campaigns, and social content
-          at scale — without a production team. Purpose-built AI tools for B2B
-          marketing, growth, and agencies.
+          Compare AI tools for video ads, avatar campaigns, product explainers,
+          repurposed clips, and social content workflows for B2B marketing,
+          growth, and agency teams.
         </p>
 
         {/* Target Audience Chips */}
@@ -126,7 +132,8 @@ export default function AIVideoAdGeneratorsPage() {
             to produce video content and ads at scale.
           </p>
           <p className="text-xs text-gray-600 mb-8">
-            Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
+            Disclosure: Some links on this page are affiliate links. We may earn
+            a commission if you sign up, at no extra cost to you.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -170,19 +177,26 @@ export default function AIVideoAdGeneratorsPage() {
                   </div>
 
                   <p className="relative z-10 text-sm text-gray-400 leading-snug mb-4 flex-1">
-                    {platform.descBusiness ?? platform.descFreelancer ?? platform.shortDescription}
+                    {platform.descBusiness ??
+                      platform.descFreelancer ??
+                      platform.shortDescription}
                   </p>
 
                   {platform.features && (
                     <ul className="relative z-10 mb-5 space-y-1.5">
-                      {platform.features.slice(0, 3).map((feat: string, i: number) => (
-                        <li key={i} className="flex items-start gap-2 text-xs text-gray-500">
-                          <span className="mt-0.5 w-1 h-1 rounded-full bg-indigo-500/60 shrink-0" />
-                          <span className="line-clamp-1">
-                            {feat.includes(":") ? feat.split(":")[0] : feat}
-                          </span>
-                        </li>
-                      ))}
+                      {platform.features
+                        .slice(0, 3)
+                        .map((feat: string, i: number) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-xs text-gray-500"
+                          >
+                            <span className="mt-0.5 w-1 h-1 rounded-full bg-indigo-500/60 shrink-0" />
+                            <span className="line-clamp-1">
+                              {feat.includes(":") ? feat.split(":")[0] : feat}
+                            </span>
+                          </li>
+                        ))}
                     </ul>
                   )}
 

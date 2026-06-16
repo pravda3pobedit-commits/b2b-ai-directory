@@ -9,12 +9,29 @@ const BASE_URL = "https://www.b2baistack.com";
 
 function findTool(slug: string) {
   return platforms.find(
-    (p) => p.id?.toString().toLowerCase() === slug?.toString().toLowerCase()
+    (p) =>
+      p.id?.toString().toLowerCase() === slug?.toString().toLowerCase() ||
+      ("slug" in p &&
+        typeof p.slug === "string" &&
+        p.slug.toLowerCase() === slug?.toString().toLowerCase()),
   );
 }
 
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return platforms.map((platform) => ({
+    slug:
+      "slug" in platform && typeof platform.slug === "string"
+        ? platform.slug
+        : platform.id,
+  }));
+}
+
 /** Pick the best available description, truncated to ~160 chars. */
-function getDescription(tool: NonNullable<ReturnType<typeof findTool>>): string {
+function getDescription(
+  tool: NonNullable<ReturnType<typeof findTool>>,
+): string {
   const raw =
     ("shortDescription" in tool && typeof tool.shortDescription === "string"
       ? tool.shortDescription
@@ -48,7 +65,8 @@ export async function generateMetadata({
   if (!tool) {
     return {
       title: "Tool Not Found | B2B AI Stack",
-      description: "The requested tool could not be found in the B2B AI Stack directory.",
+      description:
+        "The requested tool could not be found in the B2B AI Stack directory.",
     };
   }
 
@@ -84,16 +102,21 @@ export async function generateMetadata({
 function parseRecommendation(text: string): string {
   return text
     .split("\n\n")
-    .map((para) =>
-      `<p>${para.replace(
-        /\[([^\]]+)\]\(([^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium transition-colors">$1</a>'
-      )}</p>`
+    .map(
+      (para) =>
+        `<p>${para.replace(
+          /\[([^\]]+)\]\(([^)]+)\)/g,
+          '<a href="$2" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 font-medium transition-colors">$1</a>',
+        )}</p>`,
     )
     .join("");
 }
 
-export default async function ToolPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ToolPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   // Await params to fix Next.js 15 sync-dynamic-apis error
   const { slug } = await params;
 
@@ -156,16 +179,19 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
 
       <div className="max-w-3xl w-full">
         {/* Back Button */}
-        <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-8">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-8"
+        >
           <ArrowLeft className="w-4 h-4" />
           Back to Directory
         </Link>
 
         {/* Hero Image */}
-        <img 
-          src={tool.imagePath} 
-          alt={tool.name} 
-          className="w-full aspect-video object-cover bg-zinc-900 rounded-2xl border border-white/10 shadow-2xl mb-8" 
+        <img
+          src={tool.imagePath}
+          alt={tool.name}
+          className="w-full aspect-video object-cover bg-zinc-900 rounded-2xl border border-white/10 shadow-2xl mb-8"
         />
 
         {/* Header Section */}
@@ -173,8 +199,12 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <div className="inline-block px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium mb-3">
             {tool.category}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">{tool.name}</h1>
-          <p className="text-lg text-gray-400 leading-relaxed">{tool.longDescription}</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+            {tool.name}
+          </h1>
+          <p className="text-lg text-gray-400 leading-relaxed">
+            {tool.longDescription}
+          </p>
         </div>
 
         {/* Key Features Section */}
@@ -182,9 +212,14 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <h2 className="text-2xl font-semibold mb-6">Key Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {tool.features?.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-3 bg-white/5 border border-white/10 p-4 rounded-xl">
+              <div
+                key={idx}
+                className="flex items-start gap-3 bg-white/5 border border-white/10 p-4 rounded-xl"
+              >
                 <CheckCircle className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm leading-snug">{feature}</span>
+                <span className="text-gray-300 text-sm leading-snug">
+                  {feature}
+                </span>
               </div>
             ))}
           </div>
@@ -195,11 +230,15 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
           <div className="mb-12 bg-amber-500/5 border border-amber-500/20 rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <Lightbulb className="w-4 h-4 text-amber-400 flex-shrink-0" />
-              <span className="text-amber-400 text-xs font-bold uppercase tracking-widest">Expert Recommendation</span>
+              <span className="text-amber-400 text-xs font-bold uppercase tracking-widest">
+                Expert Recommendation
+              </span>
             </div>
             <div
               className="text-gray-300 text-sm leading-relaxed space-y-3 [&_p]:mb-0"
-              dangerouslySetInnerHTML={{ __html: parseRecommendation((tool as any).expertRecommendation) }}
+              dangerouslySetInnerHTML={{
+                __html: parseRecommendation((tool as any).expertRecommendation),
+              }}
             />
           </div>
         )}
@@ -207,11 +246,18 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         {/* Action Section */}
         <div className="bg-gradient-to-r from-indigo-900/20 to-blue-900/20 border border-indigo-500/20 rounded-3xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Ready to automate?</h2>
-            <p className="text-sm text-gray-400">Start using {tool.name} today and scale your operations.</p>
-            {tool.id === 'creatify-ai' && (
+            <h2 className="text-2xl font-semibold mb-2">Ready to evaluate?</h2>
+            <p className="text-sm text-gray-400">
+              Review {tool.name}, compare the fit, and decide whether it belongs
+              in your workflow.
+            </p>
+            {tool.id === "creatify-ai" && (
               <div className="mt-4 px-3 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs text-emerald-300 font-medium inline-block">
-                🎁 Use promo code <strong className="text-emerald-100 font-bold text-sm">TEAM15</strong> at checkout for 15% off!
+                🎁 Use promo code{" "}
+                <strong className="text-emerald-100 font-bold text-sm">
+                  TEAM15
+                </strong>{" "}
+                at checkout for 15% off!
               </div>
             )}
           </div>
@@ -225,7 +271,8 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
             />
 
             <p className="max-w-xs text-center sm:text-right text-xs leading-relaxed text-gray-500">
-              Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
+              Disclosure: Some links on this page are affiliate links. We may
+              earn a commission if you sign up, at no extra cost to you.
             </p>
           </div>
         </div>
@@ -233,29 +280,37 @@ export default async function ToolPage({ params }: { params: Promise<{ slug: str
         {/* Frequently Asked Questions */}
         {(tool as any).faq && (tool as any).faq.length > 0 && (
           <div className="mt-12 mb-12 flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-            {(tool as any).faq.map((item: { question: string; answer: string }, idx: number) => (
-              <details
-                key={idx}
-                className="bg-[#0f111a] border border-gray-800 rounded-xl overflow-hidden cursor-pointer group"
-              >
-                <summary className="p-5 text-lg font-semibold text-gray-100 outline-none list-none hover:bg-gray-800/50 transition-colors flex items-center justify-between [&::-webkit-details-marker]:hidden">
-                  <span>{item.question}</span>
-                  <svg
-                    className="w-5 h-5 text-gray-500 flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-45"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                  </svg>
-                </summary>
-                <div className="p-5 pt-0 text-gray-400 text-sm leading-relaxed border-t border-gray-800">
-                  {item.answer}
-                </div>
-              </details>
-            ))}
+            <h2 className="text-2xl font-bold text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            {(tool as any).faq.map(
+              (item: { question: string; answer: string }, idx: number) => (
+                <details
+                  key={idx}
+                  className="bg-[#0f111a] border border-gray-800 rounded-xl overflow-hidden cursor-pointer group"
+                >
+                  <summary className="p-5 text-lg font-semibold text-gray-100 outline-none list-none hover:bg-gray-800/50 transition-colors flex items-center justify-between [&::-webkit-details-marker]:hidden">
+                    <span>{item.question}</span>
+                    <svg
+                      className="w-5 h-5 text-gray-500 flex-shrink-0 ml-4 transition-transform duration-300 group-open:rotate-45"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 4v16m8-8H4"
+                      />
+                    </svg>
+                  </summary>
+                  <div className="p-5 pt-0 text-gray-400 text-sm leading-relaxed border-t border-gray-800">
+                    {item.answer}
+                  </div>
+                </details>
+              ),
+            )}
           </div>
         )}
       </div>

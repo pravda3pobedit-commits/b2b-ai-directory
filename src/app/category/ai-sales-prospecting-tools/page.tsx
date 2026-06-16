@@ -118,14 +118,24 @@ export default function AISalesProspectingToolsPage() {
 
         {/* Tool Cards */}
         <section>
-          <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
-            Top AI Sales Prospecting Tools
-          </h2>
-          <p className="text-sm text-gray-500 mb-2">
-            Hand-picked tools for B2B teams that need email discovery, contact
-            verification, sales intelligence, people search, and prospect
-            research workflows.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-2">
+            <div>
+              <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
+                Top AI Sales Prospecting Tools
+              </h2>
+              <p className="text-sm text-gray-500 max-w-2xl">
+                Hand-picked tools for B2B teams that need email discovery,
+                contact verification, sales intelligence, people search, and
+                prospect research workflows.
+              </p>
+            </div>
+            <Link
+              href="/comparisons/hunter-vs-apollo"
+              className="text-sm text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Compare Hunter vs Apollo
+            </Link>
+          </div>
           <p className="text-xs text-gray-600 mb-8">
             Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
           </p>

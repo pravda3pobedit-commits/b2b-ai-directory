@@ -324,7 +324,7 @@ export const platforms = [
     id: "hunter-io",
     name: "Hunter.io",
     featured: true,
-    badgeText: "Email Intel Leader",
+    badgeText: "Best Email Finder",
     category: "Sales",
     icon: Mail,
     affiliateLink: "https://hunter.io/?via=b2baistack",

@@ -1,6 +1,7 @@
 import { CheckCircle2, HeadphonesIcon, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
 
@@ -257,6 +258,11 @@ export default function AICustomerSupportToolsPage() {
             })}
           </div>
         </section>
+
+        <NewsletterSignup
+          className="mt-16"
+          source="category-ai-customer-support-tools"
+        />
 
         <div className="mt-16 text-center">
           <Link

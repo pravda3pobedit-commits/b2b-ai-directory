@@ -1,8 +1,9 @@
+import { CheckCircle2, Sparkles, Video } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { platforms } from "@/data/platforms";
-import { Video, Sparkles, CheckCircle2 } from "lucide-react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
+import { platforms } from "@/data/platforms";
 
 export const metadata: Metadata = {
   title: "Top AI Video & Ad Generators for B2B Marketing | b2baistack.com",
@@ -221,6 +222,11 @@ export default function AIVideoAdGeneratorsPage() {
             })}
           </div>
         </section>
+
+        <NewsletterSignup
+          className="mt-16"
+          source="category-ai-video-ad-generators"
+        />
 
         {/* Back CTA */}
         <div className="mt-16 text-center">

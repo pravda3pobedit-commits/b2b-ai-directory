@@ -1,8 +1,9 @@
+import { CheckCircle2, Settings, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { platforms } from "@/data/platforms";
-import { Settings, Sparkles, CheckCircle2 } from "lucide-react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
+import { platforms } from "@/data/platforms";
 
 export const metadata: Metadata = {
   title: "Top AI Workflow Automation Tools for B2B Teams | b2baistack.com",
@@ -208,6 +209,11 @@ export default function AIWorkflowAutomationToolsPage() {
             })}
           </div>
         </section>
+
+        <NewsletterSignup
+          className="mt-16"
+          source="category-ai-workflow-automation-tools"
+        />
 
         {/* Back CTA */}
         <div className="mt-16 text-center">

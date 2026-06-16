@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { comparisons, getComparison } from "@/data/comparisons";
 import { platforms } from "@/data/platforms";
@@ -396,6 +397,11 @@ export default async function ComparisonPage({
             ))}
           </div>
         </section>
+
+        <NewsletterSignup
+          className="mb-12"
+          source={`comparison-${comparison.slug}`}
+        />
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-white/[0.08] pt-8">
           <p className="max-w-xl text-xs leading-relaxed text-slate-500">

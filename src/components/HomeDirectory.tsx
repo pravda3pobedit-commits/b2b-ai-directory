@@ -7,6 +7,7 @@ import { platforms } from "@/data/platforms";
 import { cn } from "@/lib/utils";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const filterCategories = [
   "Content Creation",
@@ -278,6 +279,12 @@ export default function Home() {
             )}
           </div>
         </motion.div>
+
+        <NewsletterSignup
+          compact
+          source="homepage"
+          className="mx-6 mb-10 mt-2 w-[calc(100%-3rem)]"
+        />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { platforms } from "@/data/platforms";
 import { ArrowLeft, CheckCircle, Lightbulb } from "lucide-react";
 import { notFound } from "next/navigation";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 
 const BASE_URL = "https://www.b2baistack.com";
@@ -313,6 +314,8 @@ export default async function ToolPage({
             )}
           </div>
         )}
+
+        <NewsletterSignup className="mb-12" source={`tool-${tool.id}`} />
       </div>
     </div>
   );

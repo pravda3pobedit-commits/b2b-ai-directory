@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2, Scale, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { comparisons } from "@/data/comparisons";
 import { platforms } from "@/data/platforms";
 
@@ -159,6 +160,8 @@ export default function ComparisonsPage() {
             </p>
           </div>
         </div>
+
+        <NewsletterSignup className="mt-8" source="comparisons-hub" />
       </div>
     </main>
   );

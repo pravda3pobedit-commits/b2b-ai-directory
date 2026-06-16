@@ -1,8 +1,9 @@
+import { CheckCircle2, Mic2, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { platforms } from "@/data/platforms";
-import { Mic2, Sparkles, CheckCircle2 } from "lucide-react";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
+import { platforms } from "@/data/platforms";
 
 export const metadata: Metadata = {
   title: "Top AI Meeting Assistants & Intelligence Tools | b2baistack.com",
@@ -218,6 +219,11 @@ export default function AIMeetingsIntelligencePage() {
             })}
           </div>
         </section>
+
+        <NewsletterSignup
+          className="mt-16"
+          source="category-ai-meetings-intelligence"
+        />
 
         {/* Back CTA */}
         <div className="mt-16 text-center">

@@ -17,13 +17,39 @@ This is the working backlog for keeping B2BAIStack updated as a practical B2B AI
 - Market: major product launches, pricing changes, rebrands, acquisitions, shutdowns, and category shifts.
 - SERP: whether Google rewards comparison, listicle, review, or category-hub format for a target query.
 - Site gaps: categories with too few tools, weak CTAs, thin comparisons, outdated descriptions, or missing next-step links.
+- Distribution: LinkedIn post performance, newsletter signups, partner replies, and referral/affiliate contact quality.
 
 ## Current Site Base
 
 - Categories: video ads, meetings intelligence, workflow automation, sales prospecting, customer support.
 - Comparisons: Make vs Zapier, Hunter vs Apollo, Chatbase vs Intercom, Fireflies vs Fathom, Creatify vs InVideo.
 - Newsletter: beehiiv embed connected.
+- LinkedIn: planned cadence is 2 posts per week for now.
 - Legacy route: `/blog/*` redirects to `/comparisons`.
+
+## Distribution And Partner Loop
+
+Distribution should support the content engine instead of becoming a separate project.
+
+- **LinkedIn cadence**
+  - Baseline: 2 posts per week.
+  - Best formats: practical comparison notes, "how to choose" posts, tool-stack observations, short lessons from new pages, and transparent build-in-public updates.
+  - Goal: credibility, early traffic, founder/operator signal, and content testing before investing in bigger pages.
+
+- **Newsletter**
+  - Use as a slow trust channel, not a high-volume broadcast.
+  - Best sends: new comparison summaries, monthly tool-stack notes, category updates, and "what changed in B2B AI tools" digests when there is enough substance.
+
+- **Referral / affiliate partner relationships**
+  - Keep light contact with partners whose products matter to the site.
+  - Possible value: early product/pricing updates, better affiliate resources, commission improvements, co-marketing opportunities, custom landing pages, quotes, and faster correction of outdated facts.
+  - Guardrail: do not let partner relationships override editorial trust. Sponsored/affiliate incentives should shape prioritization, not force conclusions.
+  - External outreach requires explicit Alex approval before sending.
+
+- **Feedback loop**
+  - Reuse each new page across LinkedIn/newsletter.
+  - Watch which posts or emails get replies/clicks.
+  - Feed those signals back into the roadmap.
 
 ## Candidate Queue
 
@@ -41,6 +67,13 @@ This is the working backlog for keeping B2BAIStack updated as a practical B2B AI
   - Reason: establish the monitoring habit before adding more pages.
   - Possible work: collect 5-10 opportunities, score by buyer intent/monetization/effort, choose 1-3.
   - Evidence needed: GSC export/screenshots, official product sources, current SERPs.
+  - Status: candidate.
+
+- **Define first partner relationship list**
+  - Target: affiliate/referral partners and priority products.
+  - Reason: partner contact can provide updates, resources, and better monetization, but needs a light process.
+  - Possible work: list current referral/affiliate products, contact status, what we want from each, and whether outreach is worth it.
+  - Evidence needed: current affiliate dashboards/resources and product priority.
   - Status: candidate.
 
 ### P1 - Likely New Comparisons
@@ -92,4 +125,3 @@ This is the working backlog for keeping B2BAIStack updated as a practical B2B AI
 6. Run focused lint/checks and `npm run build`.
 7. Verify local or live routes, redirects, and SSG/prerender headers.
 8. Update this roadmap with status and next step.
-

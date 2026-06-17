@@ -12,16 +12,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    remotePatterns: [
-      // Notion hosted files (external cover images)
-      { protocol: "https", hostname: "prod.files.statics.notion.com" },
-      { protocol: "https", hostname: "*.notion.so" },
-      // Notion S3 file uploads
-      { protocol: "https", hostname: "s3.us-west-2.amazonaws.com" },
-      { protocol: "https", hostname: "s3-us-west-2.amazonaws.com" },
-      // General https images (for external URLs stored in Notion)
-      { protocol: "https", hostname: "**" },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
 };
 

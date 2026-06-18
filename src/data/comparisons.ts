@@ -107,11 +107,11 @@ export const comparisons: Comparison[] = [
     title: "Hunter vs Apollo: Email Finder or Sales Engagement Platform?",
     shortTitle: "Hunter vs Apollo",
     description:
-      "Compare Hunter.io and Apollo for email finding, email verification, B2B prospecting lists, cold outreach, sequencing, and sales intelligence workflows.",
+      "Compare Hunter.io and Apollo for email finding, email verification, B2B prospecting lists, AI-assisted research, enrichment, sequencing, and sales intelligence workflows.",
     category: "Sales prospecting",
     toolIds: ["hunter-io", "apollo-ai"],
     summary:
-      "Hunter and Apollo both help B2B teams find prospects, but they solve different layers of the outbound workflow. Hunter is the cleaner fit when the job is finding professional email addresses, verifying them, and preparing a responsible contact list. Apollo is broader: contact database, enrichment, list building, sequencing, and sales engagement in one larger GTM workspace.",
+      "Hunter and Apollo both help B2B teams find prospects, but they solve different layers of the outbound workflow. Hunter is the cleaner fit when the job is finding professional email addresses, verifying them, and preparing a responsible contact list. Apollo is broader: contact database, enrichment, AI-assisted research, prospecting views, sequencing, and sales engagement in one larger GTM workspace.",
     verdict:
       "Choose Hunter when your main bottleneck is accurate email discovery and verification before outreach. Choose Apollo when you want a larger sales intelligence and engagement platform that also covers database search, enrichment, sequences, and sales team workflows.",
     useCases: [
@@ -131,7 +131,7 @@ export const comparisons: Comparison[] = [
         points: [
           "You need contact data, company data, filters, enrichment, sequencing, and sales engagement in one workspace.",
           "Outbound is managed by a sales team that wants a larger GTM operating system rather than a focused email finder.",
-          "Campaigns need prospect discovery, list building, enrichment, workflows, and engagement reporting together.",
+          "Campaigns need prospect discovery, list building, AI research, enrichment, workflows, and engagement reporting together.",
           "Your team is willing to manage more platform complexity in exchange for broader sales workflow coverage.",
         ],
       },
@@ -142,7 +142,7 @@ export const comparisons: Comparison[] = [
         first:
           "Focused email finding, domain search, verification, and lightweight outbound preparation.",
         second:
-          "Broader sales intelligence, prospect database, enrichment, sequencing, and engagement workflows.",
+          "Broader sales intelligence, prospect database, enrichment, AI research, sequencing, and engagement workflows.",
       },
       {
         label: "Primary workflow",
@@ -180,6 +180,13 @@ export const comparisons: Comparison[] = [
           "More complete workspace that may replace or absorb several prospecting and engagement steps.",
       },
       {
+        label: "AI workflow angle",
+        first:
+          "Useful as a verified email data layer before human review and outreach.",
+        second:
+          "Useful when AI-assisted research, prospecting views, enrichment, and sales workflow context should sit together.",
+      },
+      {
         label: "Risk to review",
         first:
           "Deliverability, consent, unsubscribe handling, and market-specific privacy rules still matter.",
@@ -206,12 +213,17 @@ export const comparisons: Comparison[] = [
       {
         question: "Can Hunter replace Apollo?",
         answer:
-          "Hunter can replace Apollo only when the workflow is mostly email discovery, verification, and lightweight campaigns. It is not a full sales engagement platform in the same way Apollo is. If your team needs database search, enrichment, sequencing, and sales workflow reporting together, Apollo covers more of that stack.",
+          "Hunter can replace Apollo only when the workflow is mostly email discovery, verification, and lightweight campaigns. It is not a full sales engagement platform in the same way Apollo is. If your team needs database search, enrichment, AI-assisted research, sequencing, and sales workflow reporting together, Apollo covers more of that stack.",
       },
       {
         question: "Can Apollo replace Hunter?",
         answer:
           "Apollo can cover more of the sales workflow, but some teams still prefer Hunter as a focused email finder and verification layer. The right choice depends on whether you need a specialized email research tool or a broader outbound workspace.",
+      },
+      {
+        question: "Where do Clay and Instantly fit around Hunter and Apollo?",
+        answer:
+          "Clay is often evaluated as a data orchestration and enrichment layer for outbound workflows. Instantly is usually evaluated for cold email sending, deliverability, inbox rotation, and campaign operations. Hunter and Apollo sit closer to prospect data and sales intelligence, with Apollo covering more engagement workflow than Hunter.",
       },
       {
         question: "Which tool is better for responsible cold email?",
@@ -222,17 +234,16 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "chatbase-vs-intercom",
-    title:
-      "Chatbase vs Intercom: AI Website Agent or Customer Support Platform?",
-    shortTitle: "Chatbase vs Intercom",
+    title: "Chatbase vs Fin: AI Website Agent or Customer Support Platform?",
+    shortTitle: "Chatbase vs Fin",
     description:
-      "Compare Chatbase and Intercom Fin for AI website agents, support automation, knowledge base answers, handoffs, and customer support operations.",
+      "Compare Chatbase and Fin, formerly Intercom's AI agent, for AI website agents, support automation, knowledge base answers, handoffs, and customer support operations.",
     category: "Customer support",
     toolIds: ["chatbase", "intercom-fin"],
     summary:
-      "Chatbase and Intercom both touch AI support, but they are not the same type of tool. Chatbase is a practical AI agent and website chatbot layer trained on business content. Intercom is a broader customer support platform, with Fin as part of a larger helpdesk and customer messaging system.",
+      "Chatbase and Fin both touch AI support, but they are not the same type of tool. Chatbase is a practical AI agent and website chatbot layer trained on business content. Fin grew out of Intercom's customer messaging platform and is now a more strategic support-agent asset after Salesforce announced a definitive agreement to acquire Fin in June 2026.",
     verdict:
-      "Choose Chatbase when you want a focused AI agent on top of your content and website. Choose Intercom when the AI layer needs to live inside a broader support platform with inbox, team workflows, and customer operations.",
+      "Choose Chatbase when you want a focused AI agent on top of your content and website. Choose Fin when the AI layer needs to live inside a broader customer messaging/support workflow, especially if your team is watching Salesforce, Agentforce, and enterprise service operations.",
     useCases: [
       {
         toolId: "chatbase",
@@ -241,15 +252,17 @@ export const comparisons: Comparison[] = [
           "You want a customer-facing AI agent trained on docs, pages, files, and FAQs.",
           "The website needs guided answers before a visitor reaches a human.",
           "You want to add an AI support layer without moving the whole helpdesk.",
+          "The buying decision is mostly about fast website deployment, source control, and answer quality.",
         ],
       },
       {
         toolId: "intercom-fin",
-        heading: "Choose Intercom when",
+        heading: "Choose Fin when",
         points: [
-          "Support already runs through Intercom or needs a broader messaging platform.",
+          "Support already runs through Intercom/Fin or needs a broader messaging platform.",
           "AI answers need to connect with inboxes, tickets, handoffs, and support operations.",
           "The customer support process is bigger than a standalone chatbot.",
+          "The team wants to track the Salesforce acquisition and future Agentforce/service roadmap.",
         ],
       },
     ],
@@ -257,7 +270,8 @@ export const comparisons: Comparison[] = [
       {
         label: "Best fit",
         first: "Focused AI website agent trained on business content.",
-        second: "AI support inside a broader customer messaging platform.",
+        second:
+          "AI support inside a broader customer messaging and support platform.",
       },
       {
         label: "Setup angle",
@@ -274,6 +288,13 @@ export const comparisons: Comparison[] = [
           "Stronger for teams needing inboxes, support workflows, and escalation management.",
       },
       {
+        label: "Roadmap signal",
+        first:
+          "Independent website-agent workflow where source quality and deployment speed matter most.",
+        second:
+          "Salesforce's announced Fin acquisition makes the product important for teams watching enterprise AI service platforms.",
+      },
+      {
         label: "Review needs",
         first:
           "Source quality, permissions, and answer accuracy need regular review.",
@@ -284,17 +305,28 @@ export const comparisons: Comparison[] = [
     cautions: [
       "A chatbot is only as useful as the quality and freshness of the knowledge sources behind it.",
       "For support automation, always test escalation paths and edge cases before exposing the agent broadly.",
+      "The Salesforce-Fin transaction was announced as an agreement, so buyers should confirm current closing status and roadmap before making platform decisions.",
     ],
     faqs: [
       {
-        question: "Is Chatbase the same as Intercom?",
+        question: "Is Chatbase the same as Fin or Intercom?",
         answer:
-          "No. Chatbase is more focused on building an AI website agent trained on your content. Intercom is a broader customer messaging and support platform, with Fin as its AI support agent.",
+          "No. Chatbase is more focused on building an AI website agent trained on your content. Fin grew out of Intercom's customer messaging and support platform, so it is usually evaluated as part of a broader support workflow.",
       },
       {
         question: "Which is better for a SaaS website?",
         answer:
-          "If you only need an AI website agent, Chatbase may be simpler. If your SaaS company needs inboxes, support operations, and integrated customer messaging, Intercom is the broader platform.",
+          "If you only need an AI website agent, Chatbase may be simpler. If your SaaS company needs inboxes, support operations, integrated customer messaging, and AI handoffs, Fin is the broader platform choice.",
+      },
+      {
+        question: "Does Salesforce acquiring Fin change the decision?",
+        answer:
+          "It changes the roadmap signal. Salesforce's announced agreement to acquire Fin makes Fin more important for teams watching Agentforce and enterprise service operations. It does not remove the need to evaluate current product fit, pricing, data controls, and handoff behavior.",
+      },
+      {
+        question: "When should a smaller team choose Chatbase first?",
+        answer:
+          "A smaller team should usually evaluate Chatbase first when the goal is to add a focused AI website agent trained on docs, FAQs, pages, and selected business content without moving the entire support workflow.",
       },
     ],
   },

@@ -53,6 +53,25 @@ Distribution should support the content engine instead of becoming a separate pr
 
 ## Candidate Queue
 
+### Active Review Package - 2026-06-18 Monitoring Refresh
+
+- **Outbound stack guide**
+  - Route: `/guides/ai-sales-prospecting-stack`
+  - Reason: market scan showed strong buyer confusion around Clay, Apollo, Hunter, Instantly, Smartlead, and Lemlist as different layers of the same outbound stack.
+  - Sources used: Clay announcements, Apollo 2026 release notes, Instantly 2026 cold email benchmark, and SERP patterns around outbound-stack comparisons.
+  - Status: prepared on branch `openclaw/b2b-monitoring-refresh-20260618`; waiting for Alex review before production push.
+
+- **Sales prospecting cluster refresh**
+  - Routes/data: `/category/ai-sales-prospecting-tools`, `/tool/apollo-ai`, `/comparisons/hunter-vs-apollo`, sitemap.
+  - Reason: Apollo has become a broader AI-assisted GTM workspace, while Hunter remains the cleaner email finder/verifier layer.
+  - Monetization note: apply for Apollo Affiliate Partners via PartnerStack; if approved, replace the current normal Apollo URL in Apollo-related pages with the affiliate link.
+  - Status: prepared on branch `openclaw/b2b-monitoring-refresh-20260618`; waiting for Alex review before production push.
+
+- **Customer support / Fin refresh**
+  - Routes/data: `/tool/intercom-fin`, `/comparisons/chatbase-vs-intercom`.
+  - Reason: Salesforce announced a definitive agreement to acquire Fin, formerly Intercom, making Fin a stronger enterprise support-agent roadmap signal.
+  - Status: prepared on branch `openclaw/b2b-monitoring-refresh-20260618`; waiting for Alex review before production push.
+
 ### P0 - Next Best Operator Moves
 
 - **Strengthen sales prospecting cluster**
@@ -60,14 +79,14 @@ Distribution should support the content engine instead of becoming a separate pr
   - Reason: strongest current affiliate/SEO fit after Hunter work.
   - Possible work: add deeper Hunter review sections, compare Hunter with alternatives, create a "best AI sales prospecting tools" page if route pattern is added.
   - Evidence needed: GSC queries, Hunter affiliate guidance, current SERP, official tool positioning.
-  - Status: candidate.
+  - Status: in progress via 2026-06-18 monitoring refresh.
 
 - **Create first recurring market scan**
   - Target: this roadmap plus a short operator note.
   - Reason: establish the monitoring habit before adding more pages.
   - Possible work: collect 5-10 opportunities, score by buyer intent/monetization/effort, choose 1-3.
   - Evidence needed: GSC export/screenshots, official product sources, current SERPs.
-  - Status: candidate.
+  - Status: first pilot completed on 2026-06-18.
 
 - **Define first partner relationship list**
   - Target: affiliate/referral partners and priority products.

@@ -30,6 +30,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  const guidePages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/guides/ai-sales-prospecting-stack`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.72,
+    },
+  ];
+
   // Tool pages — use slug if present, otherwise id
   const toolPages: MetadataRoute.Sitemap = platforms.map((platform) => ({
     url: `${BASE_URL}/tool/${"slug" in platform && typeof platform.slug === "string" ? platform.slug : platform.id}`,
@@ -54,5 +63,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...comparisonPages, ...toolPages, ...categoryPages];
+  return [
+    ...staticPages,
+    ...comparisonPages,
+    ...guidePages,
+    ...toolPages,
+    ...categoryPages,
+  ];
 }

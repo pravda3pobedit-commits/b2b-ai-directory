@@ -53,24 +53,24 @@ Distribution should support the content engine instead of becoming a separate pr
 
 ## Candidate Queue
 
-### Active Review Package - 2026-06-18 Monitoring Refresh
+### Deployed Package - 2026-06-18 Monitoring Refresh
 
 - **Outbound stack guide**
   - Route: `/guides/ai-sales-prospecting-stack`
   - Reason: market scan showed strong buyer confusion around Clay, Apollo, Hunter, Instantly, Smartlead, and Lemlist as different layers of the same outbound stack.
   - Sources used: Clay announcements, Apollo 2026 release notes, Instantly 2026 cold email benchmark, and SERP patterns around outbound-stack comparisons.
-  - Status: prepared on branch `openclaw/b2b-monitoring-refresh-20260618`; waiting for Alex review before production push.
+  - Status: deployed to production in commit `f7dad6c` on 2026-06-18.
 
 - **Sales prospecting cluster refresh**
   - Routes/data: `/category/ai-sales-prospecting-tools`, `/tool/apollo-ai`, `/comparisons/hunter-vs-apollo`, sitemap.
   - Reason: Apollo has become a broader AI-assisted GTM workspace, while Hunter remains the cleaner email finder/verifier layer.
   - Monetization note: apply for Apollo Affiliate Partners via PartnerStack; if approved, replace the current normal Apollo URL in Apollo-related pages with the affiliate link.
-  - Status: prepared on branch `openclaw/b2b-monitoring-refresh-20260618`; waiting for Alex review before production push.
+  - Status: deployed to production in commit `f7dad6c` on 2026-06-18.
 
 - **Customer support / Fin refresh**
   - Routes/data: `/tool/intercom-fin`, `/comparisons/chatbase-vs-intercom`.
   - Reason: Salesforce announced a definitive agreement to acquire Fin, formerly Intercom, making Fin a stronger enterprise support-agent roadmap signal.
-  - Status: prepared on branch `openclaw/b2b-monitoring-refresh-20260618`; waiting for Alex review before production push.
+  - Status: deployed to production in commit `f7dad6c` on 2026-06-18.
 
 ### P0 - Next Best Operator Moves
 

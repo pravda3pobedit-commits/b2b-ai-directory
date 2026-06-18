@@ -867,8 +867,7 @@ export const platforms = [
       "Find prospects, organize target accounts, enrich records, and prepare outbound workflows without stitching every sales tool together manually.",
     descBusiness:
       "Build prospect lists, enrich contacts and accounts, organize sales views, run sequences, and test AI-assisted research inside a broader GTM workspace.",
-    imagePath:
-      "https://image.thum.io/get/width/1200/crop/675/https://www.apollo.io/",
+    imagePath: "/apollo.png",
     longDescription:
       "Apollo is a B2B sales intelligence and engagement workspace for teams that want prospecting, contact data, enrichment, sequencing, website visitor workflows, and AI-assisted research in one place. Recent Apollo updates make the AI layer more operational: teams can use the assistant to help complete context center details, create or customize prospecting views, test AI Research, use Google Maps prospecting on paid plans, handle do-not-call filtering, import Gong calls, and enrich uploaded contacts with native or waterfall options. That makes Apollo a stronger fit for GTM teams that want one workspace around prospecting and outbound operations, while focused email-finder workflows may still be simpler in Hunter.",
     features: [

@@ -451,6 +451,68 @@ export const platforms = [
     ],
   },
   {
+    id: "snov-io",
+    name: "Snov.io",
+    featured: true,
+    badgeText: "Best Outreach Suite",
+    category: "Sales",
+    icon: Mail,
+    affiliateLink: "https://snov.io/",
+    metric: "400K+",
+    metricLabel: "Users",
+    metricBusiness: "180+",
+    metricLabelBusiness: "Countries",
+    shortDescription:
+      "Find B2B leads, verify emails, manage deliverability, and run email or LinkedIn outreach campaigns from one sales platform.",
+    descFreelancer:
+      "Find leads, enrich contacts, verify emails, and run outreach campaigns for client prospecting workflows from a single platform.",
+    descBusiness:
+      "Combine lead discovery, email verification, deliverability, multichannel outreach, LinkedIn automation, and lightweight CRM workflows for B2B sales teams.",
+    imagePath: "/snovio.svg",
+    longDescription:
+      "Snov.io is a sales prospecting and outreach platform for teams that want more than a standalone email finder. It brings together lead discovery, B2B database search, email finding, verification, deliverability tools, drip campaigns, email sequences, LinkedIn automation, integrations, API access, and CRM-style pipeline management. It is a better fit when the team wants one platform for finding contacts and running outreach, while Hunter is usually simpler when the main job is accurate email discovery and verification before using another CRM or sending workflow.",
+    features: [
+      "Lead discovery: Find prospects through a B2B leads database, email finder, bulk email finder, LinkedIn email finder, and browser extension workflows.",
+      "Email verification: Verify addresses in single or bulk workflows before outreach to reduce obvious bounce risk.",
+      "Deliverability support: Use email warm-up, deliverability checks, email account setup, and related safeguards before campaigns.",
+      "Outreach automation: Run drip campaigns, email sequences, multichannel outreach, LinkedIn automation, bulk sending, and email tracking.",
+      "Pipeline management: Keep prospect records and sales activity organized with CRM-style workflow support.",
+      "Integrations and API: Connect Snov.io with CRM, enrichment, automation, and custom workflows through integrations and API access.",
+    ],
+    ctaText: "Try Snov.io Free",
+    bestFor:
+      "B2B sales teams, founders, agencies, and outbound operators that want one platform for lead finding, email verification, deliverability, email or LinkedIn outreach, and basic pipeline management.",
+    expertRecommendation:
+      "Use Snov.io when the team wants a broader prospecting and outreach suite in one place: lead discovery, email verification, deliverability, email sequences, LinkedIn automation, integrations, and CRM-style pipeline management.\n\nUse Hunter.io instead when the workflow should stay lighter and cleaner: find professional emails, verify them, export or sync the list, then run outreach in another CRM, spreadsheet, or sending setup. If the team already has a dedicated CRM and cold email platform, Hunter may be the simpler data layer. If the team wants more of the outbound workflow inside one product, Snov.io is the stronger comparison candidate.",
+    faq: [
+      {
+        question: "What is Snov.io best for?",
+        answer:
+          "Snov.io is best for teams that want lead discovery, email finding, verification, deliverability support, email sequences, LinkedIn automation, integrations, and CRM-style pipeline management in one outbound platform.",
+      },
+      {
+        question: "Does Snov.io include email verification?",
+        answer:
+          "Yes. Snov.io includes email verifier and bulk email verifier workflows that help teams check addresses before outreach. Verification can reduce obvious bounce risk, but teams still need to manage targeting, consent, unsubscribe handling, and sender reputation.",
+      },
+      {
+        question: "Can Snov.io run cold email campaigns?",
+        answer:
+          "Yes. Snov.io supports drip campaigns, email sequences, bulk sending, email tracking, and multichannel outreach workflows. Teams should still review compliance, deliverability, personalization, and list quality before using any cold outreach platform.",
+      },
+      {
+        question: "How is Snov.io different from Hunter.io?",
+        answer:
+          "Hunter.io is usually the cleaner fit for focused email discovery and verification. Snov.io is broader: it combines lead finding, verification, deliverability, email and LinkedIn outreach, integrations, and pipeline management.",
+      },
+      {
+        question: "Is Snov.io a CRM?",
+        answer:
+          "Snov.io includes CRM-style pipeline management for prospects and deals, but teams with a full CRM should compare how much they want to manage inside Snov.io versus syncing data into their existing sales system.",
+      },
+    ],
+  },
+  {
     id: "heygen",
     name: "HeyGen",
     featured: false,

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
 };
 
-const TOOL_IDS = ["hunter-io", "apollo-ai", "juicebox"];
+const TOOL_IDS = ["hunter-io", "snov-io", "apollo-ai", "juicebox"];
 
 const categoryTools = TOOL_IDS.map((id) =>
   platforms.find((p) => p.id === id),
@@ -165,10 +165,10 @@ export default function AISalesProspectingToolsPage() {
               </p>
             </div>
             <Link
-              href="/comparisons/hunter-vs-apollo"
+              href="/comparisons/hunter-vs-snovio"
               className="text-sm text-indigo-300 hover:text-indigo-200 transition-colors"
             >
-              Compare Hunter vs Apollo
+              Compare Hunter vs Snov.io
             </Link>
           </div>
           <p className="text-xs text-gray-600 mb-8">

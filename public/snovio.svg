@@ -1,0 +1,21 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="48" fill="#07111F"/>
+  <rect x="80" y="80" width="1040" height="515" rx="36" fill="#0B1B30" stroke="#1F7A8C" stroke-width="3"/>
+  <circle cx="270" cy="238" r="78" fill="#22C55E"/>
+  <path d="M226 238C226 213.699 245.699 194 270 194H334V282H270C245.699 282 226 262.301 226 238Z" fill="#DCFCE7"/>
+  <path d="M270 194H334C358.301 194 378 213.699 378 238C378 262.301 358.301 282 334 282H270V194Z" fill="#38BDF8"/>
+  <path d="M270 216H331C343.15 216 353 225.85 353 238C353 250.15 343.15 260 331 260H270V216Z" fill="#07111F" fill-opacity="0.32"/>
+  <text x="210" y="422" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="78" font-weight="800">Snov.io</text>
+  <text x="210" y="488" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">Lead discovery and outreach suite</text>
+  <g opacity="0.9">
+    <rect x="680" y="190" width="300" height="54" rx="27" fill="#102A43" stroke="#1F7A8C"/>
+    <circle cx="712" cy="217" r="9" fill="#22C55E"/>
+    <text x="738" y="228" fill="#D9F99D" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Email finder</text>
+    <rect x="680" y="274" width="345" height="54" rx="27" fill="#102A43" stroke="#1F7A8C"/>
+    <circle cx="712" cy="301" r="9" fill="#38BDF8"/>
+    <text x="738" y="312" fill="#BAE6FD" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Email verifier</text>
+    <rect x="680" y="358" width="390" height="54" rx="27" fill="#102A43" stroke="#1F7A8C"/>
+    <circle cx="712" cy="385" r="9" fill="#A78BFA"/>
+    <text x="738" y="396" fill="#DDD6FE" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Outreach campaigns</text>
+  </g>
+</svg>

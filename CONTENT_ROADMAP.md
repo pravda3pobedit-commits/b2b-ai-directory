@@ -74,6 +74,14 @@ Distribution should support the content engine instead of becoming a separate pr
 
 ### P0 - Next Best Operator Moves
 
+- **2026-06-23 quick scan: deprioritize Apollo and Lemlist monetization**
+  - Constraint: Alex said Apollo and Lemlist are not useful right now for referral-link monetization.
+  - Signal: current SERPs still contain demand around Clay/Apollo and Smartlead/Instantly/Lemlist, but Apollo/Lemlist should stay editorial context rather than primary affiliate bets.
+  - Better near-term candidates: Hunter, Snov.io, Saleshandy, Smartlead, and Lusha. These have clearer public partner/affiliate paths and fit the current sales-prospecting cluster.
+  - Recommended next page: `Hunter vs Snov.io` or a broader `Hunter alternatives for B2B email finding` page, because the site already has Hunter content and can add Snov.io without rebuilding the category model.
+  - Secondary page: `Smartlead vs Saleshandy` or `Best cold email outreach tools for agencies`, depending on whether Instantly should also be excluded from monetization.
+  - Implementation note: `Hunter vs Snov.io` was prepared locally on 2026-06-23 with a new Snov.io tool page, comparison route, sales-prospecting category link, and sitemap coverage. Replace the generic Snov.io URL with Alex's approved affiliate link once Snov.io approves the application.
+
 - **Strengthen sales prospecting cluster**
   - Target: `/category/ai-sales-prospecting-tools`, Hunter/Apollo pages, new roundup/comparisons.
   - Reason: strongest current affiliate/SEO fit after Hunter work.

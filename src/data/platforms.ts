@@ -457,7 +457,7 @@ export const platforms = [
     badgeText: "Best Outreach Suite",
     category: "Sales",
     icon: Mail,
-    affiliateLink: "https://snov.io/",
+    affiliateLink: "https://snov.io?fp_ref=b2baistack",
     metric: "400K+",
     metricLabel: "Users",
     metricBusiness: "180+",

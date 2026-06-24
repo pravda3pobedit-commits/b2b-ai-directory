@@ -147,6 +147,14 @@ export default async function ComparisonPage({
   }
 
   const pageUrl = `${BASE_URL}/comparisons/${comparison.slug}`;
+  const video = comparison.video;
+  const videoUrl = video ? `https://youtu.be/${video.youtubeId}` : undefined;
+  const videoEmbedUrl = video
+    ? `https://www.youtube-nocookie.com/embed/${video.youtubeId}`
+    : undefined;
+  const videoThumbnailUrl = video
+    ? `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`
+    : undefined;
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -164,6 +172,20 @@ export default async function ComparisonPage({
       name: "B2BAIStack",
       url: BASE_URL,
     },
+    ...(video && videoUrl && videoEmbedUrl && videoThumbnailUrl
+      ? {
+          video: {
+            "@type": "VideoObject",
+            name: video.title,
+            description: video.description,
+            uploadDate: video.uploadDate,
+            thumbnailUrl: [videoThumbnailUrl],
+            embedUrl: videoEmbedUrl,
+            url: videoUrl,
+            isAccessibleForFree: true,
+          },
+        }
+      : {}),
   };
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -221,6 +243,44 @@ export default async function ComparisonPage({
         <p className="text-lg text-slate-400 leading-relaxed max-w-3xl mb-10">
           {comparison.summary}
         </p>
+
+        {video && videoUrl && videoEmbedUrl && (
+          <section className="mb-12 overflow-hidden rounded-3xl border border-white/[0.08] bg-zinc-900/45">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr]">
+              <div className="aspect-video bg-zinc-950">
+                <iframe
+                  src={videoEmbedUrl}
+                  title={video.title}
+                  className="h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+              <div className="flex flex-col justify-center p-6 lg:p-7">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-indigo-300">
+                  Video walkthrough
+                </p>
+                <h2 className="mb-3 text-2xl font-semibold tracking-tight text-white">
+                  {video.title}
+                </h2>
+                <p className="mb-5 text-sm leading-relaxed text-slate-400">
+                  {video.description}
+                </p>
+                <a
+                  href={videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium text-slate-200 transition-colors hover:bg-white/[0.08] hover:text-white"
+                >
+                  Open on YouTube
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           {[firstTool, secondTool].map((tool) => (

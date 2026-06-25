@@ -256,7 +256,7 @@ export const comparisons: Comparison[] = [
         "Hunter.io vs Snov.io: Which B2B Sales Prospecting Tool Fits Your Workflow?",
       description:
         "A short walkthrough comparing Hunter.io and Snov.io for email discovery, verification, outreach workflow, and B2B sales prospecting stack fit.",
-      uploadDate: "2026-06-24",
+      uploadDate: "2026-06-24T07:09:17Z",
     },
     useCases: [
       {

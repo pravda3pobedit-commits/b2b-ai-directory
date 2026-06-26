@@ -553,16 +553,16 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "creatify-vs-invideo",
-    title: "Creatify vs InVideo AI: URL-to-Ad Creatives or Prompt-to-Video?",
+    title: "Creatify vs InVideo AI: URL-to-Ad Creatives or AI Video Agents?",
     shortTitle: "Creatify vs InVideo AI",
     description:
-      "Compare Creatify AI and InVideo AI for product videos, UGC-style ads, URL-to-video workflows, prompt-to-video generation, avatars, and social campaigns.",
+      "Compare Creatify AI and InVideo AI for product videos, UGC-style ads, URL-to-video workflows, AI video agents, prompt-to-video generation, avatars, and social campaigns.",
     category: "Video and ads",
     toolIds: ["creatify-ai", "invideo-ai"],
     summary:
-      "Creatify and InVideo AI both help create marketing videos, but their strongest workflows differ. Creatify is more focused on turning product URLs into UGC-style ad variations. InVideo AI is broader for generating videos from prompts, campaign briefs, product ideas, and social content plans.",
+      "Creatify and InVideo AI both help create marketing videos, but their strongest workflows differ. Creatify is more focused on turning product URLs into UGC-style ad variations. InVideo AI is broader and has shifted toward Agent One: a workflow for custom AI video agents, reusable project context, brand rules, campaign films, and larger creative production.",
     verdict:
-      "Choose Creatify when the campaign is product URL-to-ad variation. Choose InVideo AI when you need broader prompt-to-video creation for ads, explainers, promos, and social content.",
+      "Choose Creatify when the campaign is product URL-to-ad variation. Choose InVideo AI when you need broader AI video production, custom agents, prompt-to-video creation, brand films, explainers, promos, and social content.",
     useCases: [
       {
         toolId: "creatify-ai",
@@ -577,9 +577,9 @@ export const comparisons: Comparison[] = [
         toolId: "invideo-ai",
         heading: "Choose InVideo AI when",
         points: [
-          "You need videos from prompts, briefs, product ideas, or campaign concepts.",
-          "The workflow includes ads, explainers, promos, social posts, and general video drafts.",
-          "The team wants a broader video generation workspace rather than a narrow ad-variation workflow.",
+          "You need videos from prompts, briefs, product ideas, creative references, or campaign concepts.",
+          "The workflow includes AI video agents, ads, explainers, product films, promos, social posts, and general video drafts.",
+          "The team wants reusable project context, brand rules, and a broader creative production workspace rather than a narrow ad-variation workflow.",
         ],
       },
     ],
@@ -588,25 +588,26 @@ export const comparisons: Comparison[] = [
         label: "Best fit",
         first: "Product URL-to-ad and UGC-style creative variations.",
         second:
-          "Prompt-to-video generation across broader marketing use cases.",
+          "AI video agents, prompt-to-video generation, and broader campaign production.",
       },
       {
         label: "Input style",
         first: "Product URLs, product details, and campaign angles.",
-        second: "Text prompts, briefs, ideas, and product concepts.",
+        second:
+          "Text prompts, briefs, product concepts, creative references, and project context.",
       },
       {
         label: "Creative workflow",
         first: "Useful for testing multiple product ad variations.",
         second:
-          "Useful for first-draft videos, explainers, ads, and social assets.",
+          "Useful for first-draft videos, explainers, ads, social assets, and larger brand/campaign work.",
       },
       {
         label: "Review needs",
         first:
           "Review claims, product accuracy, ad policies, and offer details.",
         second:
-          "Review script quality, stock/media rights, brand tone, and campaign fit.",
+          "Review script quality, stock/media rights, agent context, brand tone, and campaign fit.",
       },
     ],
     cautions: [
@@ -617,12 +618,12 @@ export const comparisons: Comparison[] = [
       {
         question: "Is Creatify better than InVideo AI?",
         answer:
-          "Creatify is better when the workflow is product URL-to-UGC ad variation. InVideo AI is broader for prompt-to-video generation, explainers, social videos, and general campaign assets.",
+          "Creatify is better when the workflow is product URL-to-UGC ad variation. InVideo AI is broader for AI video agents, prompt-to-video generation, explainers, social videos, product films, and general campaign assets.",
       },
       {
         question: "Which tool should B2B marketers try first?",
         answer:
-          "If the team needs product ad variations from URLs, start with Creatify. If the team needs broader video assets from prompts or campaign briefs, start with InVideo AI.",
+          "If the team needs product ad variations from URLs, start with Creatify. If the team needs broader video assets from prompts, campaign briefs, brand context, or reusable creative direction, start with InVideo AI.",
       },
     ],
   },

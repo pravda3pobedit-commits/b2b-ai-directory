@@ -6,6 +6,7 @@ This is the working backlog for keeping B2BAIStack updated as a practical B2B AI
 
 - Prefer buyer-intent pages: comparisons, category hubs, tool reviews, best-tools roundups, and workflow guides.
 - Use evidence before writing: GSC queries, affiliate opportunities, current SERPs, official product pages, pricing/docs/changelogs, and real operator questions.
+- Do not choose or concept a next page from backlog guesses alone. Run a fresh signal audit first, then turn the evidence into 1-3 candidate actions.
 - Keep facts current and conservative. Do not invent pricing, benchmarks, compliance guarantees, or product capabilities.
 - Protect static performance: new tool and comparison pages should remain prerendered/SSG where possible.
 - Every meaningful update should improve internal links, metadata/schema, affiliate CTAs/disclosure, and newsletter capture where relevant.
@@ -73,6 +74,19 @@ Distribution should support the content engine instead of becoming a separate pr
   - Status: deployed to production in commit `f7dad6c` on 2026-06-18.
 
 ### P0 - Next Best Operator Moves
+
+- **Fresh signal audit before the next page**
+  - Target: GSC, YouTube analytics, current SERPs, affiliate/partner status, and official product updates across multiple clusters, not only the latest sales/outbound work.
+  - Reason: Alex explicitly corrected that the next B2B move should be based on current signals, not roadmap hypotheses.
+  - Output: short findings memo with evidence, weak signals, buyer-intent fit, monetization fit, and what not to do yet.
+  - Status: required before selecting the next content concept.
+
+- **InVideo Agent One maintenance refresh**
+  - Signal: InVideo affiliate update on 2026-06-26 said tracking was broken from 2026-05-13 through 2026-06-12 and that the program is shifting July promotion toward Agent One, a premium AI video agents offering.
+  - Routes/data: `/tool/invideo-ai`, `/comparisons/creatify-vs-invideo`, `/category/ai-video-ad-generators`.
+  - Reason: this is an official product and affiliate positioning change inside the video/ad cluster. It supports updating existing pages before considering a separate new Agent One page.
+  - Follow-up: verify May/June retroactive conversions in Impact and include Agent One in the next multi-cluster B2B signal audit.
+  - Status: maintenance refresh prepared on 2026-06-26.
 
 - **2026-06-23 quick scan: deprioritize Apollo and Lemlist monetization**
   - Constraint: Alex said Apollo and Lemlist are not useful right now for referral-link monetization.

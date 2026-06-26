@@ -5,17 +5,19 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
 
+type Platform = (typeof platforms)[number];
+
 export const metadata: Metadata = {
   title: "Top AI Video & Ad Generators for B2B Marketing | b2baistack.com",
   description:
-    "Compare AI video generators, ad creative tools, avatar video platforms, and voiceover tools for B2B marketing teams.",
+    "Compare AI video generators, AI video agents, ad creative tools, avatar video platforms, and voiceover tools for B2B marketing teams.",
   alternates: {
     canonical: "https://www.b2baistack.com/category/ai-video-ad-generators",
   },
   openGraph: {
     title: "Top AI Video & Ad Generators for B2B Marketing | b2baistack.com",
     description:
-      "Compare AI video generators, ad creative tools, avatar video platforms, and voiceover tools for B2B marketing teams.",
+      "Compare AI video generators, AI video agents, ad creative tools, avatar video platforms, and voiceover tools for B2B marketing teams.",
     url: "https://www.b2baistack.com/category/ai-video-ad-generators",
     type: "website",
   },
@@ -31,9 +33,10 @@ const TOOL_IDS = [
 
 const categoryTools = TOOL_IDS.map((id) =>
   platforms.find((p) => p.id === id),
-).filter(Boolean) as typeof platforms;
+).filter((platform): platform is Platform => Boolean(platform));
 
 const benefits = [
+  "Build AI video agents that remember campaign context",
   "Turn text prompts into campaign-ready videos",
   "Repurpose webinars and long-form content into social clips",
   "Generate UGC-style product ads from URLs",
@@ -86,9 +89,9 @@ export default function AIVideoAdGeneratorsPage() {
 
         {/* Category Description */}
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-4">
-          Compare AI tools for video ads, avatar campaigns, product explainers,
-          repurposed clips, and social content workflows for B2B marketing,
-          growth, and agency teams.
+          Compare AI tools for video agents, video ads, avatar campaigns,
+          product explainers, repurposed clips, and social content workflows for
+          B2B marketing, growth, and agency teams.
         </p>
 
         {/* Target Audience Chips */}
@@ -130,7 +133,7 @@ export default function AIVideoAdGeneratorsPage() {
           </h2>
           <p className="text-sm text-gray-500 mb-2">
             Hand-picked tools used by B2B marketers, growth teams, and agencies
-            to produce video content and ads at scale.
+            to produce video content, AI video agents, and ads at scale.
           </p>
           <p className="text-xs text-gray-600 mb-8">
             Disclosure: Some links on this page are affiliate links. We may earn
@@ -138,7 +141,7 @@ export default function AIVideoAdGeneratorsPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {categoryTools.map((platform: any) => {
+            {categoryTools.map((platform) => {
               const Icon = platform.icon ?? Video;
               return (
                 <div
@@ -185,19 +188,17 @@ export default function AIVideoAdGeneratorsPage() {
 
                   {platform.features && (
                     <ul className="relative z-10 mb-5 space-y-1.5">
-                      {platform.features
-                        .slice(0, 3)
-                        .map((feat: string, i: number) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-2 text-xs text-gray-500"
-                          >
-                            <span className="mt-0.5 w-1 h-1 rounded-full bg-indigo-500/60 shrink-0" />
-                            <span className="line-clamp-1">
-                              {feat.includes(":") ? feat.split(":")[0] : feat}
-                            </span>
-                          </li>
-                        ))}
+                      {platform.features.slice(0, 3).map((feat: string) => (
+                        <li
+                          key={feat}
+                          className="flex items-start gap-2 text-xs text-gray-500"
+                        >
+                          <span className="mt-0.5 w-1 h-1 rounded-full bg-indigo-500/60 shrink-0" />
+                          <span className="line-clamp-1">
+                            {feat.includes(":") ? feat.split(":")[0] : feat}
+                          </span>
+                        </li>
+                      ))}
                     </ul>
                   )}
 

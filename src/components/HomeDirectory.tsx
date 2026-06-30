@@ -1,13 +1,38 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { track } from "@vercel/analytics/react";
 import { motion } from "framer-motion";
-import { platforms } from "@/data/platforms";
-import { cn } from "@/lib/utils";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight, type LucideIcon, Search, X } from "lucide-react";
+import Link from "next/link";
+import { useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import { comparisons } from "@/data/comparisons";
+import { platforms } from "@/data/platforms";
+import { cn } from "@/lib/utils";
+
+type DirectoryPlatform = {
+  id: string;
+  name: string;
+  category: string;
+  icon: LucideIcon;
+  featured?: boolean;
+  badgeText?: string;
+  categories?: string[];
+  metric?: string;
+  metricLabel?: string;
+  metricBusiness?: string;
+  metricLabelBusiness?: string;
+  shortDescription?: string;
+  descBusiness?: string;
+  descFreelancer?: string;
+  longDescription?: string;
+  bestFor?: string;
+  expertRecommendation?: string;
+  features?: string[];
+};
+
+const directoryPlatforms: DirectoryPlatform[] = platforms;
 
 const filterCategories = [
   "Content Creation",
@@ -31,26 +56,176 @@ const categoryLinks = [
   },
 ];
 
+const guideLinks = [
+  {
+    label: "AI sales prospecting stack",
+    href: "/guides/ai-sales-prospecting-stack",
+    description:
+      "Map data, enrichment, sending, deliverability, and review across the outbound stack.",
+  },
+];
+
+const getPlatformCategories = (platform: DirectoryPlatform) =>
+  platform.categories ?? [platform.category];
+
+const getPlatformSearchText = (platform: DirectoryPlatform) =>
+  [
+    platform.name,
+    platform.category,
+    getPlatformCategories(platform).join(" "),
+    platform.shortDescription,
+    platform.descBusiness,
+    platform.descFreelancer,
+    platform.longDescription,
+    platform.bestFor,
+    platform.expertRecommendation,
+    Array.isArray(platform.features) ? platform.features.join(" ") : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
 export default function Home() {
   const [isPaused, setIsPaused] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const searchTerms = useMemo(
+    () => normalizedQuery.split(/\s+/).filter(Boolean),
+    [normalizedQuery],
+  );
 
-  const filteredPlatforms = platforms
-    .filter((platform) => {
-      if (activeCategory === "All") return true;
-      if (Array.isArray((platform as any).categories)) {
-        return (platform as any).categories.includes(activeCategory);
-      }
-      return platform.category === activeCategory;
-    })
-    .sort((a: any, b: any) => {
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return 0;
-    });
+  const filteredPlatforms = useMemo(
+    () =>
+      directoryPlatforms
+        .filter((platform) => {
+          if (activeCategory === "All") return true;
+          return getPlatformCategories(platform).includes(activeCategory);
+        })
+        .filter((platform) => {
+          if (searchTerms.length === 0) return true;
+          const searchText = getPlatformSearchText(platform);
+          return searchTerms.every((term) => searchText.includes(term));
+        })
+        .sort((a, b) => {
+          if (a.featured && !b.featured) return -1;
+          if (!a.featured && b.featured) return 1;
+          return 0;
+        }),
+    [activeCategory, searchTerms],
+  );
+
+  const searchResults = useMemo(() => {
+    if (searchTerms.length === 0) return [];
+
+    const platformResults = directoryPlatforms.map((platform) => ({
+      title: platform.name,
+      type: "Tool",
+      href: `/tool/${platform.id}`,
+      category: platform.category,
+      description:
+        platform.shortDescription ??
+        platform.descBusiness ??
+        platform.descFreelancer,
+      text: getPlatformSearchText(platform),
+      priority: platform.featured ? 0 : 1,
+    }));
+
+    const comparisonResults = comparisons.map((comparison) => ({
+      title: comparison.shortTitle,
+      type: "Comparison",
+      href: `/comparisons/${comparison.slug}`,
+      category: comparison.category,
+      description: comparison.description,
+      text: [
+        comparison.title,
+        comparison.shortTitle,
+        comparison.category,
+        comparison.description,
+        comparison.summary,
+        comparison.verdict,
+      ]
+        .join(" ")
+        .toLowerCase(),
+      priority: 2,
+    }));
+
+    const categoryResults = categoryLinks.map((category) => ({
+      title: category.label,
+      type: "Category",
+      href: category.href,
+      category: "Directory",
+      description: `Browse ${category.label.toLowerCase()} tools and related comparisons.`,
+      text: `${category.label} ${category.href.replaceAll("-", " ")}`.toLowerCase(),
+      priority: 3,
+    }));
+
+    const guideResults = guideLinks.map((guide) => ({
+      title: guide.label,
+      type: "Guide",
+      href: guide.href,
+      category: "Workflow",
+      description: guide.description,
+      text: `${guide.label} ${guide.href.replaceAll("-", " ")} ${guide.description}`.toLowerCase(),
+      priority: 4,
+    }));
+
+    return [
+      ...platformResults,
+      ...comparisonResults,
+      ...categoryResults,
+      ...guideResults,
+    ]
+      .filter((result) =>
+        searchTerms.every((term) => result.text.includes(term)),
+      )
+      .sort((a, b) => a.priority - b.priority || a.title.localeCompare(b.title))
+      .slice(0, 8);
+  }, [searchTerms]);
+
+  const showSearchResults = searchTerms.length > 0;
+
+  const handleClearSearch = () => {
+    setSearchQuery("");
+  };
+
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+  };
+
+  const categoryButtons = filterCategories.map((cat) => (
+    <button
+      key={cat}
+      type="button"
+      onClick={() => handleCategoryClick(cat)}
+      className={cn(
+        "text-xs px-3 py-1 rounded-full border transition-colors duration-300",
+        activeCategory === cat
+          ? "bg-slate-700 text-white border-slate-600 font-medium"
+          : "border-slate-800/80 text-slate-400 hover:bg-slate-800/50 hover:border-slate-700 hover:text-slate-300",
+      )}
+    >
+      {cat}
+    </button>
+  ));
+
+  const allButton = (
+    <button
+      type="button"
+      onClick={() => handleCategoryClick("All")}
+      className={cn(
+        "text-xs px-3 py-1 rounded-full border transition-colors duration-300",
+        activeCategory === "All"
+          ? "bg-slate-700 text-white border-slate-600 font-medium"
+          : "border-slate-800/80 text-slate-400 hover:bg-slate-800/50 hover:border-slate-700 hover:text-slate-300",
+      )}
+    >
+      All
+    </button>
+  );
 
   const renderCard = (
-    platform: any,
+    platform: DirectoryPlatform,
     index: number,
     wrapperIndex: string | number,
   ) => {
@@ -69,14 +244,10 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-end">
               <span className="text-sm font-medium text-white">
-                {"metricBusiness" in platform
-                  ? platform.metricBusiness
-                  : platform.metric}
+                {platform.metricBusiness ?? platform.metric}
               </span>
               <span className="text-[8px] uppercase tracking-wider text-gray-500">
-                {"metricLabelBusiness" in platform
-                  ? platform.metricLabelBusiness
-                  : platform.metricLabel}
+                {platform.metricLabelBusiness ?? platform.metricLabel}
               </span>
             </div>
           </div>
@@ -86,9 +257,9 @@ export default function Home() {
               {platform.name}
             </h3>
             {platform.featured &&
-              ((platform as any).badgeText ? (
+              (platform.badgeText ? (
                 <div className="ml-2 px-2 py-[2px] rounded-full bg-cyan-900/30 border border-cyan-500/40 text-[9px] font-bold tracking-widest uppercase text-cyan-400 whitespace-nowrap">
-                  {(platform as any).badgeText}
+                  {platform.badgeText}
                 </div>
               ) : (
                 <div className="ml-2 px-2 py-[2px] rounded-full bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest uppercase bg-gradient-to-r from-blue-400 to-indigo-400 text-transparent bg-clip-text">
@@ -134,30 +305,6 @@ export default function Home() {
         <div className="absolute bottom-[10%] right-[20%] w-[500px] h-[500px] rounded-full bg-blue-900/10 blur-[120px] mix-blend-screen opacity-50"></div>
       </div>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(calc(-100% - 1.25rem)); }
-        }
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
-        }
-        @keyframes graphite {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .bg-graphite-animated {
-          background: linear-gradient(-45deg, #050505, #0a0a0f, #1e3a8a, #050505, #111827);
-          background-size: 400% 400%;
-          animation: graphite 15s ease infinite;
-        }
-      `,
-        }}
-      />
-
       {/* Floating Sticky Navigation */}
       <Navbar />
 
@@ -198,23 +345,84 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.28 }}
+            className="w-full max-w-2xl pt-2"
+          >
+            <search className="relative flex items-center rounded-2xl border border-white/10 bg-black/35 px-4 py-2.5 text-left shadow-2xl shadow-black/30 backdrop-blur-2xl focus-within:border-indigo-400/60 focus-within:bg-black/45">
+              <Search className="h-4 w-4 shrink-0 text-indigo-300" />
+              <input
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search AI tools, workflows, or comparisons"
+                className="min-w-0 flex-1 bg-transparent px-3 text-sm text-white outline-none placeholder:text-slate-500"
+                aria-label="Search AI tools, workflows, or comparisons"
+              />
+              {searchQuery.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleClearSearch}
+                  className="rounded-full p-1 text-slate-500 transition-colors hover:bg-white/10 hover:text-white"
+                  aria-label="Clear search"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </search>
+
+            {showSearchResults && (
+              <div className="mt-2 overflow-hidden rounded-2xl border border-white/10 bg-zinc-950/90 text-left shadow-2xl shadow-black/40 backdrop-blur-2xl">
+                {searchResults.length > 0 ? (
+                  <div className="grid divide-y divide-white/10">
+                    {searchResults.map((result) => (
+                      <Link
+                        key={`${result.type}-${result.href}`}
+                        href={result.href}
+                        onClick={() =>
+                          track("Directory Search Result Click", {
+                            href: result.href,
+                            query: normalizedQuery.slice(0, 80),
+                            result_title: result.title,
+                            result_type: result.type,
+                          })
+                        }
+                        className="group flex items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-white/[0.04]"
+                      >
+                        <span className="min-w-0">
+                          <span className="mb-1 flex flex-wrap items-center gap-2">
+                            <span className="text-sm font-semibold text-white">
+                              {result.title}
+                            </span>
+                            <span className="rounded-full border border-indigo-400/30 bg-indigo-400/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-indigo-200">
+                              {result.type}
+                            </span>
+                            <span className="text-[11px] text-slate-500">
+                              {result.category}
+                            </span>
+                          </span>
+                          <span className="line-clamp-1 text-xs leading-5 text-slate-400">
+                            {result.description}
+                          </span>
+                        </span>
+                        <ChevronRight className="h-4 w-4 shrink-0 text-slate-600 transition-colors group-hover:text-indigo-300" />
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="px-4 py-3 text-sm text-slate-400">
+                    No matches yet. Try another tool, category, or workflow.
+                  </div>
+                )}
+              </div>
+            )}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-2 mt-1"
           >
-            {filterCategories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={cn(
-                  "text-xs px-3 py-1 rounded-full border transition-colors duration-300",
-                  activeCategory === cat
-                    ? "bg-slate-700 text-white border-slate-600 font-medium"
-                    : "border-slate-800/80 text-slate-400 hover:bg-slate-800/50 hover:border-slate-700 hover:text-slate-300",
-                )}
-              >
-                {cat}
-              </button>
-            ))}
+            {categoryButtons}
             {categoryLinks.map((link) => (
               <Link
                 key={link.href}
@@ -224,17 +432,7 @@ export default function Home() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => setActiveCategory("All")}
-              className={cn(
-                "text-xs px-3 py-1 rounded-full border transition-colors duration-300",
-                activeCategory === "All"
-                  ? "bg-slate-700 text-white border-slate-600 font-medium"
-                  : "border-slate-800/80 text-slate-400 hover:bg-slate-800/50 hover:border-slate-700 hover:text-slate-300",
-              )}
-            >
-              All
-            </button>
+            {allButton}
           </motion.div>
         </div>
 

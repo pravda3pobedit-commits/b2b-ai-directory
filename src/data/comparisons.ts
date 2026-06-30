@@ -28,6 +28,11 @@ export type Comparison = {
     question: string;
     answer: string;
   }[];
+  relatedLinks?: {
+    title: string;
+    description: string;
+    href: string;
+  }[];
 };
 
 export const comparisons: Comparison[] = [
@@ -374,6 +379,20 @@ export const comparisons: Comparison[] = [
           "Where do Smartlead, Saleshandy, and Clay fit around Hunter and Snov.io?",
         answer:
           "Smartlead and Saleshandy are usually evaluated closer to cold email sending, warm-up, deliverability, and campaign operations. Clay is more often evaluated as a data orchestration and enrichment layer. Hunter and Snov.io sit closer to contact discovery, verification, and the first outbound workflow decisions.",
+      },
+    ],
+    relatedLinks: [
+      {
+        title: "Browse AI sales prospecting tools",
+        description:
+          "Compare the broader tool set around email finding, verification, sales intelligence, AI people search, and outbound workflow design.",
+        href: "/category/ai-sales-prospecting-tools",
+      },
+      {
+        title: "Map the full outbound stack",
+        description:
+          "See where Hunter, Snov.io, Apollo, Clay, Smartlead, Instantly, and Lemlist fit across data, enrichment, sending, deliverability, and review.",
+        href: "/guides/ai-sales-prospecting-stack",
       },
     ],
   },

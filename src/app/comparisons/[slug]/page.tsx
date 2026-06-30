@@ -1,6 +1,7 @@
 import {
   AlertTriangle,
   ArrowLeft,
+  ArrowRight,
   CheckCircle2,
   ExternalLink,
   Scale,
@@ -457,6 +458,52 @@ export default async function ComparisonPage({
             ))}
           </div>
         </section>
+
+        {comparison.relatedLinks && comparison.relatedLinks.length > 0 && (
+          <section className="mb-12">
+            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-2xl font-semibold text-white">
+                  Related next steps
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500">
+                  Use these pages to move from a two-tool comparison into the
+                  broader workflow.
+                </p>
+              </div>
+              <Link
+                href="/comparisons"
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-slate-300 transition-colors hover:bg-white/[0.07] hover:text-white"
+              >
+                All comparisons
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {comparison.relatedLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="group rounded-3xl border border-white/[0.07] bg-zinc-900/45 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/35 hover:bg-indigo-500/[0.06]"
+                >
+                  <div className="mb-3 flex items-center justify-between gap-4">
+                    <span className="text-[11px] uppercase tracking-widest text-indigo-300">
+                      Next step
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-slate-500 transition-transform group-hover:translate-x-1 group-hover:text-indigo-300" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    {link.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-400">
+                    {link.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <NewsletterSignup
           className="mb-12"

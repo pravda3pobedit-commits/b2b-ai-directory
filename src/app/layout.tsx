@@ -1,7 +1,7 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const BASE_URL = "https://www.b2baistack.com";
@@ -36,6 +36,16 @@ const structuredData = {
       name: SITE_NAME,
       url: BASE_URL,
       description: SITE_DESCRIPTION,
+      knowsAbout: [
+        "B2B AI tools",
+        "AI sales prospecting tools",
+        "AI video generators",
+        "AI ad generators",
+        "AI meeting assistants",
+        "AI workflow automation",
+        "AI customer support tools",
+        "B2B software comparisons",
+      ],
     },
     {
       "@type": "WebSite",
@@ -48,6 +58,13 @@ const structuredData = {
       publisher: {
         "@id": `${BASE_URL}/#organization`,
       },
+      about: [
+        "B2B AI tools",
+        "AI tool comparisons",
+        "AI sales prospecting",
+        "AI video and ad workflows",
+        "AI workflow automation",
+      ],
     },
   ],
 };
@@ -63,9 +80,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<". */}
         <script
           type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}

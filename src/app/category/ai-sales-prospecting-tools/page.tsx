@@ -10,19 +10,27 @@ import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
+import {
+  buildCategoryItemListJsonLd,
+  buildFaqPageJsonLd,
+  jsonLdMarkup,
+} from "@/lib/structuredData";
+
+const BASE_URL = "https://www.b2baistack.com";
+const PAGE_URL = `${BASE_URL}/category/ai-sales-prospecting-tools`;
 
 export const metadata: Metadata = {
   title: "Top AI Sales Prospecting Tools for B2B Teams | b2baistack.com",
   description:
     "Compare AI sales prospecting tools for email finding, contact verification, sales intelligence, AI research, outbound stack design, and responsible workflows.",
   alternates: {
-    canonical: "https://www.b2baistack.com/category/ai-sales-prospecting-tools",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "Top AI Sales Prospecting Tools for B2B Teams | b2baistack.com",
     description:
       "Compare AI sales prospecting tools for email finding, contact verification, sales intelligence, AI research, outbound stack design, and responsible workflows.",
-    url: "https://www.b2baistack.com/category/ai-sales-prospecting-tools",
+    url: PAGE_URL,
     type: "website",
   },
 };
@@ -43,9 +51,54 @@ const benefits = [
   "Connect prospecting research to CRM, outreach, and automation workflows",
 ];
 
+const categoryFaqs = [
+  {
+    question: "What are AI sales prospecting tools?",
+    answer:
+      "AI sales prospecting tools help B2B teams find accounts, discover contacts, verify email addresses, enrich records, research prospects, and prepare cleaner outbound workflows for sales or partnership outreach.",
+  },
+  {
+    question:
+      "Which AI sales prospecting tool should a small B2B team try first?",
+    answer:
+      "A small B2B team should usually start with the narrowest missing layer. Use Hunter for focused email finding and verification, Snov.io when outreach workflow matters, Apollo when a broader sales database and GTM workspace is needed, and Juicebox when AI people search is the main use case.",
+  },
+  {
+    question: "Is Hunter or Snov.io better for B2B outbound?",
+    answer:
+      "Hunter is usually better when the job is clean email discovery and verification. Snov.io is usually better when the team also wants prospecting, outreach sequences, deliverability checks, and a more complete outbound workflow.",
+  },
+  {
+    question: "Should AI sales prospecting tools replace human review?",
+    answer:
+      "No. AI sales prospecting tools can speed up research, enrichment, and list building, but teams should still review targeting, consent, deliverability, message quality, and CRM data before launching outbound campaigns.",
+  },
+];
+
+const itemListJsonLd = buildCategoryItemListJsonLd({
+  name: "AI Sales Prospecting Tools",
+  description: metadata.description as string,
+  pageUrl: PAGE_URL,
+  baseUrl: BASE_URL,
+  tools: categoryTools,
+});
+
+const faqJsonLd = buildFaqPageJsonLd(categoryFaqs);
+
 export default function AISalesProspectingToolsPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(itemListJsonLd)}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(faqJsonLd)}
+      />
+
       {/* Ambient Background */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[5%] left-[10%] w-[600px] h-[600px] rounded-full bg-emerald-900/15 blur-[140px]" />
@@ -257,6 +310,27 @@ export default function AISalesProspectingToolsPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold text-white mb-6 tracking-tight">
+            AI Sales Prospecting FAQ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {categoryFaqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+              >
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 

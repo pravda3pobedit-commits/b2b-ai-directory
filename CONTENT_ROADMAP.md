@@ -20,6 +20,15 @@ This is the working backlog for keeping B2BAIStack updated as a practical B2B AI
 - Site gaps: categories with too few tools, weak CTAs, thin comparisons, outdated descriptions, or missing next-step links.
 - Distribution: LinkedIn post performance, newsletter signups, partner replies, and referral/affiliate contact quality.
 
+## Category Maintenance Rotation
+
+Sales/outbound remains the lead wedge while it has the strongest real signal, but the other category hubs should not sit untouched.
+
+- During each recurring signal scan, include one non-sales category in a light maintenance pass: support, workflow automation, meetings intelligence, then video/ad tools.
+- For the selected category, check 1-2 broad buyer prompts, 1 exact/comparison prompt, current live page indexing, obvious product-positioning changes, and whether the page needs schema, a FAQ block, a related comparison link, or a small copy update.
+- Prefer one small action over a new page: add category-level schema, improve an internal link, refresh a stale tool description, add an answer block, or record "no change" with evidence.
+- Rotate categories even when traffic is weak. The point is to keep them alive enough for future signals without taking focus away from the category that is already moving.
+
 ## Current Site Base
 
 - Categories: video ads, meetings intelligence, workflow automation, sales prospecting, customer support.

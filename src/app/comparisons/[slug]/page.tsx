@@ -149,7 +149,11 @@ export default async function ComparisonPage({
 
   const pageUrl = `${BASE_URL}/comparisons/${comparison.slug}`;
   const video = comparison.video;
-  const videoUrl = video ? `https://youtu.be/${video.youtubeId}` : undefined;
+  const videoUrl = video
+    ? video.kind === "short"
+      ? `https://www.youtube.com/shorts/${video.youtubeId}`
+      : `https://youtu.be/${video.youtubeId}`
+    : undefined;
   const videoEmbedUrl = video
     ? `https://www.youtube-nocookie.com/embed/${video.youtubeId}`
     : undefined;

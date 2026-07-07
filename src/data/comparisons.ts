@@ -12,6 +12,7 @@ export type Comparison = {
     title: string;
     description: string;
     uploadDate: string;
+    kind?: "short" | "video";
   };
   useCases: {
     toolId: string;
@@ -256,12 +257,12 @@ export const comparisons: Comparison[] = [
     verdict:
       "Choose Hunter when the team wants a focused email finder and verifier that can sit beside an existing CRM, spreadsheet, or outreach tool. Choose Snov.io when the team wants more of the outbound workflow in one place: lead discovery, verification, deliverability, email or LinkedIn sequences, and pipeline management.",
     video: {
-      youtubeId: "tje0aHWLe6M",
-      title:
-        "Hunter.io vs Snov.io: Which B2B Sales Prospecting Tool Fits Your Workflow?",
+      youtubeId: "wY8WTwxPGxk",
+      title: "Before You Buy an AI SDR Tool, Map the Broken Layer",
       description:
-        "A short walkthrough comparing Hunter.io and Snov.io for email discovery, verification, outreach workflow, and B2B sales prospecting stack fit.",
-      uploadDate: "2026-06-24T07:09:17Z",
+        "A short B2B sales prospecting walkthrough comparing Hunter.io, Snov.io, Apollo, and AI people search as separate outbound stack layers.",
+      uploadDate: "2026-07-07T08:48:09Z",
+      kind: "short",
     },
     useCases: [
       {

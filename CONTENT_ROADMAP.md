@@ -18,7 +18,7 @@ This is the working backlog for keeping B2BAIStack updated as a practical B2B AI
 - Market: major product launches, pricing changes, rebrands, acquisitions, shutdowns, and category shifts.
 - SERP: whether Google rewards comparison, listicle, review, or category-hub format for a target query.
 - Site gaps: categories with too few tools, weak CTAs, thin comparisons, outdated descriptions, or missing next-step links.
-- Distribution: LinkedIn post performance, newsletter signups, partner replies, and referral/affiliate contact quality.
+- Distribution: LinkedIn, YouTube, Substack, Medium, newsletter signups, partner replies, and referral/affiliate contact quality.
 
 ## Category Maintenance Rotation
 
@@ -35,16 +35,35 @@ Sales/outbound remains the lead wedge while it has the strongest real signal, bu
 - Comparisons: Make vs Zapier, Hunter vs Apollo, Chatbase vs Intercom, Fireflies vs Fathom, Creatify vs InVideo.
 - Newsletter: beehiiv embed connected.
 - LinkedIn: planned cadence is 2 posts per week for now.
+- YouTube: use Shorts as lightweight discovery around comparison pages and guides.
+- Substack and Medium: newly registered channels; use the distribution playbook and warm them up carefully before scaling.
 - Legacy route: `/blog/*` redirects to `/comparisons`.
 
 ## Distribution And Partner Loop
 
 Distribution should support the content engine instead of becoming a separate project.
 
+- Working playbook: `DISTRIBUTION_PLAYBOOK.md`
+
 - **LinkedIn cadence**
   - Baseline: 2 posts per week.
   - Best formats: practical comparison notes, "how to choose" posts, tool-stack observations, short lessons from new pages, and transparent build-in-public updates.
   - Goal: credibility, early traffic, founder/operator signal, and content testing before investing in bigger pages.
+
+- **YouTube Shorts cadence**
+  - Baseline: one short for each comparison or guide that has a clear visual explanation.
+  - Best formats: 30-60 second decision summaries, screen walkthroughs, and captioned "choose X if / choose Y if" frames.
+  - Goal: lightweight discovery and a reusable asset that can also feed LinkedIn and Substack.
+
+- **Substack cadence**
+  - Baseline: 1 useful issue per week during the account warmup period.
+  - Best formats: short comparison briefs, monthly "what changed" notes, and practical buying checklists.
+  - Guardrail: do not use Substack as a link dump. Each issue should be useful without clicking through.
+
+- **Medium cadence**
+  - Baseline: 1 adapted or imported article per week during the account warmup period.
+  - Best formats: human-edited decision articles and canonical republishing of stronger B2BAIStack pages.
+  - Guardrail: Medium is sensitive to AI-generated, affiliate-first, and SEO-only content. Use canonical links for republished site articles and disclose affiliate/self-promotional links.
 
 - **Newsletter**
   - Use as a slow trust channel, not a high-volume broadcast.
@@ -57,7 +76,7 @@ Distribution should support the content engine instead of becoming a separate pr
   - External outreach requires explicit Alex approval before sending.
 
 - **Feedback loop**
-  - Reuse each new page across LinkedIn/newsletter.
+  - Reuse each new page across LinkedIn, YouTube, Substack, Medium, and newsletter where the format fits.
   - Watch which posts or emails get replies/clicks.
   - Feed those signals back into the roadmap.
 

@@ -1,4 +1,4 @@
-import { CheckCircle2, Settings, Sparkles } from "lucide-react";
+import { CheckCircle2, ExternalLink, Settings, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   description:
     "Compare AI workflow automation tools for app integrations, visual workflows, AI agents, webhooks, APIs, and operations automation.",
   alternates: {
-    canonical: "https://www.b2baistack.com/category/ai-workflow-automation-tools",
+    canonical:
+      "https://www.b2baistack.com/category/ai-workflow-automation-tools",
   },
   openGraph: {
     title: "Top AI Workflow Automation Tools for B2B Teams | b2baistack.com",
@@ -22,10 +23,11 @@ export const metadata: Metadata = {
 };
 
 const TOOL_IDS = ["make", "zapier", "zapier-central", "uipath-autopilot"];
+type Platform = (typeof platforms)[number];
 
-const categoryTools = TOOL_IDS
-  .map((id) => platforms.find((p) => p.id === id))
-  .filter(Boolean) as typeof platforms;
+const categoryTools = TOOL_IDS.map((id) =>
+  platforms.find((p) => p.id === id),
+).filter((tool): tool is Platform => Boolean(tool));
 
 const benefits = [
   "Connect CRMs, forms, spreadsheets, support tools, and marketing apps",
@@ -34,6 +36,23 @@ const benefits = [
   "Automate lead routing, reporting, content ops, and support handoffs",
   "Compare visual builders, simple triggers, AI bots, and enterprise RPA",
   "Keep human review in workflows where accuracy, compliance, or tone matters",
+];
+
+const relatedStackReads = [
+  {
+    title: "How to add AI tools to a no-code business stack",
+    source: "Best No-Code Tools",
+    href: "https://best-no-code-tools.com/blog/add-ai-tools-to-a-no-code-business-stack",
+    description:
+      "A practical companion for teams adding AI helpers after a no-code site, app, form, or automation is already running.",
+  },
+  {
+    title: "How low-code teams should evaluate AI tools before adding them",
+    source: "Top 5 Low-Code Platforms",
+    href: "https://top-5-low-code-platforms.com/blog/evaluate-ai-tools-for-low-code-teams",
+    description:
+      "A governance-minded checklist for deciding whether AI belongs inside a low-code platform or beside it.",
+  },
 ];
 
 export default function AIWorkflowAutomationToolsPage() {
@@ -80,9 +99,9 @@ export default function AIWorkflowAutomationToolsPage() {
 
         {/* Category Description */}
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed mb-4">
-          Compare visual automation builders, AI workflow tools, app
-          connectors, webhooks, API modules, AI bots, and enterprise RPA options
-          for B2B operations teams.
+          Compare visual automation builders, AI workflow tools, app connectors,
+          webhooks, API modules, AI bots, and enterprise RPA options for B2B
+          operations teams.
         </p>
 
         {/* Target Audience Chips */}
@@ -117,22 +136,63 @@ export default function AIWorkflowAutomationToolsPage() {
           </div>
         </section>
 
+        <section className="mb-16 rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 md:p-8">
+          <div className="mb-6 max-w-2xl">
+            <div className="text-[11px] uppercase tracking-widest text-indigo-300 mb-2">
+              Related stack planning reads
+            </div>
+            <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
+              Before adding AI to a no-code or low-code workflow
+            </h2>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              These companion guides help teams map the existing app or
+              automation layer before choosing AI tools from the directory.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {relatedStackReads.map((resource) => (
+              <a
+                className="group rounded-2xl border border-white/[0.08] bg-black/25 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-indigo-400/40 hover:bg-indigo-500/[0.06]"
+                href={resource.href}
+                key={resource.href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <span className="text-[11px] uppercase tracking-widest text-gray-500">
+                    {resource.source}
+                  </span>
+                  <ExternalLink className="w-4 h-4 text-gray-500 transition-colors group-hover:text-indigo-300" />
+                </div>
+                <h3 className="text-base font-semibold text-white mb-2 leading-snug">
+                  {resource.title}
+                </h3>
+                <p className="text-sm text-gray-400 leading-relaxed">
+                  {resource.description}
+                </p>
+              </a>
+            ))}
+          </div>
+        </section>
+
         {/* Tool Cards */}
         <section>
           <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
             Top AI Workflow Automation Tools
           </h2>
           <p className="text-sm text-gray-500 mb-2">
-            Hand-picked tools for B2B teams that need app integrations,
-            workflow orchestration, AI automation, custom APIs, and operations
-            systems that stay in sync.
+            Hand-picked tools for B2B teams that need app integrations, workflow
+            orchestration, AI automation, custom APIs, and operations systems
+            that stay in sync.
           </p>
           <p className="text-xs text-gray-600 mb-8">
-            Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
+            Disclosure: Some links on this page are affiliate links. We may earn
+            a commission if you sign up, at no extra cost to you.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {categoryTools.map((platform: any) => {
+            {categoryTools.map((platform) => {
               const Icon = platform.icon ?? Settings;
               return (
                 <div
@@ -172,13 +232,18 @@ export default function AIWorkflowAutomationToolsPage() {
                   </div>
 
                   <p className="relative z-10 text-sm text-gray-400 leading-snug mb-4 flex-1">
-                    {platform.descBusiness ?? platform.descFreelancer ?? platform.shortDescription}
+                    {platform.descBusiness ??
+                      platform.descFreelancer ??
+                      platform.shortDescription}
                   </p>
 
                   {platform.features && (
                     <ul className="relative z-10 mb-5 space-y-1.5">
-                      {platform.features.slice(0, 3).map((feat: string, i: number) => (
-                        <li key={i} className="flex items-start gap-2 text-xs text-gray-500">
+                      {platform.features.slice(0, 3).map((feat: string) => (
+                        <li
+                          key={feat}
+                          className="flex items-start gap-2 text-xs text-gray-500"
+                        >
                           <span className="mt-0.5 w-1 h-1 rounded-full bg-indigo-500/60 shrink-0" />
                           <span className="line-clamp-1">
                             {feat.includes(":") ? feat.split(":")[0] : feat}

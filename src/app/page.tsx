@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import HomeDirectory from "@/components/HomeDirectory";
 
 const SITE_DESCRIPTION =
-  "Curated AI tools for B2B teams, with practical categories, honest recommendations, and comparison-focused pages.";
+  "A practical B2B AI tools directory with comparison pages for sales prospecting, customer support, workflow automation, meeting intelligence, and video workflows.";
+const SITE_TITLE = "B2B AI Tools Directory & Comparisons | B2BAIStack";
 
 export const metadata: Metadata = {
-  title: "B2BAIStack | Practical AI Tools for B2B Teams",
+  title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "B2BAIStack | Practical AI Tools for B2B Teams",
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: "/",
     siteName: "B2BAIStack",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "B2BAIStack | Practical AI Tools for B2B Teams",
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
 };

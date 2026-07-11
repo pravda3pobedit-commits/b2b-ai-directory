@@ -116,7 +116,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "hunter-vs-apollo",
-    title: "Hunter vs Apollo: Email Finder or Sales Engagement Platform?",
+    title: "Hunter.io vs Apollo: Email Finder or Sales Engagement Platform?",
     shortTitle: "Hunter vs Apollo",
     description:
       "Compare Hunter.io and Apollo for email finding, email verification, B2B prospecting lists, AI-assisted research, enrichment, sequencing, and sales intelligence workflows.",
@@ -246,7 +246,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "hunter-vs-snovio",
-    title: "Hunter vs Snov.io: Email Finder or Outreach Suite?",
+    title: "Hunter.io vs Snov.io: Email Finder or Outreach Suite?",
     shortTitle: "Hunter vs Snov.io",
     description:
       "Compare Hunter.io and Snov.io for B2B email finding, verification, lead discovery, deliverability, cold email sequences, LinkedIn outreach, and CRM-style pipeline workflows.",
@@ -402,13 +402,13 @@ export const comparisons: Comparison[] = [
     title: "Chatbase vs Fin: AI Website Agent or Customer Support Platform?",
     shortTitle: "Chatbase vs Fin",
     description:
-      "Compare Chatbase and Fin, formerly Intercom's AI agent, for AI website agents, support automation, knowledge base answers, handoffs, and customer support operations.",
+      "Compare Chatbase and Fin, formerly Intercom's AI agent, for AI website agents, Intercom knowledge base answers, support automation, handoffs, and customer support operations.",
     category: "Customer support",
     toolIds: ["chatbase", "intercom-fin"],
     summary:
-      "Chatbase and Fin both touch AI support, but they are not the same type of tool. Chatbase is a practical AI agent and website chatbot layer trained on business content. Fin grew out of Intercom's customer messaging platform and is now a more strategic support-agent asset after Salesforce announced a definitive agreement to acquire Fin in June 2026.",
+      "Chatbase and Fin both touch AI support, but they are not the same type of tool. Chatbase is a practical AI agent and website chatbot layer trained on business content. Fin grew out of Intercom's customer messaging, help center, and knowledge base workflow and is now a more strategic support-agent asset after Salesforce announced a definitive agreement to acquire Fin in June 2026.",
     verdict:
-      "Choose Chatbase when you want a focused AI agent on top of your content and website. Choose Fin when the AI layer needs to live inside a broader customer messaging/support workflow, especially if your team is watching Salesforce, Agentforce, and enterprise service operations.",
+      "Choose Chatbase when you want a focused AI agent on top of your content and website. Choose Fin when the AI layer needs to live inside a broader Intercom-style knowledge base, customer messaging, and support workflow, especially if your team is watching Salesforce, Agentforce, and enterprise service operations.",
     useCases: [
       {
         toolId: "chatbase",
@@ -425,7 +425,7 @@ export const comparisons: Comparison[] = [
         heading: "Choose Fin when",
         points: [
           "Support already runs through Intercom/Fin or needs a broader messaging platform.",
-          "AI answers need to connect with inboxes, tickets, handoffs, and support operations.",
+          "AI answers need to connect with help content, an Intercom knowledge base, inboxes, tickets, handoffs, and support operations.",
           "The customer support process is bigger than a standalone chatbot.",
           "The team wants to track the Salesforce acquisition and future Agentforce/service roadmap.",
         ],
@@ -451,6 +451,13 @@ export const comparisons: Comparison[] = [
           "Good for knowledge answers, lead capture, and simple support routing.",
         second:
           "Stronger for teams needing inboxes, support workflows, and escalation management.",
+      },
+      {
+        label: "Knowledge base fit",
+        first:
+          "Best when the website agent should answer from selected docs, pages, files, and FAQs without moving the whole support stack.",
+        second:
+          "Best when help center content, an Intercom knowledge base, customer conversations, inboxes, and handoffs should work together.",
       },
       {
         label: "Roadmap signal",
@@ -479,6 +486,11 @@ export const comparisons: Comparison[] = [
           "No. Chatbase is more focused on building an AI website agent trained on your content. Fin grew out of Intercom's customer messaging and support platform, so it is usually evaluated as part of a broader support workflow.",
       },
       {
+        question: "Can Fin answer from an Intercom knowledge base?",
+        answer:
+          "Fin is usually evaluated when Intercom help center or knowledge base content should support AI answers inside customer conversations. Buyers should still review source coverage, permissions, handoff rules, and current product behavior before relying on it for customer-facing support.",
+      },
+      {
         question: "Which is better for a SaaS website?",
         answer:
           "If you only need an AI website agent, Chatbase may be simpler. If your SaaS company needs inboxes, support operations, integrated customer messaging, and AI handoffs, Fin is the broader platform choice.",
@@ -492,6 +504,20 @@ export const comparisons: Comparison[] = [
         question: "When should a smaller team choose Chatbase first?",
         answer:
           "A smaller team should usually evaluate Chatbase first when the goal is to add a focused AI website agent trained on docs, FAQs, pages, and selected business content without moving the entire support workflow.",
+      },
+    ],
+    relatedLinks: [
+      {
+        title: "Browse AI customer support tools",
+        description:
+          "Compare Chatbase, Fin, Zendesk AI, and other support tools by website agent, helpdesk, knowledge base, and handoff workflow.",
+        href: "/category/ai-customer-support-tools",
+      },
+      {
+        title: "Review Chatbase as a website AI agent",
+        description:
+          "See where Chatbase fits when the main need is a customer-facing AI agent trained on docs, pages, files, FAQs, and website content.",
+        href: "/tool/chatbase",
       },
     ],
   },

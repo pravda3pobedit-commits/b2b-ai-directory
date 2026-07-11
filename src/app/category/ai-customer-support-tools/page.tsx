@@ -4,21 +4,28 @@ import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
+import {
+  buildCategoryItemListJsonLd,
+  buildFaqPageJsonLd,
+  jsonLdMarkup,
+} from "@/lib/structuredData";
 
 const BASE_URL = "https://www.b2baistack.com";
 const PAGE_URL = `${BASE_URL}/category/ai-customer-support-tools`;
 
 export const metadata: Metadata = {
-  title: "Top AI Customer Support Tools for B2B Teams | b2baistack.com",
+  title:
+    "AI Customer Support Tools, Chatbots & Knowledge Base Agents | B2BAIStack",
   description:
-    "Compare AI customer support tools for website agents, helpdesk automation, ticket triage, knowledge base answers, and support handoffs.",
+    "Compare AI customer support tools for website agents, Intercom knowledge base answers, helpdesk automation, ticket triage, and human support handoffs.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Top AI Customer Support Tools for B2B Teams | b2baistack.com",
+    title:
+      "AI Customer Support Tools, Chatbots & Knowledge Base Agents | B2BAIStack",
     description:
-      "Compare AI customer support tools for website agents, helpdesk automation, ticket triage, knowledge base answers, and support handoffs.",
+      "Compare AI customer support tools for website agents, Intercom knowledge base answers, helpdesk automation, ticket triage, and human support handoffs.",
     url: PAGE_URL,
     type: "website",
   },
@@ -32,7 +39,7 @@ const supportTools = TOOL_IDS.map((id) =>
 ).filter((tool): tool is Platform => Boolean(tool));
 
 const benefits = [
-  "Answer common customer questions from approved help content",
+  "Turn help center and knowledge base content into reviewed AI answers",
   "Add AI agents to websites, help centers, and support workflows",
   "Route conversations to humans when intent, risk, or account context matters",
   "Review ticket themes, missing docs, and recurring support gaps",
@@ -47,9 +54,9 @@ const supportAngles = [
     copy: "Best when the goal is a focused customer-facing agent trained on docs, pages, FAQs, and selected business content.",
   },
   {
-    title: "Customer Messaging",
+    title: "Knowledge Base + Inbox",
     tool: "Intercom Fin",
-    copy: "Best when AI support should live inside a broader customer messaging and inbox workflow.",
+    copy: "Best when AI support should connect help center content, an Intercom knowledge base, inboxes, and handoffs.",
   },
   {
     title: "Service Operations",
@@ -58,9 +65,53 @@ const supportAngles = [
   },
 ];
 
+const categoryFaqs = [
+  {
+    question: "What are AI customer support tools?",
+    answer:
+      "AI customer support tools help teams answer common questions, route conversations, triage tickets, suggest replies, and improve help content using approved knowledge sources and human handoff rules.",
+  },
+  {
+    question: "Is Chatbase or Intercom Fin better for knowledge base answers?",
+    answer:
+      "Chatbase is usually simpler when the goal is a focused website AI agent trained on docs, FAQs, pages, and selected business content. Intercom Fin is usually evaluated when AI answers should live inside a broader Intercom knowledge base, customer messaging, inbox, and handoff workflow.",
+  },
+  {
+    question:
+      "How should a B2B team choose between Chatbase, Fin, and Zendesk AI?",
+    answer:
+      "Start with the support workflow. Choose Chatbase for a focused website agent, Fin when customer messaging and Intercom-style support operations matter, and Zendesk AI when ticketing, routing, agent assist, and larger helpdesk governance are central.",
+  },
+  {
+    question: "Can AI customer support tools replace human support?",
+    answer:
+      "No. They can reduce repetitive questions and improve triage, but teams still need human review, escalation paths, source maintenance, privacy controls, and quality checks for sensitive or account-specific issues.",
+  },
+];
+
+const itemListJsonLd = buildCategoryItemListJsonLd({
+  name: "AI Customer Support Tools",
+  description: metadata.description as string,
+  pageUrl: PAGE_URL,
+  baseUrl: BASE_URL,
+  tools: supportTools,
+});
+
+const faqJsonLd = buildFaqPageJsonLd(categoryFaqs);
+
 export default function AICustomerSupportToolsPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(itemListJsonLd)}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(faqJsonLd)}
+      />
       <nav className="relative z-50 flex items-center justify-between px-6 md:px-12 py-4 border-b border-white/[0.05] bg-black/20 backdrop-blur-xl">
         <Link
           href="/"
@@ -167,7 +218,7 @@ export default function AICustomerSupportToolsPage() {
               href="/comparisons/chatbase-vs-intercom"
               className="text-sm text-indigo-300 hover:text-indigo-200 transition-colors"
             >
-              Compare Chatbase vs Intercom
+              Compare Chatbase vs Intercom Fin
             </Link>
           </div>
 
@@ -256,6 +307,27 @@ export default function AICustomerSupportToolsPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold text-white mb-6 tracking-tight">
+            AI Customer Support FAQ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {categoryFaqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+              >
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 

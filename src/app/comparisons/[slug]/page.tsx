@@ -106,15 +106,16 @@ export async function generateMetadata({
   }
 
   const url = `${BASE_URL}/comparisons/${comparison.slug}`;
+  const pageTitle = `${comparison.title} | B2BAIStack`;
 
   return {
-    title: `${comparison.shortTitle} | B2BAIStack`,
+    title: pageTitle,
     description: comparison.description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${comparison.shortTitle} | B2BAIStack`,
+      title: pageTitle,
       description: comparison.description,
       url,
       siteName: "B2BAIStack",
@@ -122,7 +123,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary",
-      title: `${comparison.shortTitle} | B2BAIStack`,
+      title: pageTitle,
       description: comparison.description,
     },
   };

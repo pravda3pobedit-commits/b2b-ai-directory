@@ -4,20 +4,27 @@ import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
+import {
+  buildCategoryItemListJsonLd,
+  buildFaqPageJsonLd,
+  jsonLdMarkup,
+} from "@/lib/structuredData";
+
+const BASE_URL = "https://www.b2baistack.com";
+const PAGE_URL = `${BASE_URL}/category/ai-workflow-automation-tools`;
 
 export const metadata: Metadata = {
-  title: "Top AI Workflow Automation Tools for B2B Teams | b2baistack.com",
+  title: "Top AI Workflow Automation Tools for B2B Teams | B2BAIStack",
   description:
     "Compare AI workflow automation tools for app integrations, visual workflows, AI agents, webhooks, APIs, and operations automation.",
   alternates: {
-    canonical:
-      "https://www.b2baistack.com/category/ai-workflow-automation-tools",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Top AI Workflow Automation Tools for B2B Teams | b2baistack.com",
+    title: "Top AI Workflow Automation Tools for B2B Teams | B2BAIStack",
     description:
       "Compare AI workflow automation tools for app integrations, visual workflows, AI agents, webhooks, APIs, and operations automation.",
-    url: "https://www.b2baistack.com/category/ai-workflow-automation-tools",
+    url: PAGE_URL,
     type: "website",
   },
 };
@@ -38,6 +45,52 @@ const benefits = [
   "Keep human review in workflows where accuracy, compliance, or tone matters",
 ];
 
+const workflowAngles = [
+  {
+    title: "Visual AI Workflows",
+    tool: "Make",
+    copy: "Best when the team wants visual control over branching, routers, webhooks, HTTP modules, app data, and AI steps in one inspectable scenario.",
+  },
+  {
+    title: "Fast App Automation",
+    tool: "Zapier",
+    copy: "Best when the priority is quick setup, many app connectors, simple triggers, and governed automation for non-technical teams.",
+  },
+  {
+    title: "Self-hosted Control",
+    tool: "n8n",
+    copy: "Best when technical teams care about self-hosting, workflow ownership, custom code, privacy posture, and deeper operations control.",
+  },
+  {
+    title: "AI-native Ops",
+    tool: "Gumloop",
+    copy: "Best when teams are evaluating agentic workflows, AI research, document processing, scraping, enrichment, and human approval loops.",
+  },
+];
+
+const categoryFaqs = [
+  {
+    question: "What are AI workflow automation tools?",
+    answer:
+      "AI workflow automation tools connect apps, APIs, webhooks, business data, and AI models so teams can automate routing, enrichment, summaries, reporting, content operations, support handoffs, and approvals.",
+  },
+  {
+    question: "Is Make, Zapier, n8n, or Gumloop better for AI workflows?",
+    answer:
+      "Make is usually strongest for visual multi-step scenarios and app/API orchestration. Zapier is often simpler for fast app automations. n8n is better when self-hosting and technical control matter. Gumloop is worth evaluating for AI-native workflows such as research, scraping, document processing, enrichment, and human review.",
+  },
+  {
+    question: "Should AI workflow automation replace human review?",
+    answer:
+      "No. Use automation to reduce repetitive work, route data, prepare drafts, and surface decisions, but keep human review for customer-facing messages, compliance-sensitive steps, financial actions, and anything that can damage trust if the model is wrong.",
+  },
+  {
+    question: "What should a small B2B team automate first?",
+    answer:
+      "Start with a narrow workflow that already happens every week: lead routing, CRM cleanup, support triage, meeting follow-up, reporting, content repurposing, or enrichment. Avoid buying a broad automation stack before mapping the trigger, data source, approval step, and owner.",
+  },
+];
+
 const relatedStackReads = [
   {
     title: "How to add AI tools to a no-code business stack",
@@ -55,9 +108,29 @@ const relatedStackReads = [
   },
 ];
 
+const itemListJsonLd = buildCategoryItemListJsonLd({
+  name: "AI Workflow Automation Tools",
+  description: metadata.description as string,
+  pageUrl: PAGE_URL,
+  baseUrl: BASE_URL,
+  tools: categoryTools,
+});
+
+const faqJsonLd = buildFaqPageJsonLd(categoryFaqs);
+
 export default function AIWorkflowAutomationToolsPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(itemListJsonLd)}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(faqJsonLd)}
+      />
       {/* Ambient Background */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[5%] left-[10%] w-[600px] h-[600px] rounded-full bg-blue-900/15 blur-[140px]" />
@@ -176,6 +249,30 @@ export default function AIWorkflowAutomationToolsPage() {
           </div>
         </section>
 
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold text-white mb-6 tracking-tight">
+            Make vs Zapier vs n8n vs Gumloop
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {workflowAngles.map((angle) => (
+              <div
+                key={angle.title}
+                className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.07]"
+              >
+                <div className="text-[11px] uppercase tracking-wide text-indigo-300 mb-2">
+                  {angle.title}
+                </div>
+                <h3 className="text-base font-semibold text-white mb-2">
+                  {angle.tool}
+                </h3>
+                <p className="text-sm text-gray-400 leading-snug">
+                  {angle.copy}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Tool Cards */}
         <section>
           <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
@@ -272,6 +369,27 @@ export default function AIWorkflowAutomationToolsPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold text-white mb-6 tracking-tight">
+            AI Workflow Automation FAQ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {categoryFaqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+              >
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 

@@ -45,6 +45,18 @@ const recommendedTools = [hunter, apollo].filter(
   (tool): tool is NonNullable<typeof hunter> => Boolean(tool),
 );
 
+const strategyVideo = {
+  youtubeId: "t8Uf8ly2vU0",
+  title: "AI SDR Tools Are Not the Strategy",
+  description:
+    "AI SDR tools only automate the outbound system already in place. Map ICP, contact data, enrichment, outreach, delivery, CRM, and human review before choosing the next AI sales prospecting tool.",
+  uploadDate: "2026-07-13T10:08:05Z",
+};
+
+const strategyVideoUrl = `https://www.youtube.com/shorts/${strategyVideo.youtubeId}`;
+const strategyVideoEmbedUrl = `https://www.youtube-nocookie.com/embed/${strategyVideo.youtubeId}`;
+const strategyVideoThumbnailUrl = `https://i.ytimg.com/vi/${strategyVideo.youtubeId}/hqdefault.jpg`;
+
 const stackLayers = [
   {
     icon: Search,
@@ -123,6 +135,16 @@ const articleJsonLd = {
     name: "B2BAIStack",
     url: BASE_URL,
   },
+  video: {
+    "@type": "VideoObject",
+    name: strategyVideo.title,
+    description: strategyVideo.description,
+    uploadDate: strategyVideo.uploadDate,
+    thumbnailUrl: [strategyVideoThumbnailUrl],
+    embedUrl: strategyVideoEmbedUrl,
+    url: strategyVideoUrl,
+    isAccessibleForFree: true,
+  },
 };
 
 export default function AISalesProspectingStackGuide() {
@@ -166,6 +188,55 @@ export default function AISalesProspectingStackGuide() {
             review. A good B2B outbound stack makes those layers clear before
             the team spends money.
           </p>
+        </section>
+
+        <section className="mb-16 overflow-hidden rounded-3xl border border-white/[0.07] bg-zinc-900/50">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr]">
+            <div className="bg-zinc-950 p-5 sm:p-6">
+              <div className="mx-auto aspect-[9/16] w-full max-w-[280px] overflow-hidden rounded-[2rem] border border-white/10 bg-black shadow-2xl shadow-emerald-950/20">
+                <iframe
+                  src={strategyVideoEmbedUrl}
+                  title={strategyVideo.title}
+                  className="h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+            <div className="flex flex-col justify-center p-6 lg:p-8">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-emerald-300">
+                Shorts summary
+              </p>
+              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-white">
+                AI SDR tools are not the strategy
+              </h2>
+              <p className="mb-5 text-sm leading-relaxed text-slate-400">
+                Buying the tool first usually makes weak outbound faster. Use
+                the stack map below to find the broken layer first: ICP, contact
+                data, enrichment, outreach, delivery, CRM, or human review.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link
+                  href="/category/ai-sales-prospecting-tools"
+                  className="inline-flex w-fit items-center gap-2 rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-emerald-500"
+                >
+                  Compare AI prospecting tools
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+                <a
+                  href={strategyVideoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium text-slate-200 transition-colors hover:bg-white/[0.08] hover:text-white"
+                >
+                  Open the Short
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-16">

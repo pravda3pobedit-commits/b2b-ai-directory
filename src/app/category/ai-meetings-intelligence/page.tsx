@@ -1,40 +1,40 @@
-import { CheckCircle2, Mic2, Sparkles } from "lucide-react";
+import { CheckCircle2, ExternalLink, Mic2, Sparkles } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
+import {
+  buildCategoryItemListJsonLd,
+  buildFaqPageJsonLd,
+  jsonLdMarkup,
+} from "@/lib/structuredData";
+
+const BASE_URL = "https://www.b2baistack.com";
+const PAGE_URL = `${BASE_URL}/category/ai-meetings-intelligence`;
 
 export const metadata: Metadata = {
   title: "Top AI Meeting Assistants & Intelligence Tools | b2baistack.com",
   description:
     "Discover the best AI notetakers and meeting intelligence software to automate transcriptions, generate summaries, and sync data directly to your CRM.",
   alternates: {
-    canonical: "https://www.b2baistack.com/category/ai-meetings-intelligence",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "Top AI Meeting Assistants & Intelligence Tools | b2baistack.com",
     description:
       "Discover the best AI notetakers and meeting intelligence software to automate transcriptions, generate summaries, and sync data directly to your CRM.",
-    url: "https://www.b2baistack.com/category/ai-meetings-intelligence",
+    url: PAGE_URL,
     type: "website",
   },
 };
 
-const CATEGORY_NAME = "AI Meetings & Intelligence";
+const TOOL_IDS = ["fireflies-ai", "otter-ai"];
+type Platform = (typeof platforms)[number];
 
-const categoryTools = platforms
-  .filter((p) => {
-    if (Array.isArray((p as any).categories)) {
-      return (p as any).categories.includes(CATEGORY_NAME);
-    }
-    return p.category === CATEGORY_NAME;
-  })
-  .sort((a: any, b: any) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return 0;
-  });
+const categoryTools = TOOL_IDS.map((id) =>
+  platforms.find((p) => p.id === id),
+).filter((tool): tool is Platform => Boolean(tool));
 
 const benefits = [
   "Eliminate manual note-taking from every meeting",
@@ -45,9 +45,75 @@ const benefits = [
   "Stay aligned across distributed teams with zero friction",
 ];
 
+const meetingAngles = [
+  {
+    title: "Searchable Meeting Memory",
+    tool: "Fireflies.ai",
+    copy: "Best when sales, customer success, recruiting, and operations teams need transcripts, summaries, action items, CRM sync, and searchable call history across many meetings.",
+  },
+  {
+    title: "Fast Personal Notes",
+    tool: "Fathom",
+    copy: "Best when the priority is simple recording, highlights, and quick meeting summaries with minimal setup for individual contributors or smaller teams.",
+  },
+  {
+    title: "Bot-free Capture",
+    tool: "Granola",
+    copy: "Best when the buyer cares about a quieter note-taking workflow, polished notes, and avoiding an obvious meeting bot in the call.",
+  },
+  {
+    title: "Team Intelligence",
+    tool: "Read AI",
+    copy: "Best when the team wants broader meeting analytics, searchable workspace memory, follow-up signals, and cross-meeting visibility.",
+  },
+];
+
+const categoryFaqs = [
+  {
+    question: "What are AI meeting assistants?",
+    answer:
+      "AI meeting assistants record, transcribe, summarize, and organize meetings so teams can capture decisions, action items, customer context, and follow-ups without relying only on manual notes.",
+  },
+  {
+    question: "Is Fireflies, Fathom, Granola, or Read AI better for B2B teams?",
+    answer:
+      "Fireflies is usually stronger for searchable meeting memory and CRM-ready workflows. Fathom is often better for simple meeting notes and highlights. Granola is worth evaluating when bot-free capture and polished notes matter. Read AI is stronger when the team wants broader meeting intelligence and cross-meeting visibility.",
+  },
+  {
+    question: "Should meeting notes sync into a CRM?",
+    answer:
+      "Sales and customer success teams usually benefit from CRM sync, but they should still review important fields, commitments, and customer-facing follow-ups before relying on automation.",
+  },
+  {
+    question: "Do AI meeting assistants replace human review?",
+    answer:
+      "No. They reduce note-taking work and preserve context, but teams still need human review for sensitive decisions, customer commitments, consent rules, and details that AI summaries can miss.",
+  },
+];
+
+const itemListJsonLd = buildCategoryItemListJsonLd({
+  name: "AI Meeting Assistants and Intelligence Tools",
+  description: metadata.description as string,
+  pageUrl: PAGE_URL,
+  baseUrl: BASE_URL,
+  tools: categoryTools,
+});
+
+const faqJsonLd = buildFaqPageJsonLd(categoryFaqs);
+
 export default function AIMeetingsIntelligencePage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(itemListJsonLd)}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(faqJsonLd)}
+      />
       {/* Ambient Background */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[5%] left-[10%] w-[600px] h-[600px] rounded-full bg-indigo-900/15 blur-[140px]" />
@@ -104,7 +170,7 @@ export default function AIMeetingsIntelligencePage() {
               >
                 {tag}
               </span>
-            )
+            ),
           )}
         </div>
 
@@ -128,21 +194,77 @@ export default function AIMeetingsIntelligencePage() {
           </div>
         </section>
 
+        <section className="mb-16 rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 md:p-8">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 mb-6">
+            <div className="max-w-2xl">
+              <div className="text-[11px] uppercase tracking-widest text-indigo-300 mb-2">
+                Meeting notes buyer guide
+              </div>
+              <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
+                Fireflies vs Fathom vs Granola vs Read AI
+              </h2>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Start with the meeting workflow, not the logo. Decide whether
+                you need CRM-ready notes, fast personal summaries, bot-free
+                capture, or broader team intelligence before choosing a
+                notetaker.
+              </p>
+            </div>
+            <Link
+              href="/comparisons/fireflies-vs-fathom"
+              className="inline-flex items-center gap-2 text-sm text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Fireflies vs Fathom comparison
+              <ExternalLink className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {meetingAngles.map((angle) => (
+              <div
+                key={angle.title}
+                className="p-5 rounded-2xl bg-black/25 border border-white/[0.07]"
+              >
+                <div className="text-[11px] uppercase tracking-wide text-indigo-300 mb-2">
+                  {angle.title}
+                </div>
+                <h3 className="text-base font-semibold text-white mb-2">
+                  {angle.tool}
+                </h3>
+                <p className="text-sm text-gray-400 leading-snug">
+                  {angle.copy}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Tool Cards */}
         <section>
-          <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
-            Top AI Meeting Tools
-          </h2>
-          <p className="text-sm text-gray-500 mb-2">
-            Hand-picked tools used by B2B professionals, sales teams, and
-            operations leads to capture and act on every conversation.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
+                Top AI Meeting Tools
+              </h2>
+              <p className="text-sm text-gray-500 max-w-2xl">
+                Hand-picked tools used by B2B professionals, sales teams, and
+                operations leads to capture and act on every conversation.
+              </p>
+            </div>
+            <Link
+              href="/comparisons/fireflies-vs-fathom"
+              className="text-sm text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Compare Fireflies vs Fathom
+            </Link>
+          </div>
           <p className="text-xs text-gray-600 mb-8">
-            Disclosure: Some links on this page are affiliate links. We may earn a commission if you sign up, at no extra cost to you.
+            Disclosure: Some links on this page are affiliate links. We may earn
+            a commission if you sign up, at no extra cost to you.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {categoryTools.map((platform: any) => {
+            {categoryTools.map((platform) => {
               const Icon = platform.icon ?? Mic2;
               return (
                 <div
@@ -182,13 +304,18 @@ export default function AIMeetingsIntelligencePage() {
                   </div>
 
                   <p className="relative z-10 text-sm text-gray-400 leading-snug mb-4 flex-1">
-                    {platform.descBusiness ?? platform.descFreelancer ?? platform.shortDescription}
+                    {platform.descBusiness ??
+                      platform.descFreelancer ??
+                      platform.shortDescription}
                   </p>
 
                   {platform.features && (
                     <ul className="relative z-10 mb-5 space-y-1.5">
-                      {platform.features.slice(0, 3).map((feat: string, i: number) => (
-                        <li key={i} className="flex items-start gap-2 text-xs text-gray-500">
+                      {platform.features.slice(0, 3).map((feat: string) => (
+                        <li
+                          key={feat}
+                          className="flex items-start gap-2 text-xs text-gray-500"
+                        >
                           <span className="mt-0.5 w-1 h-1 rounded-full bg-indigo-500/60 shrink-0" />
                           <span className="line-clamp-1">
                             {feat.includes(":") ? feat.split(":")[0] : feat}
@@ -217,6 +344,27 @@ export default function AIMeetingsIntelligencePage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold text-white mb-6 tracking-tight">
+            AI Meeting Assistants FAQ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {categoryFaqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+              >
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 

@@ -4,21 +4,29 @@ import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import TrackedAffiliateLink from "@/components/TrackedAffiliateLink";
 import { platforms } from "@/data/platforms";
+import {
+  buildCategoryItemListJsonLd,
+  buildFaqPageJsonLd,
+  jsonLdMarkup,
+} from "@/lib/structuredData";
 
 type Platform = (typeof platforms)[number];
+
+const BASE_URL = "https://www.b2baistack.com";
+const PAGE_URL = `${BASE_URL}/category/ai-video-ad-generators`;
 
 export const metadata: Metadata = {
   title: "Top AI Video & Ad Generators for B2B Marketing | b2baistack.com",
   description:
     "Compare AI video generators, AI video agents, ad creative tools, avatar video platforms, and voiceover tools for B2B marketing teams.",
   alternates: {
-    canonical: "https://www.b2baistack.com/category/ai-video-ad-generators",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title: "Top AI Video & Ad Generators for B2B Marketing | b2baistack.com",
     description:
       "Compare AI video generators, AI video agents, ad creative tools, avatar video platforms, and voiceover tools for B2B marketing teams.",
-    url: "https://www.b2baistack.com/category/ai-video-ad-generators",
+    url: PAGE_URL,
     type: "website",
   },
 };
@@ -54,9 +62,70 @@ const relatedComparisons = [
   },
 ];
 
+const videoAdAngles = [
+  {
+    title: "URL-to-Ad Testing",
+    tool: "Creatify AI",
+    copy: "Best when a campaign starts from a product page, landing page, or ecommerce URL and the team needs UGC-style ad variations for paid social testing.",
+  },
+  {
+    title: "AI Video Agents",
+    tool: "InVideo AI",
+    copy: "Best when marketers need broader prompt-to-video production, reusable creative context, campaign videos, explainers, product films, and brand-led social assets.",
+  },
+  {
+    title: "Avatar Localization",
+    tool: "HeyGen",
+    copy: "Best when the workflow depends on AI avatars, presenter-led ads, personalized video, multilingual campaigns, and localized talking-head content.",
+  },
+];
+
+const categoryFaqs = [
+  {
+    question: "What are AI video and ad generators?",
+    answer:
+      "AI video and ad generators help teams create, edit, repurpose, localize, and test video assets using prompts, product URLs, avatars, voiceovers, templates, or reusable campaign context.",
+  },
+  {
+    question: "Is Creatify, InVideo AI, or HeyGen better for B2B ads?",
+    answer:
+      "Creatify is usually stronger for product URL-to-ad and UGC-style variation testing. InVideo AI is broader for prompt-to-video production, campaign films, explainers, and reusable creative direction. HeyGen is usually stronger when avatar quality, presenter-led ads, personalization, and localization matter.",
+  },
+  {
+    question: "Where do Quso and ElevenLabs fit in an AI video stack?",
+    answer:
+      "Quso is useful when the source video already exists and needs to become short social clips. ElevenLabs is the audio layer for voiceovers, dubbing, narration, and speech APIs rather than a full video generator.",
+  },
+  {
+    question: "Should AI video ads launch without human review?",
+    answer:
+      "No. Use AI tools to speed up scripts, creative variations, voiceovers, avatars, and editing, but review brand claims, product accuracy, licensing, voice permissions, ad policies, and local compliance before publishing or spending budget.",
+  },
+];
+
+const itemListJsonLd = buildCategoryItemListJsonLd({
+  name: "AI Video and Ad Generators",
+  description: metadata.description as string,
+  pageUrl: PAGE_URL,
+  baseUrl: BASE_URL,
+  tools: categoryTools,
+});
+
+const faqJsonLd = buildFaqPageJsonLd(categoryFaqs);
+
 export default function AIVideoAdGeneratorsPage() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(itemListJsonLd)}
+      />
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD is serialized locally and escapes "<".
+        dangerouslySetInnerHTML={jsonLdMarkup(faqJsonLd)}
+      />
       {/* Ambient Background */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[5%] left-[10%] w-[600px] h-[600px] rounded-full bg-violet-900/15 blur-[140px]" />
@@ -130,6 +199,50 @@ export default function AIVideoAdGeneratorsPage() {
                 <span className="text-sm text-gray-300 leading-snug">
                   {benefit}
                 </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16 rounded-3xl border border-white/[0.08] bg-white/[0.025] p-6 md:p-8">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-5 mb-6">
+            <div className="max-w-2xl">
+              <div className="text-[11px] uppercase tracking-widest text-indigo-300 mb-2">
+                Video ad buyer guide
+              </div>
+              <h2 className="text-xl font-semibold text-white mb-2 tracking-tight">
+                Creatify vs InVideo AI vs HeyGen
+              </h2>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Start with the production workflow, not the most impressive
+                demo. URL-to-ad testing, agentic video production, and
+                avatar-led localization solve different campaign bottlenecks.
+              </p>
+            </div>
+            <Link
+              href="/comparisons/creatify-vs-invideo"
+              className="inline-flex items-center gap-2 text-sm text-indigo-300 hover:text-indigo-200 transition-colors"
+            >
+              Creatify vs InVideo comparison
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {videoAdAngles.map((angle) => (
+              <div
+                key={angle.title}
+                className="p-5 rounded-2xl bg-black/25 border border-white/[0.07]"
+              >
+                <div className="text-[11px] uppercase tracking-wide text-indigo-300 mb-2">
+                  {angle.title}
+                </div>
+                <h3 className="text-base font-semibold text-white mb-2">
+                  {angle.tool}
+                </h3>
+                <p className="text-sm text-gray-400 leading-snug">
+                  {angle.copy}
+                </p>
               </div>
             ))}
           </div>
@@ -274,6 +387,27 @@ export default function AIVideoAdGeneratorsPage() {
                   {comparison.description}
                 </p>
               </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-xl font-semibold text-white mb-6 tracking-tight">
+            AI Video &amp; Ad Generator FAQ
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {categoryFaqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5"
+              >
+                <h3 className="text-sm font-semibold text-white mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {faq.answer}
+                </p>
+              </div>
             ))}
           </div>
         </section>

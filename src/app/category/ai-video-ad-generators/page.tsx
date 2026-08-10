@@ -71,7 +71,7 @@ const videoAdAngles = [
   {
     title: "AI Video Agents",
     tool: "InVideo AI",
-    copy: "Best when marketers need broader prompt-to-video production, reusable creative context, campaign videos, explainers, product films, and brand-led social assets.",
+    copy: "Best when marketers need Agent Two creative workflows, reusable project context, multi-input briefs, campaign videos, explainers, product films, and brand-led social assets.",
   },
   {
     title: "Avatar Localization",
@@ -89,7 +89,7 @@ const categoryFaqs = [
   {
     question: "Is Creatify, InVideo AI, or HeyGen better for B2B ads?",
     answer:
-      "Creatify is usually stronger for product URL-to-ad and UGC-style variation testing. InVideo AI is broader for prompt-to-video production, campaign films, explainers, and reusable creative direction. HeyGen is usually stronger when avatar quality, presenter-led ads, personalization, and localization matter.",
+      "Creatify is usually stronger for product URL-to-ad and UGC-style variation testing. InVideo AI is broader for Agent Two creative workflows, prompt-to-video production, campaign films, explainers, and reusable creative direction. HeyGen is usually stronger when avatar quality, presenter-led ads, personalization, and localization matter.",
   },
   {
     question: "Where do Quso and ElevenLabs fit in an AI video stack?",

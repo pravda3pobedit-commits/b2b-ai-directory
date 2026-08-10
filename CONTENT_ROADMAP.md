@@ -127,12 +127,12 @@ Distribution should support the content engine instead of becoming a separate pr
   - 2026-07-20 site action: shipped video/ad category AEO on `/category/ai-video-ad-generators`. Added category `ItemList`, `FAQPage`, visible FAQ, and a `Creatify vs InVideo AI vs HeyGen` buyer-guide block that separates URL-to-ad testing, agentic video production, and avatar localization workflows.
   - Status: required before selecting the next content concept.
 
-- **InVideo Agent One maintenance refresh**
-  - Signal: InVideo affiliate update on 2026-06-26 said tracking was broken from 2026-05-13 through 2026-06-12 and that the program is shifting July promotion toward Agent One, a premium AI video agents offering.
+- **InVideo Agent Two maintenance refresh**
+  - Signal: InVideo's current official positioning now leads with Agent Two, multi-input intelligence, project context, expert agents, playbooks/notebooks, and access to a broad model catalogue.
   - Routes/data: `/tool/invideo-ai`, `/comparisons/creatify-vs-invideo`, `/category/ai-video-ad-generators`.
-  - Reason: this is an official product and affiliate positioning change inside the video/ad cluster. It supports updating existing pages before considering a separate new Agent One page.
-  - Follow-up: verify May/June retroactive conversions in Impact and include Agent One in the next multi-cluster B2B signal audit.
-  - Status: maintenance refresh prepared on 2026-06-26.
+  - Reason: this is an official product and affiliate positioning change inside the video/ad cluster. It supports updating existing pages before considering any separate new InVideo page.
+  - Follow-up: verify current Impact/InVideo affiliate status before changing the affiliate priority.
+  - Status: deployed on 2026-08-10.
 
 - **2026-06-23 quick scan: deprioritize Apollo and Lemlist monetization**
   - Constraint: Alex said Apollo and Lemlist are not useful right now for referral-link monetization.

@@ -90,44 +90,44 @@ export const platforms = [
     metricBusiness: "5000+",
     metricLabelBusiness: "Global Brands",
     descFreelancer:
-      "Turn prompts and creative context into professional AI videos with InVideo's Agent One workflow.",
+      "Turn prompts, briefs, files, and creative context into professional AI videos with InVideo Agent Two.",
     descBusiness:
-      "Build custom AI video agents for campaign videos, product films, brand stories, social cuts, and higher-end creative workflows.",
+      "Build Agent Two creative workflows for campaign videos, product films, brand stories, social cuts, and higher-end production.",
     shortDescription:
       "Create AI video agents, campaign films, product promos, UGC-style creatives, and social videos for B2B marketing teams.",
     imagePath: "/invideo.png",
     longDescription:
-      "InVideo AI has moved beyond simple prompt-to-video generation into an Agent One workflow for building custom AI video agents. B2B marketing teams, agencies, creative directors, and established creators can use it to brief a video project once, define creative context, visual language, brand rules, pacing, audience, and references, then let the system carry that context across future generations. It can still generate scripts, scenes, voiceovers, music, subtitles, product demos, UGC-style ads, and social videos, but the stronger premium use case is now repeatable creative production: ad campaigns, product launch films, branded social series, explainers, and larger storytelling workflows where consistency matters more than one-off speed.",
+      "InVideo AI has moved beyond simple prompt-to-video generation into Agent Two, a creative AI-agent workspace built around project context, briefs, multi-input understanding, expert agents, and access to many image, video, audio, and music models. B2B marketing teams, agencies, creative directors, and established creators can use it to brief a video project once, add scripts, documents, references, links, rough cuts, visual rules, audience notes, and review standards, then let the system carry that context across future generations. It can still generate scripts, scenes, voiceovers, music, subtitles, product demos, UGC-style ads, and social videos, but the stronger premium use case is now repeatable creative production: ad campaigns, product launch films, branded social series, explainers, and larger storytelling workflows where continuity matters more than one-off speed.",
     features: [
-      "Agent One workflow: Build custom AI video agents for roles such as scriptwriter, video editor, cinematographer, sound designer, music designer, and colorist.",
-      "Persistent creative context: Teach the project goals, audience, visual language, brand rules, pacing, references, and review standards so generations stay more consistent.",
+      "Agent Two workflow: Direct specialised creative agents across scripts, shots, editing, sound, storyboards, and visual direction.",
+      "Persistent creative context: Teach project goals, audience, visual language, brand rules, pacing, references, and review standards so generations stay more consistent.",
+      "Multi-input intelligence: Let the workspace read videos, scripts, PDFs, links, rough cuts, and other inputs against the project's context.",
+      "Model access: Use a broad catalogue of image, video, audio, and music models inside the same creative workflow.",
       "Prompt-to-video generation: Turn campaign briefs, product ideas, and marketing angles into ready-to-edit video drafts.",
       "AI ad and UGC workflows: Create product ads, testimonial-style videos, demos, product films, and social creatives with AI actors or avatars.",
       "Product link to video: Generate product-focused videos from URLs or product details for ecommerce, SaaS, and B2B offers.",
-      "Voiceovers, music, and subtitles: Add narrated scripts, background music, captions, and multilingual assets inside the same workflow.",
-      "Premium creative testing: Produce multiple video variations for paid ads, launch campaigns, brand films, social series, and client work.",
       "Editable outputs: Refine generated videos with text instructions or manual edits instead of rebuilding from scratch.",
     ],
-    ctaText: "Try InVideo Agent One",
+    ctaText: "Try InVideo Agent Two",
     bestFor:
       "B2B marketers, performance creative teams, agencies, creative directors, brand teams, established creators, and production teams that need campaign videos, product films, branded social content, and repeatable AI video workflows.",
     expertRecommendation:
-      "Use InVideo AI when your main goal is to create new video assets from prompts, campaign briefs, creative references, and reusable brand context. Agent One is especially relevant when the team needs more than a quick one-off clip: ad campaigns, product launch videos, brand films, social series, explainers, and agency client work where visual consistency and creative direction need to compound over time.\n\nIf your main workflow is repurposing existing webinars, podcasts, or long-form videos into short clips, Quso is usually the better fit. If your priority is product URL-to-UGC ad variation for paid acquisition, compare InVideo with Creatify AI. For broader AI video production with custom agents and project memory, InVideo is the strongest first page to optimize in this cluster.",
+      "Use InVideo AI when your main goal is to create new video assets from prompts, campaign briefs, creative references, uploaded files, and reusable brand context. Agent Two is especially relevant when the team needs more than a quick one-off clip: ad campaigns, product launch videos, brand films, social series, explainers, and agency client work where visual consistency and creative direction need to compound over time.\n\nIf your main workflow is repurposing existing webinars, podcasts, or long-form videos into short clips, Quso is usually the better fit. If your priority is product URL-to-UGC ad variation for paid acquisition, compare InVideo with Creatify AI. For broader AI video production with expert agents, multi-input context, and project memory, InVideo remains the strongest first page to optimize in this cluster.",
     faq: [
       {
-        question: "What is InVideo Agent One best for?",
+        question: "What is InVideo Agent Two best for?",
         answer:
-          "InVideo Agent One is best for power users and creative teams that need repeatable AI video production: campaign videos, product launch films, brand stories, social series, explainers, and higher-end creative workflows. It is a better fit when the team wants to define creative context once and reuse it across multiple generations.",
+          "InVideo Agent Two is best for power users and creative teams that need repeatable AI video production: campaign videos, product launch films, brand stories, social series, explainers, and higher-end creative workflows. It is a better fit when the team wants to define creative context, upload supporting files, work with specialised AI agents, and reuse that context across multiple generations.",
       },
       {
         question: "Can InVideo AI remember brand and project context?",
         answer:
-          "Yes. InVideo's Agent One workflow includes a Context area where teams can define the project goal, audience, tone, visual language, brand rules, references, and review agents. This helps the system keep future generations closer to the same creative direction instead of treating every prompt as an isolated task.",
+          "Yes. InVideo Agent Two is built around project context, briefs, uploaded references, and long-term continuity. Teams can define the project goal, audience, tone, visual language, brand rules, references, and review standards so future generations stay closer to the same creative direction instead of treating every prompt as an isolated task.",
       },
       {
         question: "Can InVideo AI create video ads from text prompts?",
         answer:
-          "Yes. InVideo AI can generate video ads from text prompts, campaign briefs, product ideas, and creative references by helping with scripts, scenes, voiceovers, music, subtitles, and visual direction. Agent One makes this more useful for teams that want ads to stay closer to a consistent brand or campaign world.",
+          "Yes. InVideo AI can generate video ads from text prompts, campaign briefs, product ideas, and creative references by helping with scripts, scenes, voiceovers, music, subtitles, and visual direction. Agent Two makes this more useful for teams that want ads to stay closer to a consistent brand or campaign world.",
       },
       {
         question: "Can InVideo AI make UGC-style product videos?",

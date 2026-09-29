@@ -7,6 +7,23 @@ export type Comparison = {
   toolIds: [string, string];
   summary: string;
   verdict: string;
+  creditMath?: {
+    title: string;
+    intro: string;
+    verifiedOn: string;
+    vendorNotes: {
+      vendor: string;
+      detail: string;
+      sourceLabel: string;
+      sourceUrl: string;
+    }[];
+    worksheet: {
+      inputs: string[];
+      formula: string;
+      guidance: string;
+    };
+    caution: string;
+  };
   video?: {
     youtubeId: string;
     title: string;
@@ -609,6 +626,43 @@ export const comparisons: Comparison[] = [
       "Creatify and InVideo AI both help create marketing videos, but their strongest workflows differ. Creatify is more focused on turning product URLs into UGC-style ad variations. InVideo AI is broader and now leads with Agent Two: a creative AI-agent workspace for reusable project context, multi-input briefs, expert agents, brand rules, campaign films, and larger creative production.",
     verdict:
       "Choose Creatify when the campaign is product URL-to-ad variation. Choose InVideo AI when you need broader AI video production, custom agents, prompt-to-video creation, brand films, explainers, promos, and social content.",
+    creditMath: {
+      title: "Credits are not comparable across tools",
+      intro:
+        "A credit is a platform-specific input, not a finished ad. Compare both tools by the cost of creative that passes your review—not by the headline credit allowance.",
+      verifiedOn: "Verified September 29, 2026",
+      vendorNotes: [
+        {
+          vendor: "Creatify",
+          detail:
+            "Standard Video Ad, Avatar Video, and AI Shorts renders use 5 credits per 15 seconds. Standard revisions use 3 credits per 15 seconds. Agent, Ad Flow, and Ad Clone usage is variable because prompt complexity, generation attempts, and processing resources affect consumption.",
+          sourceLabel: "Creatify credit rules",
+          sourceUrl:
+            "https://help.creatify.ai/en/articles/9348041-credit-usage-billing-and-validity",
+        },
+        {
+          vendor: "InVideo",
+          detail:
+            "InVideo presents credits as model-dependent capacity. Its pricing examples map a 400-credit plan to about 160 Nano Banana Pro generations or about 15 Seedance 2 Fast videos, so one credit is not a standardized finished-video unit.",
+          sourceLabel: "InVideo pricing",
+          sourceUrl: "https://invideo.io/pricing",
+        },
+      ],
+      worksheet: {
+        inputs: [
+          "Monthly plan cost and any credit top-ups",
+          "Total generation and revision attempts",
+          "Approved ads after brand, policy, and quality review",
+          "Editing and review time converted to an internal cost",
+        ],
+        formula:
+          "(Total monthly plan cost + top-ups + editing and review cost) ÷ Approved ads",
+        guidance:
+          "Track rejected attempts separately. They consume budget even when they never become publishable creative.",
+      },
+      caution:
+        "Vendor examples describe vendor workflows, not guaranteed customer outcomes. Prices, plan limits, model access, and credit rules can change; confirm them before purchase.",
+    },
     useCases: [
       {
         toolId: "creatify-ai",

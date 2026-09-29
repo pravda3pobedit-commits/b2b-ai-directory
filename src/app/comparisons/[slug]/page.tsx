@@ -362,6 +362,92 @@ export default async function ComparisonPage({
           </p>
         </section>
 
+        {comparison.creditMath && (
+          <section className="mb-12 overflow-hidden rounded-3xl border border-cyan-500/20 bg-cyan-500/[0.04]">
+            <div className="border-b border-white/[0.08] p-6 md:p-8">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-cyan-300">
+                  Cost per approved ad
+                </p>
+                <p className="text-xs text-slate-500">
+                  {comparison.creditMath.verifiedOn}
+                </p>
+              </div>
+              <h2 className="mb-3 text-2xl font-semibold text-white">
+                {comparison.creditMath.title}
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
+                {comparison.creditMath.intro}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 border-b border-white/[0.08] md:grid-cols-2">
+              {comparison.creditMath.vendorNotes.map((note, index) => (
+                <article
+                  key={note.vendor}
+                  className={`p-6 md:p-8 ${index > 0 ? "border-t border-white/[0.08] md:border-l md:border-t-0" : ""}`}
+                >
+                  <h3 className="mb-3 text-lg font-semibold text-white">
+                    {note.vendor}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-slate-300">
+                    {note.detail}
+                  </p>
+                  <a
+                    href={note.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-cyan-300 transition-colors hover:text-cyan-200"
+                  >
+                    {note.sourceLabel}
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-[0.9fr_1.1fr] md:p-8">
+              <div>
+                <h3 className="mb-4 text-lg font-semibold text-white">
+                  Put these numbers in your worksheet
+                </h3>
+                <ul className="space-y-3">
+                  {comparison.creditMath.worksheet.inputs.map((input) => (
+                    <li
+                      key={input}
+                      className="flex items-start gap-3 text-sm leading-relaxed text-slate-300"
+                    >
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                      <span>{input}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-2xl border border-white/[0.08] bg-black/25 p-5">
+                <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-slate-500">
+                  Working formula
+                </p>
+                <p className="mb-4 text-lg font-semibold leading-relaxed text-white">
+                  {comparison.creditMath.worksheet.formula}
+                </p>
+                <p className="mb-4 text-sm leading-relaxed text-slate-400">
+                  {comparison.creditMath.worksheet.guidance}
+                </p>
+                <p className="text-sm font-medium text-cyan-200">
+                  Compare the credit math before you choose a plan.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-t border-amber-500/15 bg-amber-500/[0.04] px-6 py-4 md:px-8">
+              <p className="text-xs leading-relaxed text-slate-400">
+                {comparison.creditMath.caution}
+              </p>
+            </div>
+          </section>
+        )}
+
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           {comparison.useCases.map((useCase) => {
             const tool = getTool(useCase.toolId);

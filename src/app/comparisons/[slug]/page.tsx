@@ -448,6 +448,108 @@ export default async function ComparisonPage({
           </section>
         )}
 
+        {comparison.disclosureChecklist && (
+          <section
+            id="ai-video-ad-disclosure"
+            className="mb-12 scroll-mt-24 overflow-hidden rounded-3xl border border-violet-500/20 bg-violet-500/[0.04]"
+          >
+            <div className="border-b border-white/[0.08] p-6 md:p-8">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-violet-300">
+                AI video ad disclosure checklist
+              </p>
+              <h2 className="mb-3 text-2xl font-semibold text-white">
+                {comparison.disclosureChecklist.title}
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
+                {comparison.disclosureChecklist.intro}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2 md:p-8">
+              {comparison.disclosureChecklist.checks.map((check, index) => (
+                <article
+                  key={check.heading}
+                  className="rounded-2xl border border-white/[0.08] bg-black/20 p-5"
+                >
+                  <div className="mb-3 flex items-start gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-500/15 text-xs font-semibold text-violet-200">
+                      {index + 1}
+                    </span>
+                    <h3 className="pt-1 text-base font-semibold text-white">
+                      {check.heading}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-400">
+                    {check.detail}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 border-t border-white/[0.08] p-6 md:grid-cols-2 md:p-8">
+              <div className="rounded-2xl border border-white/[0.08] bg-black/20 p-5">
+                <h3 className="mb-3 text-base font-semibold text-white">
+                  Plain-language label examples
+                </h3>
+                <ul className="space-y-3">
+                  {comparison.disclosureChecklist.labelExamples.map((label) => (
+                    <li
+                      key={label}
+                      className="rounded-xl border border-violet-500/15 bg-violet-500/[0.05] px-4 py-3 text-sm text-violet-100"
+                    >
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs leading-relaxed text-slate-400">
+                  These are working examples, not mandatory wording. Match the
+                  label to what the ad contains and the rules that apply.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="rounded-2xl border border-white/[0.08] bg-black/20 p-5">
+                  <p className="text-sm leading-relaxed text-slate-300">
+                    {comparison.disclosureChecklist.providerNote}
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/[0.08] bg-black/20 p-5">
+                  <p className="text-sm leading-relaxed text-slate-300">
+                    {comparison.disclosureChecklist.deployerNote}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-white/[0.08] px-6 py-5 md:px-8">
+              <p className="mb-4 text-sm leading-relaxed text-slate-400">
+                {comparison.disclosureChecklist.frameworkNote}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {comparison.disclosureChecklist.sources.map((source) => (
+                  <a
+                    key={source.url}
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-violet-300 transition-colors hover:text-violet-200"
+                  >
+                    {source.label}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="border-t border-amber-500/15 bg-amber-500/[0.04] px-6 py-4 md:px-8">
+              <p className="text-xs leading-relaxed text-slate-400">
+                {comparison.disclosureChecklist.caution}
+              </p>
+            </div>
+          </section>
+        )}
+
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           {comparison.useCases.map((useCase) => {
             const tool = getTool(useCase.toolId);

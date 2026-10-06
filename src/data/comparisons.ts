@@ -24,6 +24,23 @@ export type Comparison = {
     };
     caution: string;
   };
+  disclosureChecklist?: {
+    title: string;
+    intro: string;
+    checks: {
+      heading: string;
+      detail: string;
+    }[];
+    labelExamples: string[];
+    providerNote: string;
+    deployerNote: string;
+    frameworkNote: string;
+    caution: string;
+    sources: {
+      label: string;
+      url: string;
+    }[];
+  };
   video?: {
     youtubeId: string;
     title: string;
@@ -662,6 +679,69 @@ export const comparisons: Comparison[] = [
       },
       caution:
         "Vendor examples describe vendor workflows, not guaranteed customer outcomes. Prices, plan limits, model access, and credit rules can change; confirm them before purchase.",
+    },
+    disclosureChecklist: {
+      title: "Before you publish an AI video ad",
+      intro:
+        "Not every AI-assisted video needs the same label. The EU AI Act separates machine-readable marking by AI providers from human-perceivable disclosure by the people or companies using the content. For marketers, the first question is whether the final ad may qualify as a deepfake, not simply whether an AI tool touched the file.",
+      checks: [
+        {
+          heading: "Write down what AI changed",
+          detail:
+            "Separate standard editing from generated or substantially manipulated image, audio, video, or text. Provider marking rules cover synthetic outputs; standard editing and changes that do not substantially alter the input can fall outside that marking duty.",
+        },
+        {
+          heading: "Check what the ad resembles",
+          detail:
+            "Does it closely resemble an existing or plausibly existing person, object, place, entity, or event?",
+        },
+        {
+          heading: "Check whether it could look authentic",
+          detail:
+            "Under Article 50, resemblance and authenticity tests help determine whether generated or manipulated image, audio, or video is a deepfake.",
+        },
+        {
+          heading: "Keep provenance intact",
+          detail:
+            "Preserve machine-readable marks and content credentials supplied by the AI system. A visible label does not replace provider-side marking, and metadata alone does not satisfy a deployer's deepfake disclosure duty.",
+        },
+        {
+          heading: "Make required disclosure perceivable at first exposure",
+          detail:
+            "If the content is a deepfake, disclose that it was artificially generated or manipulated in a clear and distinguishable way that people can see or hear. A visible or audible notice must be available by first exposure; do not hide it only in metadata, terms, or a separate page.",
+        },
+        {
+          heading: "Record the review",
+          detail:
+            "Keep the source assets, consent or usage rights, tool and model, human reviewer, final label, platform checks, and launch date with the campaign file.",
+        },
+      ],
+      labelExamples: [
+        "AI-generated or manipulated video",
+        "This ad contains AI-generated imagery and an AI-generated voice.",
+      ],
+      providerNote:
+        "Provider layer: the AI system provider may need to make generated or manipulated outputs detectable with effective, interoperable, robust, and reliable machine-readable marks.",
+      deployerNote:
+        "Advertiser/deployer layer: a business using AI-generated or manipulated media may need a clear human-facing disclosure when the result constitutes a deepfake. Under the Commission's guidance, that disclosure must appear no later than first exposure; machine-readable marking alone is not enough.",
+      frameworkNote:
+        "IAB's voluntary AI Transparency & Disclosure Framework V2 adds a risk- and materiality-based decision process for consumer advertising, including AI-generated and AI-assisted video, audio, imagery, synthetic voices, and digital twins.",
+      caution:
+        "This checklist is operational guidance, not legal advice. Article 50 has applied since August 2, 2026, but the correct treatment depends on the content, audience, deployment context, platform rules, and other applicable law.",
+      sources: [
+        {
+          label: "European Commission: Article 50 transparency FAQ",
+          url: "https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act",
+        },
+        {
+          label: "European Commission: Code of Practice",
+          url: "https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",
+        },
+        {
+          label: "IAB: AI Transparency & Disclosure Framework V2",
+          url: "https://www.iab.com/guidelines/ai-transparency-disclosure-framework-v2/",
+        },
+      ],
     },
     useCases: [
       {

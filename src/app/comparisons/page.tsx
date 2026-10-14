@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import NewsletterSignup from "@/components/NewsletterSignup";
-import { comparisons } from "@/data/comparisons";
+import { getComparisonsByRecency } from "@/data/comparisons";
 import { platforms } from "@/data/platforms";
 
 const BASE_URL = "https://www.b2baistack.com";
@@ -42,12 +42,14 @@ function getToolName(toolId: string) {
   );
 }
 
+const orderedComparisons = getComparisonsByRecency();
+
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "AI Tool Comparisons",
   url: `${BASE_URL}/comparisons`,
-  itemListElement: comparisons.map((comparison, index) => ({
+  itemListElement: orderedComparisons.map((comparison, index) => ({
     "@type": "ListItem",
     position: index + 1,
     name: comparison.shortTitle,
@@ -109,7 +111,7 @@ export default function ComparisonsPage() {
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {comparisons.map((comparison) => {
+          {orderedComparisons.map((comparison, index) => {
             const firstName = getToolName(comparison.toolIds[0]);
             const secondName = getToolName(comparison.toolIds[1]);
 
@@ -120,9 +122,16 @@ export default function ComparisonsPage() {
                 className="group rounded-3xl border border-white/[0.07] bg-zinc-900/45 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/35 hover:bg-indigo-500/[0.06]"
               >
                 <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="text-[11px] uppercase tracking-widest text-indigo-300">
-                    {comparison.category}
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-[11px] uppercase tracking-widest text-indigo-300">
+                      {comparison.category}
+                    </span>
+                    {index === 0 && (
+                      <span className="rounded-full border border-cyan-400/25 bg-cyan-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-200">
+                        Updated
+                      </span>
+                    )}
+                  </div>
                   <ArrowRight className="w-4 h-4 text-slate-500 transition-transform group-hover:translate-x-1 group-hover:text-indigo-300" />
                 </div>
 

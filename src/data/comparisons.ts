@@ -1,5 +1,6 @@
 export type Comparison = {
   slug: string;
+  updatedAt: string;
   title: string;
   shortTitle: string;
   description: string;
@@ -86,6 +87,7 @@ export type Comparison = {
 export const comparisons: Comparison[] = [
   {
     slug: "make-vs-zapier",
+    updatedAt: "2026-06-16",
     title: "Make vs Zapier: Which Automation Tool Fits Your B2B Workflow?",
     shortTitle: "Make vs Zapier",
     description:
@@ -163,6 +165,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "hunter-vs-apollo",
+    updatedAt: "2026-07-11",
     title: "Hunter.io vs Apollo: Email Finder or Sales Engagement Platform?",
     shortTitle: "Hunter vs Apollo",
     description:
@@ -293,6 +296,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "hunter-vs-snovio",
+    updatedAt: "2026-07-11",
     title: "Hunter.io vs Snov.io: Email Finder or Outreach Suite?",
     shortTitle: "Hunter vs Snov.io",
     description:
@@ -446,6 +450,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "chatbase-vs-intercom",
+    updatedAt: "2026-07-11",
     title: "Chatbase vs Fin: AI Website Agent or Customer Support Platform?",
     shortTitle: "Chatbase vs Fin",
     description:
@@ -570,6 +575,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "fireflies-vs-fathom",
+    updatedAt: "2026-06-16",
     title: "Fireflies vs Fathom: Which AI Meeting Notetaker Should You Use?",
     shortTitle: "Fireflies vs Fathom",
     description:
@@ -646,6 +652,7 @@ export const comparisons: Comparison[] = [
   },
   {
     slug: "creatify-vs-invideo",
+    updatedAt: "2026-10-14",
     title: "Creatify vs InVideo AI: URL-to-Ad Creatives or AI Video Agents?",
     shortTitle: "Creatify vs InVideo AI",
     description:
@@ -863,4 +870,12 @@ export const comparisons: Comparison[] = [
 
 export function getComparison(slug: string) {
   return comparisons.find((comparison) => comparison.slug === slug);
+}
+
+export function getComparisonsByRecency() {
+  return [...comparisons].sort(
+    (first, second) =>
+      second.updatedAt.localeCompare(first.updatedAt) ||
+      first.shortTitle.localeCompare(second.shortTitle),
+  );
 }

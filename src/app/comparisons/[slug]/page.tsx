@@ -550,6 +550,67 @@ export default async function ComparisonPage({
           </section>
         )}
 
+        {comparison.connectedEditing && (
+          <section
+            id="connected-editor-mcp"
+            className="mb-12 scroll-mt-24 overflow-hidden rounded-3xl border border-emerald-500/20 bg-emerald-500/[0.04]"
+          >
+            <div className="border-b border-white/[0.08] p-6 md:p-8">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-emerald-300">
+                Connected editor workflow
+              </p>
+              <h2 className="mb-3 text-2xl font-semibold text-white">
+                {comparison.connectedEditing.title}
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-slate-300">
+                {comparison.connectedEditing.intro}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-3 md:p-8">
+              {comparison.connectedEditing.steps.map((step, index) => (
+                <article
+                  key={step.heading}
+                  className="rounded-2xl border border-white/[0.08] bg-black/20 p-5"
+                >
+                  <div className="mb-3 flex items-start gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-xs font-semibold text-emerald-200">
+                      {index + 1}
+                    </span>
+                    <h3 className="pt-1 text-base font-semibold text-white">
+                      {step.heading}
+                    </h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-400">
+                    {step.detail}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="border-t border-amber-500/15 bg-amber-500/[0.04] px-6 py-5 md:px-8">
+              <p className="mb-4 text-sm leading-relaxed text-slate-300">
+                {comparison.connectedEditing.boundary}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {comparison.connectedEditing.sources.map((source) => (
+                  <a
+                    key={source.url}
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-emerald-300 transition-colors hover:text-emerald-200"
+                  >
+                    {source.label}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
           {comparison.useCases.map((useCase) => {
             const tool = getTool(useCase.toolId);

@@ -41,6 +41,19 @@ export type Comparison = {
       url: string;
     }[];
   };
+  connectedEditing?: {
+    title: string;
+    intro: string;
+    steps: {
+      heading: string;
+      detail: string;
+    }[];
+    boundary: string;
+    sources: {
+      label: string;
+      url: string;
+    }[];
+  };
   video?: {
     youtubeId: string;
     title: string;
@@ -740,6 +753,45 @@ export const comparisons: Comparison[] = [
         {
           label: "IAB: AI Transparency & Disclosure Framework V2",
           url: "https://www.iab.com/guidelines/ai-transparency-disclosure-framework-v2/",
+        },
+      ],
+    },
+    connectedEditing: {
+      title:
+        "ChatGPT or Claude can plan the cut, but the editor makes the edit",
+      intro:
+        "A connected workflow has two layers. ChatGPT or Claude can interpret the brief, inspect available footage, suggest moments and hooks, and request changes. A compatible editor exposed through MCP executes those requests on the timeline and keeps the project available for manual review.",
+      steps: [
+        {
+          heading: "Plan in ChatGPT or Claude",
+          detail:
+            "Describe the audience, desired outputs, and constraints. Ask for candidate moments, source timestamps, hook options, and the context each cut must preserve before changing the project.",
+        },
+        {
+          heading: "Send edit actions through MCP",
+          detail:
+            "After a compatible editor is connected, the assistant can call its tools to create named timelines, trim or reorder clips, reframe shots, and add captions, B-roll, or sound. The capabilities and setup depend on the editor connection.",
+        },
+        {
+          heading: "Review and finish in the editor",
+          detail:
+            "Play every cut on the editable timeline, check meaning and pacing, refine frame-accurate details manually, and review the rendered files before publishing. The editor remains the execution and finishing surface.",
+        },
+      ],
+      boundary:
+        "Without a compatible MCP editor connection, ChatGPT or Claude can advise on a cut but cannot make timeline edits. InVideo Editor is one current vendor implementation, not proof that every chat client or editor exposes the same controls.",
+      sources: [
+        {
+          label: "InVideo: long videos to Shorts with ChatGPT",
+          url: "https://invideo.io/blog/how-to-turn-long-videos-into-shorts-with-chatgpt/",
+        },
+        {
+          label: "InVideo: long videos to Shorts with Claude",
+          url: "https://invideo.io/blog/how-to-edit-long-videos-into-youtube-shorts-with-claude/",
+        },
+        {
+          label: "InVideo MCP connection and editor capabilities",
+          url: "https://invideo.io/mcp/",
         },
       ],
     },

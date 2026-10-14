@@ -34,11 +34,11 @@ function disclosureRenderer(source) {
 function disclosureData(source) {
   const start = source.indexOf("disclosureChecklist:");
   assert.notEqual(start, -1, "disclosure checklist data must exist");
-  const end = source.indexOf("\n    useCases:", start);
+  const end = source.indexOf("\n    connectedEditing:", start);
   assert.notEqual(
     end,
     -1,
-    "disclosure checklist data must end before use cases",
+    "disclosure checklist data must end before connected editing",
   );
   return source.slice(start, end);
 }
